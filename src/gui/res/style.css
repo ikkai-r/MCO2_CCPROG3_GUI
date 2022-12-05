@@ -4,3 +4,21 @@
     -fx-background-size: 1500 1070;
     -fx-background-position: center center;
 }
+
+@font-face {
+    src: url('Stardew_Valley.ttf');
+}
+
+.button {
+    -fx-font-family: 'Stardew Valley Regular';
+    -fx-background-color: transparent;
+    -fx-background-size: 190 70;
+    -fx-font-size: 45;
+}
+
+.button:hover {
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
