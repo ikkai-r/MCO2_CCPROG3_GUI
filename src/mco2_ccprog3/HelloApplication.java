@@ -2,14 +2,13 @@ package mco2_ccprog3;
 
 import gui.scenes.OpeningScene;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 public class HelloApplication extends Application {
 
     public static void main(String[] args) {
           launch(args);
+
     }
 
     @Override

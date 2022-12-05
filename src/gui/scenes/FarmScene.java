@@ -13,7 +13,6 @@ import java.io.IOException;
 public class FarmScene {
     private static final int WIDTH = 980;
     private static final int HEIGHT = 700;
-    private AnchorPane gamePane;
     private Scene gameScene;
     private Stage gameStage;
 

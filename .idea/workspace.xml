@@ -7,8 +7,8 @@
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +44,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "jdk.selected.JAVA_MODULE": "openjdk-18",
     "last_opened_file_path": "C:/Users/NEIL/IdeaProjects/MCO2_CCPROG3/src/gui/res",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.JavaFX"
@@ -110,7 +110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670223099705</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished Choose Character. Make farm tiles next, shop, and inventory">
+      <created>1670227353249</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1670227353249</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -118,7 +125,8 @@
     <MESSAGE value="Finished title screen. Need button functionality." />
     <MESSAGE value="Finishing choose character" />
     <MESSAGE value="Finishing choose character. Name prompt &amp; Submit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finishing choose character. Name prompt &amp; Submit" />
+    <MESSAGE value="Finished Choose Character. Make farm tiles next, shop, and inventory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished Choose Character. Make farm tiles next, shop, and inventory" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
