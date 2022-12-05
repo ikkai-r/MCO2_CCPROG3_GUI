@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/res/farmerboy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/farmergirl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/farmerbo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/res/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/SceneHeaderTxts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/SceneHeaderTxts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/HelloController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,14 +103,22 @@
       <option name="project" value="LOCAL" />
       <updated>1670217374614</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Finishing choose character. Name prompt &amp; Submit">
+      <created>1670223099705</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1670223099705</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Finished title screen. Need button functionality." />
     <MESSAGE value="Finishing choose character" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finishing choose character" />
+    <MESSAGE value="Finishing choose character. Name prompt &amp; Submit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finishing choose character. Name prompt &amp; Submit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -33,3 +33,27 @@
     -fx-scale-y: 1.1;
 }
 
+#boy-button {
+    -fx-text-fill: transparent;
+    -fx-background-color: transparent;
+    -fx-background-image: url('farmerboy.png');
+    -fx-background-repeat: stretch;
+    -fx-background-size: 120 230;
+}
+
+
+#girl-button {
+    -fx-text-fill: transparent;
+    -fx-background-color: transparent;
+    -fx-background-image: url('farmergirl.png');
+    -fx-background-repeat: stretch;
+    -fx-background-size: 120 230;
+}
+
+#name-field {
+     -fx-border-color: #96533a;
+     -fx-border-width: 2;
+     -fx-background-color: #ffe6b7;
+     -fx-font-family: 'Stardew Valley Regular';
+     -fx-font-size: 40;
+}
