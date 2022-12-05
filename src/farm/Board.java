@@ -51,19 +51,6 @@ public class Board implements GeneralMethods {
      */
     public void displayLand() {
 
-        System.out.println();
-        System.out.println("                               \n" +
-                "                          _.-^-._    .--.\n" +
-                "                       .-'   _   '-. |__|\n" +
-                "                      /     |_|     \\|  |\n" +
-                "                     /               \\  |\n" +
-                "                    /|     _____     |\\ |\n" +
-                "                     |    |==|==|    |  |\n" +
-                " |---|---|---|---|---|    |--|--|    |  |\n" +
-                " |---|---|---|---|---|    |==|==|    |  |\n" +
-                "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-
-        System.out.println();
         System.out.println("-----------------------------------------------");
         System.out.println("   |\t1\t \t2\t \t3\t \t4\t \t5\t|");
         System.out.println("-----------------------------------------------");
@@ -96,6 +83,22 @@ public class Board implements GeneralMethods {
             System.out.print("|\t_\t");
         }  else {
             System.out.print("|\tX\t");
+        }
+    }
+
+    public String checkTileCondition(Tile tile) {
+        if (tile.isWithered()) {
+            return "withered";
+        } else if (tile.isHarvestable()) {
+            return "harvestable";
+        } else if (tile.hasRock()) {
+            return "rock";
+        } else if (tile.hasSeed()){
+            return "seed";
+        } else if (tile.isPlowed()) {
+            return "plowed";
+        }  else {
+            return "unplowed";
         }
     }
 

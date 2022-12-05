@@ -1,0 +1,12 @@
+#pane-field {
+    -fx-font-size: 20;
+    -fx-text-fill: red;
+}
+
+.button {
+    -fx-background-repeat: stretch;
+    -fx-background-position: center center;
+}
+
+.button:hover {
+}

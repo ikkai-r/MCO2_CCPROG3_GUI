@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class Farmer implements GeneralMethods {
 
-    private Inventory farmerInventory;
+    private static Inventory farmerInventory;
     private Scanner scanner = new Scanner(System.in);
-    private String farmerCharacter = null;
-    private String farmerName = null;
-    private int farmerLevel = 0;
+    private static String farmerCharacter = null;
+    private static String farmerName = null;
+    private static int farmerLevel = 0;
     private static double experience = 0D;
-    private String farmerStatus = "FARMER";
-    private int dayCount = 1;
+    private static String farmerStatus = "FARMER";
+    private static int dayCount = 1;
     private static int seedCostReduction = 0;
     private static int bonusEarningsPerProduce = 0;
     private static int waterBonusLimits = 0;

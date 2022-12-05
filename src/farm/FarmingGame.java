@@ -17,11 +17,11 @@ import java.util.Scanner;
 
 public class FarmingGame {
 
-    private Farmer farmer;
+    private static Farmer farmer;
     private Store store;
     private Seeds seeds;
     private Scanner scanner = new Scanner(System.in);
-    private Board board;
+    private static Board board;
     private ProgressChecker progressChecker;
 
 
