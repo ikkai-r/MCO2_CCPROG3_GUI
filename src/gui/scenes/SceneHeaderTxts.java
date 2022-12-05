@@ -8,7 +8,9 @@ public class SceneHeaderTxts extends Label{
 
     public SceneHeaderTxts(String text) {
         setText(text);
-        setStyle("-fx-font-size: 40");
+        setStyle("-fx-font-size: 45");
         setAlignment(Pos.CENTER);
+        setLayoutY(-300);
+        setLayoutX(-85);
     }
 }
