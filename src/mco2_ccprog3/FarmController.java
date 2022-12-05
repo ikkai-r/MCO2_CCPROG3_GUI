@@ -5,6 +5,7 @@ import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -14,12 +15,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import org.controlsfx.control.spreadsheet.Grid;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class FarmController implements Initializable {
 
-    FarmingGame farmingGame = new FarmingGame();
+    private FarmingGame farmingGame = new FarmingGame();
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -60,11 +62,15 @@ public class FarmController implements Initializable {
         }
     }
 
-    public void showInventory() {
+    public void showInventory() throws IOException {
         PlayerSubScene playerSubScene = new PlayerSubScene("inventory");
         farmPane.getChildren().add(playerSubScene);
         playerSubScene.moveSubScene();
         playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+
+        AnchorPane inventoryPane = FXMLLoader.load(getClass().getResource("/inventory.fxml"));
+        playerSubScene.getPane().getChildren().add(inventoryPane);
+
         showFarmerDetails(playerSubScene);
     }
 

@@ -2,6 +2,7 @@ package gui.scenes;
 
 import javafx.animation.TranslateTransition;
 import javafx.scene.SubScene;
+import javafx.fxml.FXML;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
