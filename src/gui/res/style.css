@@ -5,6 +5,13 @@
     -fx-background-position: center center;
 }
 
+#farmPane{
+    -fx-background-image: url("farm_bg.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 1500 1070;
+    -fx-background-position: center center;
+}
+
 @font-face {
     src: url('Stardew_Valley.ttf');
 }
@@ -14,6 +21,10 @@
     -fx-background-color: transparent;
     -fx-background-size: 190 70;
     -fx-font-size: 45;
+}
+
+.text {
+    -fx-font-family: 'Stardew Valley Regular';
 }
 
 .button:hover {

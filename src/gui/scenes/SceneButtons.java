@@ -2,14 +2,8 @@ package gui.scenes;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
-import javafx.scene.effect.BlurType;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-
-import java.io.FileInputStream;
 
 public class SceneButtons extends Button {
 

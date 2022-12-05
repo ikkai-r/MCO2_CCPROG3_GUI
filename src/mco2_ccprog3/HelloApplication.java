@@ -2,6 +2,7 @@ package mco2_ccprog3;
 
 import farm.FarmingGame;
 import gui.GUI;
+import gui.scenes.OpeningScene;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -18,9 +19,8 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        GUI gui = new GUI();
-        primaryStage = gui.getMainStage();
-        gui.openingSceneButtons();
+        OpeningScene openingScene = new OpeningScene();
+        primaryStage = openingScene.getMainStage();
         primaryStage.show();
     }
 }

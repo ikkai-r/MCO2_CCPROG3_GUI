@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/res/Stardew_Valley.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/title_screen.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/character_pick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/farm_bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/farmerbo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/scroll.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/scenes/SceneHeaderTxts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/button_pressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/button_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/button_pressed2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/button_pressed2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/res/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,12 +90,20 @@
       <option name="project" value="LOCAL" />
       <updated>1670164578309</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Finished title screen. Need button functionality.">
+      <created>1670201964596</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1670201964596</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Finished title screen. Need button functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished title screen. Need button functionality." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
