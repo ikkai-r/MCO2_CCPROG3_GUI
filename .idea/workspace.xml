@@ -5,9 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/gui/res/farmerboy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/farmergirl.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/res/farmerbo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/scenes/SceneHeaderTxts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/SceneHeaderTxts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/HelloController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -35,31 +47,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-18&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/NEIL/IdeaProjects/MCO2_CCPROG3/src/gui/res&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-18",
+    "last_opened_file_path": "C:/Users/NEIL/IdeaProjects/MCO2_CCPROG3/src/gui/res",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.JavaFX"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui\res" />
+      <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\main\resources\com\example\mco2_ccprog3" />
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui" />
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui\scenes\resources" />
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui\res" />
+      <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src" />
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui" />
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui\resources" />
       <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui\scenes" />
-      <recent name="C:\Users\NEIL\IdeaProjects\MCO2_CCPROG3\src\gui\scenes\resources" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -92,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670212440402</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finishing choose character">
+      <created>1670217374614</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1670217374614</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -110,5 +131,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

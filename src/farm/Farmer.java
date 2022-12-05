@@ -8,8 +8,8 @@ public class Farmer implements GeneralMethods {
 
     private Inventory farmerInventory;
     private Scanner scanner = new Scanner(System.in);
+    private String farmerCharacter = null;
     private String farmerName = null;
-    private int farmerAge;
     private int farmerLevel = 0;
     private static double experience = 0D;
     private String farmerStatus = "FARMER";
@@ -27,11 +27,11 @@ public class Farmer implements GeneralMethods {
      * The method serves as a constructor for the name and age of the farmer.
      *
      * @param  farmerName  The provided username of the user.
-     * @param  farmerAge   The provided age of the user.
+     * @param  farmerCharacter   The provided character of the user.
      */
-    public Farmer(String farmerName, int farmerAge){
+    public Farmer(String farmerName, String farmerCharacter){
         this.farmerName = farmerName;
-        this.farmerAge = farmerAge;
+        this.farmerCharacter = farmerCharacter;
         this.farmerInventory = new Inventory();
         farmerInventory.setObjectCoins(100);
     }
@@ -97,12 +97,12 @@ public class Farmer implements GeneralMethods {
         this.farmerName = farmerName;
     }
 
-    public int getFarmerAge() {
-        return farmerAge;
+    public String getFarmerCharacter() {
+        return farmerCharacter;
     }
 
-    public void setFarmerAge(int farmerAge) {
-        this.farmerAge = farmerAge;
+    public void setFarmerCharacter(String farmerCharacter) {
+        this.farmerCharacter = farmerCharacter;
     }
 
     public String getFarmerStatus() {
@@ -188,7 +188,6 @@ public class Farmer implements GeneralMethods {
      */
     public void displayFarmerDetails() {
         System.out.println("\nFarmer Name: " + this.farmerName);
-        System.out.println("Farmer Age: " + this.farmerAge);
         System.out.println("Farmer Status: " + this.farmerStatus);
         System.out.println("Farmer Level: " + this.farmerLevel);
         System.out.printf("Farmer Experience: %.2f", Farmer.experience);

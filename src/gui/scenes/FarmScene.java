@@ -1,9 +1,13 @@
 package gui.scenes;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class FarmScene {
@@ -18,18 +22,17 @@ public class FarmScene {
     }
 
     public void initializeFarmScene() {
-        gamePane = new AnchorPane();
-        gameScene = new Scene(gamePane, WIDTH, HEIGHT);
         gameStage = new Stage();
-        gameStage.setScene(gameScene);
         gameStage.getIcons().add(new Image("moondew_valley.png"));
         gameStage.setTitle("Moondew Valley");
         gameStage.setResizable(false);
     }
 
-    public void createFarm(Stage mainStage) {
+    public void createFarm(Stage mainStage) throws IOException {
         mainStage.close();
-        gamePane.setId("farmPane");
+        Parent root = FXMLLoader.load(this.getClass().getResource("/farmscene.fxml"));
+        gameScene = new Scene(root, WIDTH, HEIGHT);
+        gameStage.setScene(gameScene);
         gameScene.getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
         gameStage.show();
     }

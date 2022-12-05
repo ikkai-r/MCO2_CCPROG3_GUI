@@ -2,6 +2,7 @@ package gui.scenes;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 public class SceneHeaderTxts extends Label{
@@ -10,7 +11,7 @@ public class SceneHeaderTxts extends Label{
         setText(text);
         setStyle("-fx-font-size: 45");
         setAlignment(Pos.CENTER);
-        setLayoutY(-300);
-        setLayoutX(-85);
+        setLayoutY(50);
     }
+
 }

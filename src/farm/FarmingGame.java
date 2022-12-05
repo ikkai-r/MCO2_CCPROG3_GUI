@@ -24,6 +24,12 @@ public class FarmingGame {
     private Board board;
     private ProgressChecker progressChecker;
 
+
+    public FarmingGame() {
+        initializeItems();
+        farmer = new Farmer();
+    }
+
     /**
      *
      * The method starts the game by initializing the necessities and continues the day-to-day process of the user.
@@ -340,26 +346,9 @@ public class FarmingGame {
         System.out.println("Welcome to Farming Sim!");
         System.out.println("What's your name?");
         String farmerName = scanner.nextLine();
+        String farmerCharacter = scanner.nextLine();
 
-        while(farmerAge < 0) {
-
-            System.out.println("How old are you?");
-
-            try {
-                farmerAge = scanner.nextInt();
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-            }
-
-            if (farmerAge < 0) {
-                System.out.println("Only input a valid age.");
-            }
-
-        }
-
-        farmer = new Farmer(farmerName, farmerAge);
+        farmer = new Farmer(farmerName, farmerCharacter);
     }
 
     /**
