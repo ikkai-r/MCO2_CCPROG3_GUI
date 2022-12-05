@@ -32,6 +32,8 @@ public class FarmScene {
         Parent root = FXMLLoader.load(this.getClass().getResource("/farmscene.fxml"));
         gameScene = new Scene(root, WIDTH, HEIGHT);
         gameStage.setScene(gameScene);
+        gameScene.getRoot().setStyle("-fx-background-image: url('farm.png');\n" +
+                "    -fx-background-repeat: stretch;");
         gameScene.getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
         gameStage.show();
     }

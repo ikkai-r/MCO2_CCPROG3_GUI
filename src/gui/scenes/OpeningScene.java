@@ -35,11 +35,13 @@ public class OpeningScene extends GUI {
         Font.loadFont(this.getClass().getResource("/Stardew_Valley.ttf").toExternalForm(), 20);
         SceneButtons startButton = new SceneButtons("Start");
         SceneButtons exitButton = new SceneButtons("Exit");
+        startButton.setId("startBtn");
+        exitButton.setId("exitBtn");
 
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                PlayerSubScene playerSubScene = new PlayerSubScene();
+                PlayerSubScene playerSubScene = new PlayerSubScene("opening");
                 mainPane.getChildren().add(playerSubScene);
                 playerSubScene.moveSubScene();
                 playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
@@ -125,6 +127,7 @@ public class OpeningScene extends GUI {
         nameField.setPrefHeight(70);
         nameField.setId("name-field");
         SceneButtons startGameBtn = new SceneButtons("Go!");
+        startGameBtn.setId("goBtn");
         HBox hbox = new HBox(30);
         hbox.getChildren().addAll(label, nameField, startGameBtn);
         hbox.setAlignment(Pos.TOP_CENTER);

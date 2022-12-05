@@ -1,10 +1,16 @@
 package mco2_ccprog3;
 
 import farm.FarmingGame;
+import gui.scenes.PlayerSubScene;
+import gui.scenes.SceneHeaderTxts;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import org.controlsfx.control.spreadsheet.Grid;
 
@@ -14,20 +20,21 @@ import java.util.ResourceBundle;
 public class FarmController implements Initializable {
 
     FarmingGame farmingGame = new FarmingGame();
-    public void print() {
-        System.out.println(farmingGame.getFarmer().getFarmerCharacter());
-    }
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         farmingGame.displayLand();
-        setFieldButtons();
+        setFieldButtonTiles();
+//        farmingGame.startSimulator();
     }
 
     @FXML
     private GridPane fieldPane;
+    @FXML
+    private AnchorPane farmPane;
 
-    public void setFieldButtons() {
+
+    public void setFieldButtonTiles() {
         int row;
         int col;
         String tileCondition;
@@ -46,14 +53,38 @@ public class FarmController implements Initializable {
             }
 
             //access the index of the gridpane for the buttons
+            //set node to condition of corresponding tile
             tileCondition = farmingGame.getBoard().checkTileCondition(farmingGame.getBoard().getFarmTile(row, col));
             node.setStyle("-fx-background-image: url(\""+tileCondition+".png\"); -fx-background-size: 54 50;");
-
+            node.setId(row+" "+col);
         }
     }
-    //set the buttons to the board tiles corresponding to its indices
 
+    public void showInventory() {
+        PlayerSubScene playerSubScene = new PlayerSubScene("inventory");
+        farmPane.getChildren().add(playerSubScene);
+        playerSubScene.moveSubScene();
+        playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+        showFarmerDetails(playerSubScene);
+    }
 
+    public void showFarmerDetails(PlayerSubScene playerSubScene) {
+        SceneHeaderTxts characterTxt = new SceneHeaderTxts(farmingGame.getFarmer().getFarmerName() + "'s Profile and Inventory");
+        characterTxt.prefWidthProperty().bind(playerSubScene.widthProperty());
+        playerSubScene.getPane().getChildren().add(characterTxt);
+        System.out.println(farmingGame.getFarmer().getFarmerCharacter());
+        System.out.println(farmingGame.getFarmer().getFarmerName());
+        System.out.println(farmingGame.getFarmer().getExperience());
+        System.out.println(farmingGame.getFarmer().getFarmerInventory().getObjectCoins());
+        playerSubScene.getPane().getChildren().add(new Label(farmingGame.getFarmer().getFarmerCharacter()));
+        playerSubScene.getPane().getChildren().add(new Label(farmingGame.getFarmer().getFarmerName()));
+        playerSubScene.getPane().getChildren().add(new Label(String.valueOf(farmingGame.getFarmer().getExperience())));
+        playerSubScene.getPane().getChildren().add(new Label(String.valueOf(farmingGame.getFarmer().getFarmerInventory().getObjectCoins())));
+    }
 
+    public void showStore() {
+    }
 
+    public void sleepForTheDay() {
+    }
 }

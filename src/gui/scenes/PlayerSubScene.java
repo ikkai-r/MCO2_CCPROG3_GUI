@@ -10,12 +10,21 @@ public class PlayerSubScene extends SubScene {
     private static final int WIDTH = 780;
     private static final int HEIGHT = 500;
 
-    public PlayerSubScene() {
+    public PlayerSubScene(String scene) {
         super(new AnchorPane(), WIDTH, HEIGHT);
+        BackgroundImage image;
         prefWidth(WIDTH);
         prefHeight(HEIGHT);
-        BackgroundImage image = new BackgroundImage(new Image("character_pick.png", WIDTH, HEIGHT, false, true),
-                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+        if (scene.equals("opening")) {
+            image = new BackgroundImage(new Image("character_pick.png", WIDTH, HEIGHT, false, true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+        } else if (scene.equals("inventory")) {
+            image = new BackgroundImage(new Image("inventory.png", WIDTH, HEIGHT, false, true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+        } else {
+            image = new BackgroundImage(new Image("inventory.png", WIDTH, HEIGHT, false, true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+        }
 
         AnchorPane root2 = (AnchorPane) this.getRoot();
         root2.setBackground(new Background(image));

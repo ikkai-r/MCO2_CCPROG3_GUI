@@ -20,7 +20,10 @@ public class Farmer implements GeneralMethods {
     private static int fertBonusLimits = 0;
 
 
-    public Farmer(){}
+    public Farmer(){
+        Farmer.farmerInventory = new Inventory();
+        Farmer.farmerInventory.setObjectCoins(100);
+    }
 
     /**
      *
@@ -30,10 +33,10 @@ public class Farmer implements GeneralMethods {
      * @param  farmerCharacter   The provided character of the user.
      */
     public Farmer(String farmerName, String farmerCharacter){
-        this.farmerName = farmerName;
-        this.farmerCharacter = farmerCharacter;
-        this.farmerInventory = new Inventory();
-        farmerInventory.setObjectCoins(100);
+        Farmer.farmerName = farmerName;
+        Farmer.farmerCharacter = farmerCharacter;
+        Farmer.farmerInventory = new Inventory();
+        Farmer.farmerInventory.setObjectCoins(100);
     }
 
     public int returnRandom(int max, int min) {

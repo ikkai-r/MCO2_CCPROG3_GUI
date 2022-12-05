@@ -35,21 +35,28 @@ public class FarmingGame {
      * The method starts the game by initializing the necessities and continues the day-to-day process of the user.
      *
      */
+//    public void startSimulator() {
+//
+//        //intro
+//        initializeItems();
+//        inputFarmerDetails();
+//        playIntroSequence();
+//
+//        //gameplay (advances day by day)
+//        do {
+//            displayDetails();
+//            showActions();
+//        } while (!isGameOver());
+//
+//        //outro
+//        playOutroSequence();
+//    }
+
     public void startSimulator() {
-
-        //intro
-        initializeItems();
-        inputFarmerDetails();
-        playIntroSequence();
-
-        //gameplay (advances day by day)
         do {
             displayDetails();
             showActions();
         } while (!isGameOver());
-
-        //outro
-        playOutroSequence();
     }
 
     /**
