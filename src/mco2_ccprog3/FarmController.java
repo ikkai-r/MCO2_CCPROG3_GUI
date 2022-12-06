@@ -78,14 +78,11 @@ public class FarmController implements Initializable {
         SceneHeaderTxts characterTxt = new SceneHeaderTxts(farmingGame.getFarmer().getFarmerName() + "'s Profile and Inventory");
         characterTxt.prefWidthProperty().bind(playerSubScene.widthProperty());
         playerSubScene.getPane().getChildren().add(characterTxt);
+
         System.out.println(farmingGame.getFarmer().getFarmerCharacter());
         System.out.println(farmingGame.getFarmer().getFarmerName());
         System.out.println(farmingGame.getFarmer().getExperience());
         System.out.println(farmingGame.getFarmer().getFarmerInventory().getObjectCoins());
-        playerSubScene.getPane().getChildren().add(new Label(farmingGame.getFarmer().getFarmerCharacter()));
-        playerSubScene.getPane().getChildren().add(new Label(farmingGame.getFarmer().getFarmerName()));
-        playerSubScene.getPane().getChildren().add(new Label(String.valueOf(farmingGame.getFarmer().getExperience())));
-        playerSubScene.getPane().getChildren().add(new Label(String.valueOf(farmingGame.getFarmer().getFarmerInventory().getObjectCoins())));
     }
 
     public void showStore() {

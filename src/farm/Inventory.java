@@ -1,6 +1,6 @@
 package farm;
 
-import farm.tools.Plow;
+import farm.tools.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,10 +17,10 @@ public class Inventory {
      */
     public Inventory() {
         tools.add(new Plow());
-        tools.add(new Tools("Watering Can", "Adds to the total number of tiles a tile/crop has been watered. Can only be performed on a plowed tile with a crop.", 0, 0.5));
-        tools.add(new Tools("Fertilizer", "Fertilizes a specific tile; Cannot be placed on a tile with a plant.", 10, 4));
-        tools.add(new Tools("Pickaxe", "Removes a rock from a tile. Can only be applied to tiles with a rock.", 50, 15));
-        tools.add(new Tools("Shovel", "Removes a withered plant from a tile. Can be used on any tile/crop with varying effect, as described above.", 7, 2));
+        tools.add(new WateringCan());
+        tools.add(new Fertilizer());
+        tools.add(new Pickaxe());
+        tools.add(new Shovel());
     }
 
     /**

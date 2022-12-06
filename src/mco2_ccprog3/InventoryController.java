@@ -32,9 +32,8 @@ public class InventoryController implements Initializable{
 
     public void setButtonInventory() {
 
-        toolTip1.setText("Used for pick-axeing");
         for (Node node : buttonsPane.getChildren()) {
-            node.setStyle("-fx-background-image: url(\"pickaxe.png\"); -fx-background-size: 50 50;");
+            node.setStyle("-fx-background-image: url(\"pickaxe.png\"); -fx-background-size: 50 50; -fx-background-repeat: stretch;");
         }
     }
 

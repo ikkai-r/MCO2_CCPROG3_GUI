@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.InventoryController">
    <children>
-      <GridPane fx:id="buttonsPane" layoutX="51.0" layoutY="104.0">
+      <GridPane fx:id="buttonsPane" layoutX="51.0" layoutY="110.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
