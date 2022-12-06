@@ -43,7 +43,7 @@ public class OpeningScene extends GUI {
             public void handle(ActionEvent event) {
                 PlayerSubScene playerSubScene = new PlayerSubScene("opening");
                 mainPane.getChildren().add(playerSubScene);
-                playerSubScene.moveSubScene();
+                playerSubScene.moveSubScene(true);
                 playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
                 playerSelect(playerSubScene);
 

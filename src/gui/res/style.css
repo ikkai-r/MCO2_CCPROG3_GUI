@@ -16,12 +16,13 @@
     -fx-font-size: 45;
 }
 
-.text {
+.text, Text {
     -fx-font-family: 'Stardew Valley Regular';
 }
 
 #boy-button:hover, #girl-button:hover,
-#goBtn:hover, #startBtn:hover, #exitBtn:hover{
+#goBtn:hover, #startBtn:hover, #exitBtn:hover,
+#back-button:hover {
     -fx-background-color: transparent;
     -fx-scale-x: 1.1;
     -fx-scale-y: 1.1;
@@ -33,6 +34,13 @@
     -fx-background-image: url('farmerboy.png');
     -fx-background-repeat: stretch;
     -fx-background-size: 120 230;
+}
+
+#back-button {
+       -fx-font-size: 30;
+       -fx-background-image: url('button_pressed.png');
+       -fx-background-repeat: stretch;
+       -fx-background-size: 100 40;
 }
 
 

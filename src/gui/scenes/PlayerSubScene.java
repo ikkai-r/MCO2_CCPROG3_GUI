@@ -34,12 +34,16 @@ public class PlayerSubScene extends SubScene {
         setLayoutY(90);
     }
 
-    public void moveSubScene() {
+    public void moveSubScene(boolean isHidden) {
         TranslateTransition transition = new TranslateTransition();
         transition.setDuration(Duration.seconds(0.3));
         transition.setNode(this);
-        transition.setToX(-930);
 
+        if (isHidden) {
+            transition.setToX(-930);
+        } else {
+            transition.setToX(0);
+        }
 
         transition.play();
     }

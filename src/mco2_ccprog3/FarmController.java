@@ -3,16 +3,22 @@ package mco2_ccprog3;
 import farm.FarmingGame;
 import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
@@ -65,16 +71,37 @@ public class FarmController implements Initializable {
     public void showInventory() throws IOException {
         PlayerSubScene playerSubScene = new PlayerSubScene("inventory");
         farmPane.getChildren().add(playerSubScene);
-        playerSubScene.moveSubScene();
+        playerSubScene.moveSubScene(true);
         playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
 
         AnchorPane inventoryPane = FXMLLoader.load(getClass().getResource("/inventory.fxml"));
         playerSubScene.getPane().getChildren().add(inventoryPane);
 
-        showFarmerDetails(playerSubScene);
+        makeFarmerHeader(playerSubScene);
+
+        Button exitButton = new Button();
+        exitButton.setText("Back");
+        exitButton.setPrefSize(100, 40);
+        exitButton.setId("back-button");
+        HBox box = new HBox();
+        box.getChildren().add(exitButton);
+        box.setLayoutX(box.getLayoutX()-40);
+        box.setLayoutY(box.getLayoutY()+20.0);
+        box.prefWidthProperty().bind(playerSubScene.getPane().widthProperty());
+        box.setAlignment(Pos.TOP_RIGHT);
+        playerSubScene.getPane().getChildren().add(box);
+
+        exitButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                playerSubScene.moveSubScene(false);
+            }
+        });
+
     }
 
-    public void showFarmerDetails(PlayerSubScene playerSubScene) {
+    public void makeFarmerHeader(PlayerSubScene playerSubScene) {
         SceneHeaderTxts characterTxt = new SceneHeaderTxts(farmingGame.getFarmer().getFarmerName() + "'s Profile and Inventory");
         characterTxt.prefWidthProperty().bind(playerSubScene.widthProperty());
         playerSubScene.getPane().getChildren().add(characterTxt);

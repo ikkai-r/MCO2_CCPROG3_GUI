@@ -13,6 +13,8 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
@@ -25,12 +27,25 @@ public class InventoryController implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        Font.loadFont(getClass().getResourceAsStream("Stardew_Valley.ttf"), 17);
         setButtonInventory();
         makeToolTips();
+        showFarmerDetails();
     }
 
     @FXML
     private GridPane buttonsPane;
+
+    @FXML
+    private Text farmerName;
+    @FXML
+    private Text farmerLvl;
+    @FXML
+    private Text objectCoins;
+    @FXML
+    private Text farmerXP;
+    @FXML
+    private Text farmerStatus;
 
     public void setButtonInventory() {
         int row;
@@ -101,13 +116,29 @@ public class InventoryController implements Initializable{
                 col = GridPane.getColumnIndex(node);
             }
 
-            if (col < farmingGame.getFarmer().getFarmerInventory().getTools().size() && row == 1) {
+            if (row == 1 && col < farmingGame.getFarmer().getFarmerInventory().getTools().size()) {
                 String toolFunction = farmingGame.getFarmer().getFarmerInventory().getTools().get(col).getToolFunction();
-                tTip.setText(name + ". " + toolFunction);
-                tTip.setStyle("-fx-font-size: 30");
+                if (name.equals("watering_can")) {
+                    name = "Watering Can";
+                }
+                tTip.setText(name + ".\n" + toolFunction);
+                tTip.setStyle("-fx-font-size: 25");
+                Tooltip.install(node, tTip);
+            } else if(row == 2 && col < farmingGame.getSeeds().getPlants().size()) {
+                String seed = node.getId();
+                tTip.setText(seed + ". Owns " + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed) + ".");
+                tTip.setStyle("-fx-font-size: 25");
                 Tooltip.install(node, tTip);
             }
         }
+    }
+
+    public void showFarmerDetails() {
+        farmerName.setText(farmingGame.getFarmer().getFarmerName());
+        farmerLvl.setText(String.valueOf(farmingGame.getFarmer().getFarmerLevel()));
+        objectCoins.setText(String.valueOf(farmingGame.getFarmer().getFarmerInventory().getObjectCoins()));
+        farmerXP.setText(String.valueOf(farmingGame.getFarmer().getExperience()));
+        farmerStatus.setText(farmingGame.getFarmer().getFarmerStatus());
     }
 
 
