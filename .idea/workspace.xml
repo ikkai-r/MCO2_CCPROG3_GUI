@@ -5,12 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/farm/tools/Fertilizer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/farm/tools/Pickaxe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/farm/tools/Shovel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/farm/tools/WateringCan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/apple.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/carrot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/empty.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/fertilizer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/mango.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/plow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/potato.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/rose.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/shovel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/sunflower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/tulips.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/turnip.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/watering_can.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/farm/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Fertilizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Fertilizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Pickaxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Pickaxe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Plow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Plow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Shovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Shovel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/WateringCan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/WateringCan.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/res/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/inventory.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/InventoryController.java" afterDir="false" />
@@ -153,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670284519836</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Inventory WIP. Made TOols inheritance">
+      <created>1670319574626</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1670319574626</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -165,7 +185,8 @@
     <MESSAGE value="Farm tiles WIP" />
     <MESSAGE value="Farm tiles WIP." />
     <MESSAGE value="Clickable farm tiles. Needs actions to set. Inventory WIP." />
-    <option name="LAST_COMMIT_MESSAGE" value="Clickable farm tiles. Needs actions to set. Inventory WIP." />
+    <MESSAGE value="Inventory WIP. Made TOols inheritance" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inventory WIP. Made TOols inheritance" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

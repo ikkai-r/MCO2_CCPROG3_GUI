@@ -4,7 +4,7 @@ import farm.Tools;
 
 public class Pickaxe extends Tools {
     public Pickaxe() {
-        super("Pickaxe", "Removes a rock from a tile. Can only be applied to tiles with a rock.",
+        super("Pickaxe", "Removes a rock from a tile.",
                 50, 15);
     }
 }
