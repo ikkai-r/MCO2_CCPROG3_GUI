@@ -43,13 +43,13 @@
                     </rowConstraints>
                      <children>
                         <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="658.0" />
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="1" />
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="2" />
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="3" />
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="4" />
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="5" />
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="6" />
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="7" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="4" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="6" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="7" />
                      </children>
                   </GridPane>
                </children>
