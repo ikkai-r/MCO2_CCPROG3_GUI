@@ -222,7 +222,7 @@ public class FarmingGame {
         int[] plantChoice = farmer.buySeeds(store);
         //if the player didn't cancel its transaction (last option)
         if (plantChoice[0] != store.getProducts().getPlants().size() + 1)
-            store.sellItem(farmer, plantChoice[0], plantChoice[1]);
+           // store.sellItem(farmer, plantChoice[0], plantChoice[1]);
         storeAction();
     }
 
@@ -263,9 +263,6 @@ public class FarmingGame {
     public void openInventory() {
 
         int playerChoice = -1;
-
-        //displays the farmer's details
-        farmer.displayFarmerDetails();
 
         System.out.println();
 
@@ -340,22 +337,6 @@ public class FarmingGame {
      */
     public void progressDay() {
         board.checkTiles();
-    }
-
-    /**
-     *
-     * Gets user input for the farmer
-     */
-    public void inputFarmerDetails() {
-        Scanner scanner = new Scanner(System.in);
-        int farmerAge = -1;
-
-        System.out.println("Welcome to Farming Sim!");
-        System.out.println("What's your name?");
-        String farmerName = scanner.nextLine();
-        String farmerCharacter = scanner.nextLine();
-
-        farmer = new Farmer(farmerName, farmerCharacter);
     }
 
     /**

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Farmer implements GeneralMethods {
 
-    private static Inventory farmerInventory;
+    private static Inventory farmerInventory = new Inventory();
     private Scanner scanner = new Scanner(System.in);
     private static String farmerCharacter = null;
     private static String farmerName = null;
@@ -18,26 +18,6 @@ public class Farmer implements GeneralMethods {
     private static int bonusEarningsPerProduce = 0;
     private static int waterBonusLimits = 0;
     private static int fertBonusLimits = 0;
-
-
-    public Farmer(){
-        Farmer.farmerInventory = new Inventory();
-        Farmer.farmerInventory.setObjectCoins(100);
-    }
-
-    /**
-     *
-     * The method serves as a constructor for the name and age of the farmer.
-     *
-     * @param  farmerName  The provided username of the user.
-     * @param  farmerCharacter   The provided character of the user.
-     */
-    public Farmer(String farmerName, String farmerCharacter){
-        Farmer.farmerName = farmerName;
-        Farmer.farmerCharacter = farmerCharacter;
-        Farmer.farmerInventory = new Inventory();
-        Farmer.farmerInventory.setObjectCoins(100);
-    }
 
     public int returnRandom(int max, int min) {
         return min + (int)(Math.random() * ((max - min) + 1));
@@ -174,7 +154,7 @@ public class Farmer implements GeneralMethods {
      * @param plantSeeds the number of seeds the farmer has bought.
      */
     public void addItemToInventory(Seeds seeds, int plantSeeds, int plantChoice) {
-        String plantName = seeds.getPlants().get(plantChoice-1).getPlantName();
+        String plantName = seeds.getPlants().get(plantChoice).getPlantName();
 
         if (farmerInventory.getSeedsOwned().containsKey(plantName)) {
             int currentNoOfSeeds = farmerInventory.getSeedsOwned().get(plantName);
@@ -182,19 +162,6 @@ public class Farmer implements GeneralMethods {
         } else {
             farmerInventory.getSeedsOwned().put(plantName, plantSeeds);
         }
-    }
-
-    /**
-     *
-     * The method outputs the stats of the farmer.
-     *
-     */
-    public void displayFarmerDetails() {
-        System.out.println("\nFarmer Name: " + this.farmerName);
-        System.out.println("Farmer Status: " + this.farmerStatus);
-        System.out.println("Farmer Level: " + this.farmerLevel);
-        System.out.printf("Farmer Experience: %.2f", Farmer.experience);
-        System.out.printf("\nObject Coins: %.2f\n", this.farmerInventory.getObjectCoins());
     }
 
     /**

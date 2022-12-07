@@ -41,7 +41,7 @@ public class OpeningScene extends GUI {
         startButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                PlayerSubScene playerSubScene = new PlayerSubScene("opening");
+                PlayerSubScene playerSubScene = new PlayerSubScene("opening", 780, 500);
                 mainPane.getChildren().add(playerSubScene);
                 playerSubScene.moveSubScene(true);
                 playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());

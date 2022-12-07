@@ -68,7 +68,7 @@ public class FarmController implements Initializable {
     }
 
     public void showInventory() throws IOException {
-        PlayerSubScene playerSubScene = new PlayerSubScene("inventory");
+        PlayerSubScene playerSubScene = new PlayerSubScene("inventory", 780, 500);
         farmPane.getChildren().add(playerSubScene);
         playerSubScene.moveSubScene(true);
         playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
@@ -89,7 +89,7 @@ public class FarmController implements Initializable {
     }
 
     public void showStore() throws IOException {
-        PlayerSubScene storeSubScene = new PlayerSubScene("store");
+        PlayerSubScene storeSubScene = new PlayerSubScene("store", 780, 500);
         farmPane.getChildren().add(storeSubScene);
         storeSubScene.moveSubScene(true);
         storeSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());

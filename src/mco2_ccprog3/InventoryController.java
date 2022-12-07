@@ -30,7 +30,7 @@ public class InventoryController implements Initializable{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         setButtonInventory();
-        makeToolTips();
+        makeToolEquipTips();
         showFarmerDetails();
     }
 
@@ -100,7 +100,7 @@ public class InventoryController implements Initializable{
         }
     }
 
-    public void makeToolTips() {
+    public void makeToolEquipTips() {
         for (Node node : buttonsPane.getChildren()) {
             Tooltip tTip = new Tooltip();
             String name = node.getId();
@@ -127,14 +127,17 @@ public class InventoryController implements Initializable{
                 tTip.setText(name + ".\n" + toolFunction);
                 tTip.setStyle("-fx-font-size: 25");
                 Tooltip.install(node, tTip);
-            } else if(row == 2 && col < farmingGame.getSeeds().getPlants().size()) {
+            } else if(row == 0 && col < farmingGame.getSeeds().getPlants().size()) {
                 String seed = node.getId();
-                tTip.setText(seed + ". Owns " + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed) + ".");
-                tTip.setStyle("-fx-font-size: 25");
-                Tooltip.install(node, tTip);
+                if (seed != null) {
+                    tTip.setText(seed + ". Owns " + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed) + ".");
+                    tTip.setStyle("-fx-font-size: 25");
+                    Tooltip.install(node, tTip);
+                }
             }
         }
     }
+
 
     public void showFarmerDetails() {
         farmerName.setText(farmingGame.getFarmer().getFarmerName());

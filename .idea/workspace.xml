@@ -5,22 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/res/inventorybtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/shopbtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/sleepbtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/store.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/store.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/storebutton.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/uncle_dale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mco2_ccprog3/StoreController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/res/pop-up.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/inventory.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/inventory.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/res/store.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/store.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/StoreController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670346278298</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Inventory finish. Shop WIP">
+      <created>1670379329067</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1670379329067</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -196,7 +199,8 @@
     <MESSAGE value="Inventory WIP. Made TOols inheritance" />
     <MESSAGE value="Inventory, tooltip WIP" />
     <MESSAGE value="Inventory WIP. Just formatting needed. Next is the shop and the interact with the blocks." />
-    <option name="LAST_COMMIT_MESSAGE" value="Inventory WIP. Just formatting needed. Next is the shop and the interact with the blocks." />
+    <MESSAGE value="Inventory finish. Shop WIP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inventory finish. Shop WIP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

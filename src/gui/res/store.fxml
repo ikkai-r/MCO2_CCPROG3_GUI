@@ -11,8 +11,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="500.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.StoreController">
+<AnchorPane fx:id="storePane" prefHeight="500.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.StoreController">
    <children>
+      <Text fx:id="objCoins" layoutX="268.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="54.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Object Coins:">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
       <ScrollPane layoutX="54.0" layoutY="182.0" prefHeight="234.0" prefWidth="679.0">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="656.0">
@@ -32,7 +42,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="658.0" />
+                        <Button mnemonicParsing="false" onAction="#storeAction" prefHeight="64.0" prefWidth="658.0" />
                         <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="1" />
                         <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="2" />
                         <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="3" />

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Inventory {
-    private HashMap<String, Integer> seedsOwned = new HashMap<String, Integer>();
+    private static HashMap<String, Integer> seedsOwned = new HashMap<String, Integer>();
 
     private ArrayList<Tools> tools = new ArrayList<>();
-    private static double objectCoins;
+    private static double objectCoins = 100;
 
     /**
      *
