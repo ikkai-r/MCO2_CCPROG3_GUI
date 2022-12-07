@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="500.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.StoreController">
+   <children>
+      <ScrollPane layoutX="54.0" layoutY="182.0" prefHeight="234.0" prefWidth="679.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="656.0">
+               <children>
+                  <GridPane fx:id="storeButtonsPane" layoutX="1.0" prefHeight="500.0" prefWidth="658.0" stylesheets="@stylesheet.css">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="658.0" />
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="4" />
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="6" />
+                        <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="659.0" GridPane.rowIndex="7" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Text layoutX="232.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Uncle Dale's Store">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="116.0" fitWidth="107.0" layoutX="88.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@uncle_dale.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

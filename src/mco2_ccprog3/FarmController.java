@@ -33,7 +33,6 @@ public class FarmController implements Initializable {
     public void initialize(URL arg0, ResourceBundle arg1) {
         farmingGame.displayLand();
         setFieldButtonTiles();
-//        farmingGame.startSimulator();
     }
 
     @FXML
@@ -79,6 +78,32 @@ public class FarmController implements Initializable {
 
         makeFarmerHeader(playerSubScene);
 
+        createExitButtonPanes(playerSubScene);
+
+    }
+
+    public void makeFarmerHeader(PlayerSubScene playerSubScene) {
+        SceneHeaderTxts characterTxt = new SceneHeaderTxts(farmingGame.getFarmer().getFarmerName() + "'s Profile and Inventory");
+        characterTxt.prefWidthProperty().bind(playerSubScene.widthProperty());
+        playerSubScene.getPane().getChildren().add(characterTxt);
+    }
+
+    public void showStore() throws IOException {
+        PlayerSubScene storeSubScene = new PlayerSubScene("store");
+        farmPane.getChildren().add(storeSubScene);
+        storeSubScene.moveSubScene(true);
+        storeSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+
+        AnchorPane storePane = FXMLLoader.load(getClass().getResource("/store.fxml"));
+        storeSubScene.getPane().getChildren().add(storePane);
+
+        createExitButtonPanes(storeSubScene);
+    }
+
+    public void sleepForTheDay() {
+    }
+
+    public void createExitButtonPanes(PlayerSubScene playerSubScene) {
         Button exitButton = new Button();
         exitButton.setText("Back");
         exitButton.setPrefSize(100, 40);
@@ -86,7 +111,7 @@ public class FarmController implements Initializable {
         HBox box = new HBox();
         box.getChildren().add(exitButton);
         box.setLayoutX(box.getLayoutX()-40);
-        box.setLayoutY(box.getLayoutY()+20.0);
+        box.setLayoutY(box.getLayoutY()+25.0);
         box.prefWidthProperty().bind(playerSubScene.getPane().widthProperty());
         box.setAlignment(Pos.TOP_RIGHT);
         playerSubScene.getPane().getChildren().add(box);
@@ -99,17 +124,5 @@ public class FarmController implements Initializable {
             }
         });
 
-    }
-
-    public void makeFarmerHeader(PlayerSubScene playerSubScene) {
-        SceneHeaderTxts characterTxt = new SceneHeaderTxts(farmingGame.getFarmer().getFarmerName() + "'s Profile and Inventory");
-        characterTxt.prefWidthProperty().bind(playerSubScene.widthProperty());
-        playerSubScene.getPane().getChildren().add(characterTxt);
-    }
-
-    public void showStore() {
-    }
-
-    public void sleepForTheDay() {
     }
 }

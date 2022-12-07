@@ -10,6 +10,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tooltip;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -27,7 +29,6 @@ public class InventoryController implements Initializable{
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        Font.loadFont(getClass().getResourceAsStream("Stardew_Valley.ttf"), 17);
         setButtonInventory();
         makeToolTips();
         showFarmerDetails();
@@ -46,6 +47,8 @@ public class InventoryController implements Initializable{
     private Text farmerXP;
     @FXML
     private Text farmerStatus;
+    @FXML
+    private ImageView farmerChar;
 
     public void setButtonInventory() {
         int row;
@@ -139,6 +142,11 @@ public class InventoryController implements Initializable{
         objectCoins.setText(String.valueOf(farmingGame.getFarmer().getFarmerInventory().getObjectCoins()));
         farmerXP.setText(String.valueOf(farmingGame.getFarmer().getExperience()));
         farmerStatus.setText(farmingGame.getFarmer().getFarmerStatus());
+        if (farmingGame.getFarmer().getFarmerCharacter().equals("Boy")) {
+            farmerChar.setImage(new Image("farmerboy.png"));
+        } else {
+            farmerChar.setImage(new Image("farmergirl.png"));
+        }
     }
 
 

@@ -59,3 +59,18 @@
      -fx-font-family: 'Stardew Valley Regular';
      -fx-font-size: 40;
 }
+
+#inventory-btn {
+    -fx-background-image: url('inventorybtn.png');
+    -fx-background-size: 63 72;
+}
+
+#shop-btn {
+    -fx-background-image: url('shopbtn.png');
+    -fx-background-size: 63 72;
+}
+
+#sleep-btn {
+    -fx-background-image: url('sleepbtn.png');
+    -fx-background-size: 63 72;
+}

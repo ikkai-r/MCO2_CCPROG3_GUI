@@ -23,7 +23,7 @@ public class PlayerSubScene extends SubScene {
             image = new BackgroundImage(new Image("inventory.png", WIDTH, HEIGHT, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
         } else {
-            image = new BackgroundImage(new Image("inventory.png", WIDTH, HEIGHT, false, true),
+            image = new BackgroundImage(new Image("store.png", WIDTH, HEIGHT, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
         }
 

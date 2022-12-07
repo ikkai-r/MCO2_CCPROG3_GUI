@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -10,7 +11,7 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="780.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.InventoryController">
    <children>
-      <GridPane fx:id="buttonsPane" layoutX="51.0" layoutY="110.0" stylesheets="@stylesheet.css">
+      <GridPane fx:id="buttonsPane" layoutX="165.0" layoutY="112.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
@@ -47,52 +48,53 @@
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="8" GridPane.rowIndex="1" />
          </children>
       </GridPane>
-      <Text fx:id="farmerStatus" layoutX="276.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Status:">
+      <Text layoutX="276.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Status:">
          <font>
             <Font size="32.0" />
          </font></Text>
-      <Text fx:id="farmerLvl" layoutX="276.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Level:">
+      <Text layoutX="276.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Level:">
          <font>
             <Font size="32.0" />
          </font></Text>
-      <Text fx:id="farmerXP" layoutX="277.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Experience:">
+      <Text layoutX="277.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Experience:">
          <font>
             <Font size="32.0" />
          </font></Text>
-      <Text fx:id="farmerName" layoutX="277.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Name:">
+      <Text layoutX="275.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Farmer Name:">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <Text fx:id="objectCoins" layoutX="276.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Object Coins:">
+      <Text layoutX="276.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Object Coins:">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <Text fx:id="farmerName" layoutX="502.0" layoutY="294.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="farmerLvl" layoutX="558.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <Text fx:id="farmerLvl" layoutX="502.0" layoutY="327.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="objectCoins" layoutX="558.0" layoutY="369.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <Text id="objectCoins" layoutX="502.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="farmerXP" layoutX="558.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <Text id="farmerXP" layoutX="558.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="farmerStatus" layoutX="558.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
-      <Text id="farmerStatus" layoutX="543.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0">
+      <Text fx:id="farmerName" layoutX="558.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
          <font>
             <Font size="32.0" />
          </font>
       </Text>
+      <ImageView fx:id="farmerChar" fitHeight="137.0" fitWidth="81.0" layoutX="124.0" layoutY="272.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
