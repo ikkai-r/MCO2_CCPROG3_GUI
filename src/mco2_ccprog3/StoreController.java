@@ -81,7 +81,6 @@ public class StoreController implements Initializable {
                 plantChoice = GridPane.getRowIndex(button);
             }
         }
-
         popUpAction(farmingGame.getStore().sellItem(farmingGame.getFarmer(), plantChoice));
     }
 

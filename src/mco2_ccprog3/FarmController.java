@@ -28,18 +28,24 @@ import java.util.ResourceBundle;
 public class FarmController implements Initializable {
 
     private FarmingGame farmingGame = new FarmingGame();
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-        farmingGame.displayLand();
-        setFieldButtonTiles();
-    }
-
     @FXML
     private GridPane fieldPane;
     @FXML
     private AnchorPane farmPane;
+    @FXML
+    private Label day;
+    @Override
+    public void initialize(URL arg0, ResourceBundle arg1) {
+        farmingGame.displayLand();
+        setFieldButtonTiles();
+        initializeDay();
+    }
 
+    public void initializeDay() {
+        day.setText("Day " + farmingGame.getFarmer().getDayCount());
+        day.setStyle("-fx-background-image: url(\"pop-up.png\"); -fx-background-size: 300 150; -fx-background-repeat: stretch;" +
+                "-fx-font-size: 50");
+    }
 
     public void setFieldButtonTiles() {
         int row;
@@ -101,6 +107,17 @@ public class FarmController implements Initializable {
     }
 
     public void sleepForTheDay() {
+        PlayerSubScene popUpScene = new PlayerSubScene("sleep", 980, 700);
+        popUpScene.moveSubScene(true);
+        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts("Sleeping for the day...");
+        sceneHeaderTxts.setStyle("-fx-font-size: 70; -fx-text-fill: white");
+        sceneHeaderTxts.prefWidthProperty().bind(farmPane.widthProperty());
+        sceneHeaderTxts.setLayoutY(300);
+        sceneHeaderTxts.setAlignment(Pos.CENTER);
+        popUpScene.getPane().getChildren().add(sceneHeaderTxts);
+        farmPane.getChildren().add(popUpScene);
+        farmingGame.sleep();
+        day.setText("Day " + farmingGame.getFarmer().getDayCount());
     }
 
     public void createExitButtonPanes(PlayerSubScene playerSubScene) {

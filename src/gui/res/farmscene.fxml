@@ -8,6 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.Label?>
 <AnchorPane fx:id="farmPane" prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.FarmController">
    <children>
       <GridPane id="pane-field" fx:id="fieldPane" gridLinesVisible="true" layoutX="356.0" layoutY="100.0" prefHeight="500.0" prefWidth="269.0" stylesheets="stylesheet.css">
@@ -86,9 +87,9 @@
       <Button id="inventory-btn" fx:id="inventory" layoutX="709.0" layoutY="100.0" minWidth="37.0" mnemonicParsing="false" onAction="#showInventory" prefHeight="72.0" prefWidth="63.0" />
       <Button id="shop-btn" fx:id="store" layoutX="778.0" layoutY="100.0" mnemonicParsing="false" onAction="#showStore" prefHeight="72.0" prefWidth="63.0" />
       <Button id="sleep-btn" fx:id="sleep" layoutX="850.0" layoutY="100.0" mnemonicParsing="false" onAction="#sleepForTheDay" prefHeight="72.0" prefWidth="63.0" />
-      <Text fx:id="dayLabel" layoutX="69.0" layoutY="104.0" text="Day">
+      <Label fx:id="day" layoutX="69.0" layoutY="104.0" text="Day">
          <font>
             <Font size="32.0" />
-         </font></Text>
+         </font></Label>
    </children>
 </AnchorPane>

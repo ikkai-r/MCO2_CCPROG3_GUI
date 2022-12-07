@@ -34,8 +34,11 @@ public class PlayerSubScene extends SubScene {
         } else if (scene.equals("store")){
             image = new BackgroundImage(new Image("store.png", width, height, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
-        } else {
+        } else if (scene.equals("pop-up")){
             image = new BackgroundImage(new Image("pop-up.png", width, height, false, true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+        } else {
+            image =  new BackgroundImage(new Image("sleep.jpg", width, height, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
         }
 
@@ -48,6 +51,9 @@ public class PlayerSubScene extends SubScene {
         if (scene.equals("pop-up")) {
             setLayoutX(1095);
             setLayoutY(150);
+        } else if(scene.equals("sleep")) {
+            setLayoutX(0);
+            setLayoutY(0);
         } else {
             setLayoutX(1024);
             setLayoutY(90);
@@ -61,7 +67,11 @@ public class PlayerSubScene extends SubScene {
         transition.setNode(this);
 
         if (isHidden) {
-            transition.setToX(-930);
+            if (scene.equals("sleep")) {
+                transition.setToX(0);
+            } else {
+                transition.setToX(-930);
+            }
         } else {
             transition.setToX(0);
         }
@@ -73,7 +83,21 @@ public class PlayerSubScene extends SubScene {
             transitionOut.setToX(0);
             SequentialTransition sequentialTransition = new SequentialTransition(transition, new PauseTransition(Duration.millis(1400)), transitionOut);
             sequentialTransition.play();
-        } else {
+        } else if (scene.equals("sleep")) {
+            FadeTransition fade = new FadeTransition();
+            fade.setDuration(Duration.seconds(3.5));
+            fade.setFromValue(10);
+            fade.setToValue(0.1);
+            fade.setNode(this);
+
+            TranslateTransition transitionOut = new TranslateTransition();
+            transitionOut.setDuration(Duration.seconds(0.001));
+            transitionOut.setNode(this);
+            transitionOut.setToX(1000);
+
+            SequentialTransition sequentialTransition = new SequentialTransition(fade, transitionOut);
+            sequentialTransition.play();
+        }else {
             transition.play();
         }
     }
