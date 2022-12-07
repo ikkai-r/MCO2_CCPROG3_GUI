@@ -2,17 +2,17 @@ package farm;
 
 public class Board implements GeneralMethods {
 
-    private final int BOARDROW = 10;
-    private final int BOARDCOL = 5;
-    private Tile[][] farmTiles = new Tile[getBoardRow()][getBoardCol()];
+    private final static int BOARDROW = 10;
+    private final static int BOARDCOL = 5;
+    private static Tile[][] farmTiles = new Tile[BOARDROW][BOARDCOL];
 
     /**
      * sets the board with unplowed tiles and creates a randomized placings of rocks on the field.
      *
      */
     public Board() {
-        for(int outerCount = 0; outerCount < this.BOARDROW; outerCount++) {
-            for (int innerCount = 0; innerCount < this.BOARDCOL; innerCount++) {
+        for(int outerCount = 0; outerCount < BOARDROW; outerCount++) {
+            for (int innerCount = 0; innerCount < BOARDCOL; innerCount++) {
                 farmTiles[outerCount][innerCount] = new Tile();
             }
         }
@@ -224,5 +224,22 @@ public class Board implements GeneralMethods {
 
     public Tile getFarmTile(int tileRow, int tileCol) {
         return this.farmTiles[tileRow][tileCol];
+    }
+
+    public Tile getSelectedTile() {
+        int tileRowIndex = -1;
+        int tileColIndex = -1;
+
+        for (int rowIndex = 0; rowIndex < this.BOARDROW; rowIndex++) {
+            for (int colIndex = 0; colIndex < this.BOARDCOL; colIndex++) {
+                if (this.farmTiles[rowIndex][colIndex].isSelected()) {
+                    tileRowIndex = rowIndex;
+                    tileColIndex = colIndex;
+                    System.out.println("found");
+                }
+            }
+        }
+
+        return getFarmTile(tileRowIndex, tileColIndex);
     }
 }

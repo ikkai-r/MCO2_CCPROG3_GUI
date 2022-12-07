@@ -37,8 +37,11 @@ public class PlayerSubScene extends SubScene {
         } else if (scene.equals("pop-up")){
             image = new BackgroundImage(new Image("pop-up.png", width, height, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
-        } else {
+        } else if(scene.equals("sleep")){
             image =  new BackgroundImage(new Image("sleep.jpg", width, height, false, true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+        } else {
+            image =  new BackgroundImage(new Image("tileActions.png", width, height, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
         }
 
@@ -54,6 +57,9 @@ public class PlayerSubScene extends SubScene {
         } else if(scene.equals("sleep")) {
             setLayoutX(0);
             setLayoutY(0);
+        } else if(scene.equals("tileActions")) {
+            setLayoutX(1190);
+            setLayoutY(90);
         } else {
             setLayoutX(1024);
             setLayoutY(90);

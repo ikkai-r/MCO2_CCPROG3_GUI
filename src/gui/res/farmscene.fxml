@@ -32,56 +32,56 @@
             <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="2" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="2" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="4" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="3" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="3" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="4" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="6" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="5" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="5" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="5" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="6" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="6" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="6" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="7" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="7" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="7" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="7" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="8" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="8" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="8" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="9" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="9" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="9" />
-            <Button maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="9" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="1" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="2" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="3" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="4" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="5" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="5" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="5" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="6" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="6" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="6" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="7" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="7" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="7" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="8" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="8" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="8" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="8" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="9" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="9" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="9" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="9" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.rowIndex="1" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button onAction="#tileAction" maxHeight="50.0" maxWidth="54.0" minHeight="50.0" minWidth="54.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="54.0" text="A" GridPane.columnIndex="4" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <Button id="inventory-btn" fx:id="inventory" layoutX="709.0" layoutY="100.0" minWidth="37.0" mnemonicParsing="false" onAction="#showInventory" prefHeight="72.0" prefWidth="63.0" />

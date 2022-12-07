@@ -28,6 +28,7 @@ public class FarmingGame {
     public FarmingGame() {
         initializeItems();
         farmer = new Farmer();
+        board = new Board();
     }
 
     /**
@@ -148,7 +149,6 @@ public class FarmingGame {
 
             switch (playerChoice) {
                 case 1 -> openInventory();
-                case 2 -> openStore();
                 case 3 -> { displayLand();
                     promptCropChecking(); }
                 case 4 -> sleep();
@@ -160,80 +160,11 @@ public class FarmingGame {
 
     /**
      *
-     * Displays the products available for the user to buy.
-     */
-    public void openStore() {
-        int counter = 1;
-
-        //displays the products
-        System.out.printf("%18s\n", "== STORE ==");
-
-        System.out.printf("%-13s %11s\n", "Seed", "Price");
-        for (Plants plant: seeds.getPlants()) {
-            System.out.printf("%d: %-10s %11.2f\n", counter, plant.getPlantName(), plant.getSeedCost()-farmer.getSeedCostReduction());
-            counter++;
-        }
-        //adds a cancel option in the store in case the user doesn't want to buy
-        System.out.printf("%d: %-10s\n", counter, "Cancel");
-
-        System.out.println();
-        System.out.printf("Objectcoins: %.2f\n\n", farmer.getFarmerInventory().getObjectCoins());
-        storeAction();
-    }
-
-    /**
-     *
-     * Displays the actions that the user can do in the store.
-     */
-    public void storeAction() {
-
-        int storeChoice = -1;
-
-        while (storeChoice < 0 || storeChoice > 2) {
-
-            System.out.printf("%19s\n", "== ACTIONS ==");
-            System.out.println("1: Buy seeds");
-            System.out.println("2: Back");
-
-            try {
-                storeChoice = scanner.nextInt();
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-                storeAction();
-            }
-
-            switch (storeChoice) {
-                case 1 -> promptStoreAction();
-                case 2 -> showActions();
-                default -> System.out.println("Invalid input. Try again.");
-            }
-
-        }
-    }
-
-    /**
-     *
-     * The method updates the inventory of the farmer upon buying the seed
-     *
-     */
-    public void promptStoreAction() {
-        int[] plantChoice = farmer.buySeeds(store);
-        //if the player didn't cancel its transaction (last option)
-        if (plantChoice[0] != store.getProducts().getPlants().size() + 1)
-           // store.sellItem(farmer, plantChoice[0], plantChoice[1]);
-        storeAction();
-    }
-
-    /**
-     *
      * serves as an initializer for every start of the game.
      */
     public void initializeItems() {
         seeds = new Seeds();
         store = new Store();
-        board = new Board();
         progressChecker = new ProgressChecker();
     }
 
@@ -308,25 +239,11 @@ public class FarmingGame {
 
     /**
      *
-     * Introductory dialogues for the gameplay
-     */
-    public void playIntroSequence() {
-        System.out.println();
-        System.out.println("Farmer Tranz: Hello " + farmer.getFarmerName() + "!");
-        System.out.println("Farmer Tranz: Since you're new around here, you deserve these items, good luck!");
-        System.out.println("You received new items! Check your inventory!");
-    }
-
-    /**
-     *
      * The method advances the farmer to the next day.
      */
     public void sleep() {
 
         farmer.setDayCount(farmer.getDayCount()+1);
-        System.out.println("Farmer " + farmer.getFarmerName() + " slept for this day. Sweet dreams!");
-        System.out.println("Good morning, Farmer " + farmer.getFarmerName() + "!");
-        System.out.println();
         progressDay();
 
     }

@@ -317,7 +317,7 @@ public class Farmer implements GeneralMethods {
             }
 
             switch (playerChoice) {
-                case 1 -> useTools(tile);
+              //  case 1 -> useTools(tile);
                 case 2 -> plantSeeds(tile, seeds, board);
                 case 3 -> harvestCrop(tile, seeds);
                 case 4 -> {}
@@ -335,34 +335,34 @@ public class Farmer implements GeneralMethods {
      *
      * @param crop holds the info of the tile picked.
      */
-    public void useTools(Tile crop) {
-
-        int counter = 1;
-        int toolChoice = -1;
-
-        System.out.printf("%-15s %10s\n", "Tool", "Cost of Usage");
-        for (Tools tool : farmerInventory.getTools()) {
-            System.out.printf("%d: %-15s %10d\n", counter, tool.getToolName(),  tool.getCostOfUsage());
-            counter++;
-        }
-
-        while (toolChoice < 0 || toolChoice > (counter-2)) {
-
-            System.out.println("Pick which tool you want to use:");
-
-            try {
-                toolChoice = (scanner.nextInt())-1;
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-            }
-
-            if (toolChoice < 0 || toolChoice > (counter-2)) {
-                System.out.println("Enter a valid tool number only.");
-            }
-
-        }
+    public void useTools(Tile crop, int toolChoice) {
+//
+//        int counter = 1;
+//        int toolChoice = -1;
+//
+//        System.out.printf("%-15s %10s\n", "Tool", "Cost of Usage");
+//        for (Tools tool : farmerInventory.getTools()) {
+//            System.out.printf("%d: %-15s %10d\n", counter, tool.getToolName(),  tool.getCostOfUsage());
+//            counter++;
+//        }
+//
+//        while (toolChoice < 0 || toolChoice > (counter-2)) {
+//
+//            System.out.println("Pick which tool you want to use:");
+//
+//            try {
+//                toolChoice = (scanner.nextInt())-1;
+//            }
+//            catch (Exception e) {
+//                scanner.nextLine();
+//                System.out.println("Only input valid integers. Please try again.");
+//            }
+//
+//            if (toolChoice < 0 || toolChoice > (counter-2)) {
+//                System.out.println("Enter a valid tool number only.");
+//            }
+//
+//        }
 
         String toolName = farmerInventory.getTools().get(toolChoice).getToolName();
 

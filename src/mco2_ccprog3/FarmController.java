@@ -3,7 +3,6 @@ package mco2_ccprog3;
 import farm.FarmingGame;
 import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -13,13 +12,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,8 +38,10 @@ public class FarmController implements Initializable {
 
     public void initializeDay() {
         day.setText("Day " + farmingGame.getFarmer().getDayCount());
-        day.setStyle("-fx-background-image: url(\"pop-up.png\"); -fx-background-size: 300 150; -fx-background-repeat: stretch;" +
-                "-fx-font-size: 50");
+        day.setStyle("-fx-background-image: url(\"pop-up.png\"); -fx-background-size: 150 50; -fx-background-repeat: stretch;" +
+                "-fx-font-size: 40");
+        day.setPrefSize(150, 50);
+        day.setAlignment(Pos.CENTER);
     }
 
     public void setFieldButtonTiles() {
@@ -142,4 +139,30 @@ public class FarmController implements Initializable {
         });
 
     }
+
+    public void tileAction(ActionEvent event) throws IOException {
+
+        Object node = event.getSource();
+        PlayerSubScene tileActionPane = new PlayerSubScene("tileActions", 700, 550);
+
+        if (node instanceof final Button button) {
+            farmPane.getChildren().add(tileActionPane);
+
+            tileActionPane.moveSubScene(true);
+            tileActionPane.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+
+            String tile = button.getId();
+            int row = Integer.parseInt(String.valueOf(tile.charAt(0)));
+            int col = Integer.parseInt(String.valueOf(tile.charAt(2)));
+
+            farmingGame.getBoard().getFarmTile(row, col).setSelected(true);
+            System.out.println(farmingGame.getBoard().getFarmTile(row, col).isSelected());
+
+            AnchorPane storePane = FXMLLoader.load(getClass().getResource("/actions.fxml"));
+            tileActionPane.getPane().getChildren().add(storePane);
+
+            createExitButtonPanes(tileActionPane);
+        }
+    }
+
 }
