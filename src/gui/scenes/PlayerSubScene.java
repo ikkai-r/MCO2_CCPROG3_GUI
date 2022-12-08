@@ -60,6 +60,9 @@ public class PlayerSubScene extends SubScene {
         } else if(scene.equals("tileActions")) {
             setLayoutX(1190);
             setLayoutY(90);
+        } else if (scene.equals("action-pop-up")) {
+            setLayoutX(970);
+            setLayoutY(130);
         } else {
             setLayoutX(1024);
             setLayoutY(90);
@@ -82,7 +85,7 @@ public class PlayerSubScene extends SubScene {
             transition.setToX(0);
         }
 
-        if (scene.equals("pop-up")) {
+        if (scene.contains("pop-up")) {
             TranslateTransition transitionOut = new TranslateTransition();
             transitionOut.setDuration(Duration.seconds(0.3));
             transitionOut.setNode(this);

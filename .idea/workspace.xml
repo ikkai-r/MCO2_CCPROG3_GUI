@@ -5,20 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/res/actionbtn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/actions.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/harvestCrop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/plantSeed.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/tileActions.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/res/useTool.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/farm/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/farmscene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/SceneHeaderTxts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/SceneHeaderTxts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/InventoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/StoreController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670394619460</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Use Tool WIP.">
+      <created>1670427234520</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1670427234520</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -217,7 +222,8 @@
     <MESSAGE value="Inventory WIP. Just formatting needed. Next is the shop and the interact with the blocks." />
     <MESSAGE value="Inventory finish. Shop WIP" />
     <MESSAGE value="Shop finish. Sleep WIP." />
-    <option name="LAST_COMMIT_MESSAGE" value="Shop finish. Sleep WIP." />
+    <MESSAGE value="Use Tool WIP." />
+    <option name="LAST_COMMIT_MESSAGE" value="Use Tool WIP." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

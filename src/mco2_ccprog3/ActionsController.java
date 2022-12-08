@@ -1,7 +1,11 @@
 package mco2_ccprog3;
 
+import farm.Board;
 import farm.FarmingGame;
+import farm.Seeds;
 import farm.Tile;
+import gui.scenes.PlayerSubScene;
+import gui.scenes.SceneHeaderTxts;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,11 +20,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.TextAlignment;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ActionsController implements Initializable {
+public class ActionsController extends FarmController implements Initializable {
 
-    private FarmingGame farmingGame = new FarmingGame();
     @FXML
     private GridPane actionGridPane;
     @FXML
@@ -97,12 +101,90 @@ public class ActionsController implements Initializable {
     }
 
     public void enableTool(int tool, Tile tile) {
-        System.out.println(farmingGame.getBoard().getFarmTile(0, 0).isSelected());
-        farmingGame.getFarmer().useTools(tile, tool);
+        ArrayList<String> feedback;
+        int layout;
+        StringBuilder strFeedback = new StringBuilder();
+        feedback = farmingGame.getFarmer().useTools(tile, tool);
+        PlayerSubScene popUpScene = new PlayerSubScene("action-pop-up", 500, 100);
+        popUpScene.moveSubScene(true);
+        for (String a : feedback) {
+            strFeedback.append(a);
+            strFeedback.append("\n");
+        }
+        if (feedback.size() == 1) {
+            layout = 30;
+        } else {
+            layout = 10;
+        }
+        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(strFeedback.toString(), layout);
+        sceneHeaderTxts.prefWidthProperty().bind(popUpScene.widthProperty());
+        sceneHeaderTxts.setStyle("-fx-font-size: 40");
+
+        sceneHeaderTxts.setTextAlignment(TextAlignment.CENTER);
+        popUpScene.getPane().getChildren().add(sceneHeaderTxts);
+        actionAncPane.getChildren().add(popUpScene);
     }
 
     public void plantSeed() {
+        int row = 0;
 
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setPrefSize(610, 350);
+        scrollPane.setLayoutY(160);
+        scrollPane.setLayoutX(50);
+
+        actionAncPane.getChildren().remove(actionGridPane);
+
+        GridPane seedPane = new GridPane();
+
+        for (String seed: farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().keySet()) {
+            Button button = new Button();
+            button.setStyle("-fx-font-size: 35; -fx-background-image: url(\"actionbtn.png\"); -fx-background-repeat: stretch; -fx-background-size: 100% 100%; " +
+                    "-fx-alignment:center-left;");
+            button.setPrefWidth(1000);
+            button.setText(seed + "\t" + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed));
+            button.setTextAlignment(TextAlignment.LEFT);
+            ImageView im = new ImageView(new Image(seed.toLowerCase()+".png"));
+            im.setFitHeight(60);
+            im.setFitWidth(60);
+            button.setGraphic(im);
+            button.setId(seed);
+
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                   enablePlanting(farmingGame.getBoard().getSelectedTile(), farmingGame.getSeeds(), farmingGame.getBoard(), seed);
+                }
+            });
+            seedPane.addRow(row, button);
+            row++;
+        }
+
+        scrollPane.setContent(seedPane);
+
+        if (farmingGame.getFarmer().getFarmerInventory().getNumberOfSeedsOwned() != 0) {
+            actionAncPane.getChildren().add(scrollPane);
+        } else {
+            SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts("No seeds owned yet. \nBuy at the store!", 30);
+            sceneHeaderTxts.prefWidthProperty().bind(actionAncPane.widthProperty());
+            sceneHeaderTxts.prefHeightProperty().bind(actionAncPane.heightProperty());
+            actionAncPane.getChildren().add(sceneHeaderTxts);
+        }
+
+    }
+
+    public void enablePlanting(Tile tile, Seeds seeds, Board board, String seed) {
+        String feedback;
+        feedback = farmingGame.getFarmer().plantSeeds(tile, seeds, board, seed);
+        PlayerSubScene popUpScene = new PlayerSubScene("action-pop-up", 700, 100);
+        popUpScene.moveSubScene(true);
+        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(feedback, 10);
+        sceneHeaderTxts.prefWidthProperty().bind(popUpScene.widthProperty());
+        sceneHeaderTxts.setStyle("-fx-font-size: 40");
+
+        sceneHeaderTxts.setTextAlignment(TextAlignment.CENTER);
+        popUpScene.getPane().getChildren().add(sceneHeaderTxts);
+        actionAncPane.getChildren().add(popUpScene);
     }
 
     public void harvestCrop() {

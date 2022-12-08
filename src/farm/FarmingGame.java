@@ -18,6 +18,7 @@ import java.util.Scanner;
 public class FarmingGame {
 
     private static Farmer farmer;
+    private static boolean init = false;
     private Store store;
     private Seeds seeds;
     private Scanner scanner = new Scanner(System.in);
@@ -26,9 +27,9 @@ public class FarmingGame {
 
 
     public FarmingGame() {
-        initializeItems();
-        farmer = new Farmer();
-        board = new Board();
+            initializeItems();
+            farmer = new Farmer();
+            board = new Board();
     }
 
     /**

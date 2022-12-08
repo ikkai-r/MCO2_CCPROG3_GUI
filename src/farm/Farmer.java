@@ -2,7 +2,11 @@ package farm;
 
 import farmerprogress.FarmerLevel;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+
+import static java.lang.Double.valueOf;
 
 public class Farmer implements GeneralMethods {
 
@@ -318,7 +322,7 @@ public class Farmer implements GeneralMethods {
 
             switch (playerChoice) {
               //  case 1 -> useTools(tile);
-                case 2 -> plantSeeds(tile, seeds, board);
+//                case 2 -> plantSeeds(tile, seeds, board);
                 case 3 -> harvestCrop(tile, seeds);
                 case 4 -> {}
                 default -> System.out.println("Please enter a number from 1 to 4 only.");
@@ -335,46 +339,26 @@ public class Farmer implements GeneralMethods {
      *
      * @param crop holds the info of the tile picked.
      */
-    public void useTools(Tile crop, int toolChoice) {
-//
-//        int counter = 1;
-//        int toolChoice = -1;
-//
-//        System.out.printf("%-15s %10s\n", "Tool", "Cost of Usage");
-//        for (Tools tool : farmerInventory.getTools()) {
-//            System.out.printf("%d: %-15s %10d\n", counter, tool.getToolName(),  tool.getCostOfUsage());
-//            counter++;
-//        }
-//
-//        while (toolChoice < 0 || toolChoice > (counter-2)) {
-//
-//            System.out.println("Pick which tool you want to use:");
-//
-//            try {
-//                toolChoice = (scanner.nextInt())-1;
-//            }
-//            catch (Exception e) {
-//                scanner.nextLine();
-//                System.out.println("Only input valid integers. Please try again.");
-//            }
-//
-//            if (toolChoice < 0 || toolChoice > (counter-2)) {
-//                System.out.println("Enter a valid tool number only.");
-//            }
-//
-//        }
-
+    public ArrayList<String> useTools(Tile crop, int toolChoice) {
+        ArrayList<String> feedback = new ArrayList<>();
+        ArrayList returnTool;
         String toolName = farmerInventory.getTools().get(toolChoice).getToolName();
 
         if (farmerInventory.checkValidTool(toolName, crop)) {
             //use tool if valid
             if (farmerInventory.getObjectCoins() >= farmerInventory.getTools().get(toolChoice).getCostOfUsage()) {
-                setExperience(getExperience()+farmerInventory.useTool(toolName, crop));
+                returnTool = farmerInventory.useTool(toolName, crop);
+                setExperience(getExperience()+ (Double) returnTool.get(2));
+                feedback.add((String)returnTool.get(0));
+                feedback.add((String)returnTool.get(1));
             } else {
-                System.out.println("Insufficient funds to use " + toolName + ".");
+                feedback.add("Insufficient funds to use " + toolName + ".");
             }
+        } else {
+            feedback.add("Invalid use of tool.");
         }
 
+        return feedback;
 
     }
 
@@ -387,47 +371,21 @@ public class Farmer implements GeneralMethods {
      * @param board holds the info of the tiles
      *
      */
-    public void plantSeeds(Tile tile, Seeds seeds, Board board) {
-        int counter = 1;
-        int plantChoice = -1;
+    public String plantSeeds(Tile tile, Seeds seeds, Board board, String plantName) {
 
-        //show seeds
+        String feedback;
+
         if (!farmerInventory.getSeedsOwned().isEmpty()) {
-
-            System.out.printf("%-10s %10s\n", "Seed", "Number of Seeds");
-            for (String seed : farmerInventory.getSeedsOwned().keySet()) {
-                System.out.printf("%d: %-10s %5d\n", counter, seed, farmerInventory.getSeedsOwned().get(seed));
-                counter++;
-            }
 
             //check if you can plant
             if (tile.canPlant()) {
-
-                //convert hashmap to array then get index
-                String[] seedsOwnedArr = farmerInventory.getSeedsOwned().keySet().toArray(new String[0]);
-
-                while(plantChoice < 0 || plantChoice >= seedsOwnedArr.length) {
-
-                    System.out.println("Pick which seed you want to plant:");
-
-                    try {
-                        plantChoice = scanner.nextInt()-1;
-                    }
-                    catch (Exception e) {
-                        scanner.nextLine();
-                        System.out.println("Only input valid integers. Please try again.");
-                    }
-
-                }
-
-                String plantName = seedsOwnedArr[plantChoice];
 
                 //plant seed
                 if (!((seeds.getPlants().get(seeds.getCropIndex(plantName)).getPlantType()).equals("Fruit Tree"))) {
 
                     tile.setCrop(plantName);
                     tile.setHasSeed(true);
-                    System.out.println("Successfully planted " + plantName + "!");
+                    feedback = "Successfully planted " + plantName + "!";
 
                     if (farmerInventory.getSeedsOwned().get(plantName)-1 == 0) {
                         farmerInventory.getSeedsOwned().remove(plantName);
@@ -441,7 +399,7 @@ public class Farmer implements GeneralMethods {
                         //plant fruit tree
                         tile.setCrop(plantName);
                         tile.setHasSeed(true);
-                        System.out.println("Successfully planted " + plantName + "!");
+                        feedback = "Successfully planted " + plantName + "!";
 
                         if (farmerInventory.getSeedsOwned().get(plantName)-1 == 0) {
                             farmerInventory.getSeedsOwned().remove(plantName);
@@ -450,19 +408,18 @@ public class Farmer implements GeneralMethods {
                         }
 
                     } else {
-                        System.out.println("Surrounding tiles is occupied. Please find another tile to plant the " + plantName);
-                        System.out.println("To plant a fruit tree crop, no crops/rocks should occupy the nearest tiles surrounding it.");
-                        System.out.println("Also, it cannot be planted on the sides of the field.");
+                        feedback = "Surrounding tiles is occupied.";
                     }
                 }
 
             } else {
-                System.out.println("You cannot plant in this tile because it is occupied/is unplowed/has a rock.");
+                feedback = "You cannot plant in this tile.";
             }
         } else {
-            System.out.println("No owned seeds to plant.");
+            feedback = "No owned seeds to plant.";
         }
 
+        return feedback;
     }
 
     /**

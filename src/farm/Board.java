@@ -6,38 +6,39 @@ public class Board implements GeneralMethods {
     private final static int BOARDCOL = 5;
     private static Tile[][] farmTiles = new Tile[BOARDROW][BOARDCOL];
 
+
     /**
      * sets the board with unplowed tiles and creates a randomized placings of rocks on the field.
      *
      */
-    public Board() {
-        for(int outerCount = 0; outerCount < BOARDROW; outerCount++) {
-            for (int innerCount = 0; innerCount < BOARDCOL; innerCount++) {
-                farmTiles[outerCount][innerCount] = new Tile();
-            }
-        }
-        setRandomRocks();
-    }
 
+    public Board() {
+            for(int outerCount = 0; outerCount < BOARDROW; outerCount++) {
+                for (int innerCount = 0; innerCount < BOARDCOL; innerCount++) {
+                    farmTiles[outerCount][innerCount] = new Tile();
+                }
+            }
+            setRandomRocks();
+    }
     /**
      *
      * places a randomized number of rocks all over the land
      */
     public void setRandomRocks() {
         int numberOfRocks = returnRandom(30, 10);
-        int rockRow =  returnRandom(this.BOARDROW-1, 0);
-        int rockCol = returnRandom(this.BOARDCOL-1, 0);
+        int rockRow =  returnRandom(BOARDROW-1, 0);
+        int rockCol = returnRandom(BOARDCOL-1, 0);
 
         for (int rockIndex = 0; rockIndex < numberOfRocks; rockIndex++) {
 
             while(farmTiles[rockRow][rockCol].hasRock()) {
-                rockRow =  returnRandom(this.BOARDROW-1, 0);
-                rockCol = returnRandom(this.BOARDCOL-1, 0);
+                rockRow =  returnRandom(BOARDROW-1, 0);
+                rockCol = returnRandom(BOARDCOL-1, 0);
             }
 
             farmTiles[rockRow][rockCol].setRock(true);
-            rockRow =  returnRandom(this.BOARDROW-1, 0);
-            rockCol = returnRandom(this.BOARDCOL-1, 0);
+            rockRow =  returnRandom(BOARDROW-1, 0);
+            rockCol = returnRandom(BOARDCOL-1, 0);
 
         }
     }
@@ -54,10 +55,10 @@ public class Board implements GeneralMethods {
         System.out.println("-----------------------------------------------");
         System.out.println("   |\t1\t \t2\t \t3\t \t4\t \t5\t|");
         System.out.println("-----------------------------------------------");
-        for (int row = 0; row < this.BOARDROW; row++) {
+        for (int row = 0; row < BOARDROW; row++) {
             System.out.printf("%2d ", row + 1);
-            for (int col = 0; col < this.BOARDCOL; col++) {
-                displayTile(this.farmTiles[row][col]);
+            for (int col = 0; col < BOARDCOL; col++) {
+                displayTile(farmTiles[row][col]);
             }
             System.out.println("|");
         }
@@ -108,13 +109,13 @@ public class Board implements GeneralMethods {
      */
     public void checkTiles() {
 
-        for (int row = 0; row < this.BOARDROW; row++) {
-            for (int col = 0; col < this.BOARDCOL; col++) {
-                if (this.farmTiles[row][col].hasSeed()) {
-                    this.farmTiles[row][col].setDaysPassed(this.farmTiles[row][col].getDaysPassed()+1);
+        for (int row = 0; row < BOARDROW; row++) {
+            for (int col = 0; col < BOARDCOL; col++) {
+                if (farmTiles[row][col].hasSeed()) {
+                    farmTiles[row][col].setDaysPassed(farmTiles[row][col].getDaysPassed()+1);
                 }
-                this.farmTiles[row][col].checkWithered();
-                this.farmTiles[row][col].checkHarvestable();
+                farmTiles[row][col].checkWithered();
+                farmTiles[row][col].checkHarvestable();
             }
         }
 
@@ -127,9 +128,9 @@ public class Board implements GeneralMethods {
     public boolean checkTilesSeeds() {
         boolean checkHasSeed = false;
 
-        for (int row = 0; row < this.BOARDROW; row++) {
-            for (int col = 0; col < this.BOARDCOL; col++) {
-                if (this.farmTiles[row][col].hasSeed() && !(this.farmTiles[row][col].getCrop().isEmpty())) {
+        for (int row = 0; row < BOARDROW; row++) {
+            for (int col = 0; col < BOARDCOL; col++) {
+                if (farmTiles[row][col].hasSeed() && !(farmTiles[row][col].getCrop().isEmpty())) {
                     checkHasSeed = true;
                 }
             }
@@ -145,9 +146,9 @@ public class Board implements GeneralMethods {
     public boolean checkTilesWithered() {
         boolean checkIsWithered = true;
 
-        for (int row = 0; row < this.BOARDROW; row++) {
-            for (int col = 0; col < this.BOARDCOL; col++) {
-                if (!(this.farmTiles[row][col].isWithered())) {
+        for (int row = 0; row < BOARDROW; row++) {
+            for (int col = 0; col < BOARDCOL; col++) {
+                if (!(farmTiles[row][col].isWithered())) {
                     checkIsWithered = false;
                 }
             }
@@ -166,24 +167,24 @@ public class Board implements GeneralMethods {
         int tileColIndex = -1;
 
         //find selected tile to get row and col index
-        for (int rowIndex = 0; rowIndex < this.BOARDROW; rowIndex++) {
-            for (int colIndex = 0; colIndex < this.BOARDCOL; colIndex++) {
-                if (this.farmTiles[rowIndex][colIndex].isSelected()) {
+        for (int rowIndex = 0; rowIndex < BOARDROW; rowIndex++) {
+            for (int colIndex = 0; colIndex < BOARDCOL; colIndex++) {
+                if (farmTiles[rowIndex][colIndex].isSelected()) {
                     tileRowIndex = rowIndex;
                     tileColIndex = colIndex;
                 }
             }
         }
 
-        if (tileRowIndex-1 < 0 || tileRowIndex + 1 > this.BOARDROW || tileColIndex-1 < 0 || tileColIndex+1 > this.BOARDCOL) {
+        if (tileRowIndex-1 < 0 || tileRowIndex + 1 > BOARDROW || tileColIndex-1 < 0 || tileColIndex+1 > BOARDCOL) {
             return true;
         }
 
         for (int rowCounter = tileRowIndex-1; rowCounter <= tileRowIndex+1; rowCounter++) {
             for (int colCounter = tileColIndex-1; colCounter <= tileColIndex+1; colCounter++) {
-                if(this.farmTiles[rowCounter][colCounter].hasRock()
-                        || this.farmTiles[rowCounter][colCounter].hasSeed()
-                        || this.farmTiles[rowCounter][colCounter].isWithered()) {
+                if(farmTiles[rowCounter][colCounter].hasRock()
+                        || farmTiles[rowCounter][colCounter].hasSeed()
+                        || farmTiles[rowCounter][colCounter].isWithered()) {
                     return true;
                 }
             }
@@ -219,23 +220,22 @@ public class Board implements GeneralMethods {
     }
 
     public void setFarmTiles(Tile[][] farmTiles) {
-        this.farmTiles = farmTiles;
+        farmTiles = farmTiles;
     }
 
     public Tile getFarmTile(int tileRow, int tileCol) {
-        return this.farmTiles[tileRow][tileCol];
+        return farmTiles[tileRow][tileCol];
     }
 
     public Tile getSelectedTile() {
         int tileRowIndex = -1;
         int tileColIndex = -1;
 
-        for (int rowIndex = 0; rowIndex < this.BOARDROW; rowIndex++) {
-            for (int colIndex = 0; colIndex < this.BOARDCOL; colIndex++) {
-                if (this.farmTiles[rowIndex][colIndex].isSelected()) {
+        for (int rowIndex = 0; rowIndex < BOARDROW; rowIndex++) {
+            for (int colIndex = 0; colIndex < BOARDCOL; colIndex++) {
+                if (farmTiles[rowIndex][colIndex].isSelected()) {
                     tileRowIndex = rowIndex;
                     tileColIndex = colIndex;
-                    System.out.println("found");
                 }
             }
         }

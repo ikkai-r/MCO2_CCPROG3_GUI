@@ -70,7 +70,7 @@ public class OpeningScene extends GUI {
     }
 
     public void playerSelect(PlayerSubScene playerSubScene) {
-        SceneHeaderTxts characterTxt = new SceneHeaderTxts("Choose your character!");
+        SceneHeaderTxts characterTxt = new SceneHeaderTxts("Choose your character!", 50);
         playerSubScene.getPane().getChildren().add(characterTxt);
         characterTxt.prefWidthProperty().bind(playerSubScene.widthProperty());
         HBox characterHBox = selectCharacter(playerSubScene);
@@ -146,10 +146,8 @@ public class OpeningScene extends GUI {
                     farmingGame.getFarmer().setFarmerName(nameField.getText());
                     FarmScene fs = new FarmScene();
                     try {
-                        System.out.println("opened");
                         fs.createFarm(OpeningScene.super.getMainStage());
                     } catch (IOException e) {
-                        System.out.println("but failed");
                         throw new RuntimeException(e);
                     }
                 }

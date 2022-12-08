@@ -4,6 +4,7 @@ import farm.tools.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Inventory {
     private static HashMap<String, Integer> seedsOwned = new HashMap<String, Integer>();
@@ -32,16 +33,17 @@ public class Inventory {
      *
      * @return the experience gained by the user.
      */
-    public double useTool (String toolName, Tile tile) {
+    public ArrayList useTool (String toolName, Tile tile) {
+        ArrayList<Object> toolReturn = new ArrayList<>();
 
         if (toolName.equals(tools.get(0).getToolName())) {
 
             //plow
             tile.setPlowed(true);
-            System.out.println("Successfully plowed tile!");
-            System.out.println("Gained " + tools.get(0).getExperienceGainedOnUse() + " XP!");
 
-            return tools.get(0).getExperienceGainedOnUse();
+            toolReturn.add("Successfully plowed tile!");
+            toolReturn.add("Gained " + tools.get(0).getExperienceGainedOnUse() + " XP!");
+            toolReturn.add(tools.get(0).getExperienceGainedOnUse());
 
         } else if (toolName.equals(tools.get(1).getToolName())) {
 
@@ -50,10 +52,9 @@ public class Inventory {
                 tile.setTimesWatered(tile.getTimesWatered()+1);
             }
 
-            System.out.println("Successfully watered crop!");
-            System.out.println("Gained " + tools.get(1).getExperienceGainedOnUse() + " XP!");
-
-            return tools.get(1).getExperienceGainedOnUse();
+            toolReturn.add("Successfully watered crop!");
+            toolReturn.add("Gained " + tools.get(1).getExperienceGainedOnUse() + " XP!");
+            toolReturn.add(tools.get(1).getExperienceGainedOnUse());
 
         } else if (toolName.equals(tools.get(2).getToolName())) {
 
@@ -64,9 +65,9 @@ public class Inventory {
 
             setObjectCoins(getObjectCoins()-tools.get(2).getCostOfUsage());
 
-            System.out.println("Successfully fertilized crop!");
-            System.out.println("Gained " + tools.get(2).getExperienceGainedOnUse() + " XP!");
-            return tools.get(2).getExperienceGainedOnUse();
+            toolReturn.add("Successfully fertilized crop!");
+            toolReturn.add("Gained " + tools.get(2).getExperienceGainedOnUse() + " XP!");
+            toolReturn.add(tools.get(2).getExperienceGainedOnUse());
 
         } else if (toolName.equals(tools.get(3).getToolName())) {
 
@@ -74,10 +75,9 @@ public class Inventory {
             tile.setRock(false);
 
             setObjectCoins(getObjectCoins()-tools.get(3).getCostOfUsage());
-            System.out.println("Successfully destroyed rock!");
-            System.out.println("Gained " + tools.get(3).getExperienceGainedOnUse() + " XP!");
-
-            return tools.get(3).getExperienceGainedOnUse();
+            toolReturn.add("Successfully destroyed rock!");
+            toolReturn.add("Gained " + tools.get(3).getExperienceGainedOnUse() + " XP!");
+            toolReturn.add(tools.get(3).getExperienceGainedOnUse());
 
         } else if (toolName.equals(tools.get(4).getToolName())) {
 
@@ -85,23 +85,23 @@ public class Inventory {
 
             if (tile.isWithered()) {
 
-                System.out.println("Successfully removed withered crop!");
-                System.out.println("Gained " + tools.get(4).getExperienceGainedOnUse() + " XP!");
+                toolReturn.add("Successfully removed withered crop!");
+                toolReturn.add("Gained " + tools.get(4).getExperienceGainedOnUse() + " XP!");
                 tile.resetTile(tile);
 
-                return tools.get(4).getExperienceGainedOnUse();
+                toolReturn.add(tools.get(4).getExperienceGainedOnUse());
 
             } else {
 
-                System.out.println("Successfully used shovel!");
+                toolReturn.add("Successfully used shovel!");
+                toolReturn.add("Tile reverted to unplowed state.");
                 tile.resetTile(tile);
-
-                return 0.0;
+                toolReturn.add(0.0);
             }
 
         }
 
-        return 0.0;
+        return toolReturn;
 
     }
 
@@ -121,8 +121,6 @@ public class Inventory {
             //plow
             if (!tile.isPlowed() && !tile.isWithered() && !tile.hasRock()) {
                 return true;
-            } else {
-                System.out.println("Cannot be used on a plowed/withered/rock tile.");
             }
 
         } else if (toolName.equals(tools.get(1).getToolName())) {
@@ -132,10 +130,6 @@ public class Inventory {
 
                 return true;
 
-            } else {
-
-                System.out.println("Cannot be used on a tile without seed.");
-
             }
 
         } else if (toolName.equals(tools.get(2).getToolName())) {
@@ -143,8 +137,6 @@ public class Inventory {
             //fertilizer
             if (tile.hasSeed()) {
                 return true;
-            } else {
-                System.out.println("Cannot be used on a tile without seed.");
             }
 
         } else if (toolName.equals(tools.get(3).getToolName())) {
@@ -152,8 +144,6 @@ public class Inventory {
             //pickaxe
             if (tile.hasRock()) {
                 return true;
-            } else {
-                System.out.println("Cannot be used on a tile without a rock.");
             }
 
         } else if (toolName.equals(tools.get(4).getToolName())) {

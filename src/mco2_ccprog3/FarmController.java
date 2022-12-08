@@ -1,6 +1,7 @@
 package mco2_ccprog3;
 
 import farm.FarmingGame;
+import farm.Tile;
 import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,16 +24,16 @@ import java.util.ResourceBundle;
 
 public class FarmController implements Initializable {
 
-    private FarmingGame farmingGame = new FarmingGame();
+    protected static FarmingGame farmingGame;
     @FXML
-    private GridPane fieldPane;
+    protected GridPane fieldPane;
     @FXML
     private AnchorPane farmPane;
     @FXML
     private Label day;
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        farmingGame.displayLand();
+        farmingGame = new FarmingGame();
         setFieldButtonTiles();
         initializeDay();
     }
@@ -78,7 +80,6 @@ public class FarmController implements Initializable {
 
         AnchorPane inventoryPane = FXMLLoader.load(getClass().getResource("/inventory.fxml"));
         playerSubScene.getPane().getChildren().add(inventoryPane);
-
         makeFarmerHeader(playerSubScene);
 
         createExitButtonPanes(playerSubScene);
@@ -86,7 +87,7 @@ public class FarmController implements Initializable {
     }
 
     public void makeFarmerHeader(PlayerSubScene playerSubScene) {
-        SceneHeaderTxts characterTxt = new SceneHeaderTxts(farmingGame.getFarmer().getFarmerName() + "'s Profile and Inventory");
+        SceneHeaderTxts characterTxt = new SceneHeaderTxts(farmingGame.getFarmer().getFarmerName() + "'s Profile and Inventory", 50);
         characterTxt.prefWidthProperty().bind(playerSubScene.widthProperty());
         playerSubScene.getPane().getChildren().add(characterTxt);
     }
@@ -106,15 +107,15 @@ public class FarmController implements Initializable {
     public void sleepForTheDay() {
         PlayerSubScene popUpScene = new PlayerSubScene("sleep", 980, 700);
         popUpScene.moveSubScene(true);
-        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts("Sleeping for the day...");
+        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts("Sleeping for the day...", 300);
         sceneHeaderTxts.setStyle("-fx-font-size: 70; -fx-text-fill: white");
         sceneHeaderTxts.prefWidthProperty().bind(farmPane.widthProperty());
-        sceneHeaderTxts.setLayoutY(300);
         sceneHeaderTxts.setAlignment(Pos.CENTER);
         popUpScene.getPane().getChildren().add(sceneHeaderTxts);
         farmPane.getChildren().add(popUpScene);
         farmingGame.sleep();
         day.setText("Day " + farmingGame.getFarmer().getDayCount());
+        setFieldButtonTiles();
     }
 
     public void createExitButtonPanes(PlayerSubScene playerSubScene) {
@@ -135,6 +136,32 @@ public class FarmController implements Initializable {
             @Override
             public void handle(ActionEvent event) {
                 playerSubScene.moveSubScene(false);
+                setFieldButtonTiles();
+            }
+        });
+
+    }
+
+    public void createExitButtonPanes(PlayerSubScene playerSubScene, Tile tile) {
+        Button exitButton = new Button();
+        exitButton.setText("Back");
+        exitButton.setPrefSize(100, 40);
+        exitButton.setId("back-button");
+        HBox box = new HBox();
+        box.getChildren().add(exitButton);
+        box.setLayoutX(box.getLayoutX()-40);
+        box.setLayoutY(box.getLayoutY()+25.0);
+        box.prefWidthProperty().bind(playerSubScene.getPane().widthProperty());
+        box.setAlignment(Pos.TOP_RIGHT);
+        playerSubScene.getPane().getChildren().add(box);
+
+        exitButton.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                playerSubScene.moveSubScene(false);
+                setFieldButtonTiles();
+                tile.setSelected(false);
             }
         });
 
@@ -156,12 +183,11 @@ public class FarmController implements Initializable {
             int col = Integer.parseInt(String.valueOf(tile.charAt(2)));
 
             farmingGame.getBoard().getFarmTile(row, col).setSelected(true);
-            System.out.println(farmingGame.getBoard().getFarmTile(row, col).isSelected());
 
             AnchorPane storePane = FXMLLoader.load(getClass().getResource("/actions.fxml"));
             tileActionPane.getPane().getChildren().add(storePane);
-
-            createExitButtonPanes(tileActionPane);
+            setFieldButtonTiles();
+            createExitButtonPanes(tileActionPane, farmingGame.getBoard().getFarmTile(row, col));
         }
     }
 

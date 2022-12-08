@@ -7,11 +7,11 @@ import javafx.scene.control.Label;
 
 public class SceneHeaderTxts extends Label{
 
-    public SceneHeaderTxts(String text) {
+    public SceneHeaderTxts(String text, int layout) {
         setText(text);
         setStyle("-fx-font-size: 45");
         setAlignment(Pos.CENTER);
-        setLayoutY(50);
+        setLayoutY(layout);
     }
 
 }

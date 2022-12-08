@@ -20,10 +20,9 @@ import javafx.scene.text.TextAlignment;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StoreController implements Initializable {
+public class StoreController extends FarmController implements Initializable {
     @FXML
     private AnchorPane storePane;
-    private FarmingGame farmingGame = new FarmingGame();
     @FXML
     private GridPane storeButtonsPane;
     @FXML
@@ -87,7 +86,7 @@ public class StoreController implements Initializable {
     public void popUpAction(String popString) {
         PlayerSubScene popUpScene = new PlayerSubScene("pop-up", 500, 150);
         popUpScene.moveSubScene(true);
-        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(popString);
+        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(popString, 50);
         sceneHeaderTxts.prefWidthProperty().bind(popUpScene.widthProperty());
         popUpScene.getPane().getChildren().add(sceneHeaderTxts);
         storePane.getChildren().add(popUpScene);
