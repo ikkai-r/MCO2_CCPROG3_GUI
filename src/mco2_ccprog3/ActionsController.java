@@ -16,7 +16,10 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 
 import java.net.URL;
@@ -41,7 +44,7 @@ public class ActionsController extends FarmController implements Initializable {
                 ImageView im = new ImageView(new Image(button.getId()+".png"));
                 im.setFitHeight(50);
                 im.setFitWidth(50);
-                button.setStyle("-fx-background-image: url(\"actionbtn.png\"); -fx-background-size: 637 130; -fx-background-repeat: stretch;");
+                button.setStyle("-fx-background-image: url(\"actionbtn.png\"); -fx-background-size: 615 130; -fx-background-repeat: stretch;");
                 if (button.getId().equals("useTool")) {
                     button.setText(" Use Tool");
                     button.setGraphic(im);
@@ -120,71 +123,74 @@ public class ActionsController extends FarmController implements Initializable {
         sceneHeaderTxts.prefWidthProperty().bind(popUpScene.widthProperty());
         sceneHeaderTxts.setStyle("-fx-font-size: 40");
 
+        System.out.println(strFeedback);
         sceneHeaderTxts.setTextAlignment(TextAlignment.CENTER);
         popUpScene.getPane().getChildren().add(sceneHeaderTxts);
         actionAncPane.getChildren().add(popUpScene);
     }
 
     public void plantSeed() {
+
         int row = 0;
 
-        ScrollPane scrollPane = new ScrollPane();
-        scrollPane.setPrefSize(610, 350);
-        scrollPane.setLayoutY(160);
-        scrollPane.setLayoutX(50);
+            ScrollPane scrollPane = new ScrollPane();
+            scrollPane.setPrefSize(610, 350);
+            scrollPane.setLayoutY(160);
+            scrollPane.setLayoutX(50);
 
-        actionAncPane.getChildren().remove(actionGridPane);
+            actionAncPane.getChildren().remove(actionGridPane);
 
-        GridPane seedPane = new GridPane();
+            GridPane seedPane = new GridPane();
+            for (String seed: farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().keySet()) {
+                Button button = new Button();
+                button.setStyle("-fx-font-size: 35; -fx-background-image: url(\"actionbtn.png\"); -fx-background-repeat: stretch; -fx-background-size: 100% 100%; " +
+                        "-fx-alignment:center-left;");
+                button.setPrefWidth(605);
+                button.setText(seed + "\t\t\t\t\t" + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed));
+                button.setTextAlignment(TextAlignment.LEFT);
+                ImageView im = new ImageView(new Image(seed.toLowerCase()+".png"));
+                im.setFitHeight(60);
+                im.setFitWidth(60);
+                button.setGraphic(im);
+                button.setId(seed);
 
-        for (String seed: farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().keySet()) {
-            Button button = new Button();
-            button.setStyle("-fx-font-size: 35; -fx-background-image: url(\"actionbtn.png\"); -fx-background-repeat: stretch; -fx-background-size: 100% 100%; " +
-                    "-fx-alignment:center-left;");
-            button.setPrefWidth(1000);
-            button.setText(seed + "\t" + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed));
-            button.setTextAlignment(TextAlignment.LEFT);
-            ImageView im = new ImageView(new Image(seed.toLowerCase()+".png"));
-            im.setFitHeight(60);
-            im.setFitWidth(60);
-            button.setGraphic(im);
-            button.setId(seed);
+                button.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        enablePlanting(farmingGame.getBoard().getSelectedTile(), farmingGame.getSeeds(), farmingGame.getBoard(), seed);
+                        actionAncPane.getChildren().removeAll(scrollPane, seedPane);
+                    }
+                });
+                seedPane.addRow(row, button);
+                row++;
+            }
 
-            button.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                   enablePlanting(farmingGame.getBoard().getSelectedTile(), farmingGame.getSeeds(), farmingGame.getBoard(), seed);
-                }
-            });
-            seedPane.addRow(row, button);
-            row++;
-        }
-
-        scrollPane.setContent(seedPane);
-
-        if (farmingGame.getFarmer().getFarmerInventory().getNumberOfSeedsOwned() != 0) {
-            actionAncPane.getChildren().add(scrollPane);
-        } else {
-            SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts("No seeds owned yet. \nBuy at the store!", 30);
-            sceneHeaderTxts.prefWidthProperty().bind(actionAncPane.widthProperty());
-            sceneHeaderTxts.prefHeightProperty().bind(actionAncPane.heightProperty());
-            actionAncPane.getChildren().add(sceneHeaderTxts);
-        }
+            if (farmingGame.getFarmer().getFarmerInventory().getNumberOfSeedsOwned() != 0) {
+                scrollPane.setContent(seedPane);
+                actionAncPane.getChildren().add(scrollPane);
+            } else {
+                SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts("No seeds owned yet. \nBuy at the store!", 20);
+                sceneHeaderTxts.setLayoutX(170);
+                sceneHeaderTxts.prefHeightProperty().bind(actionAncPane.heightProperty());
+                sceneHeaderTxts.setStyle("-fx-font-size: 50");
+                actionAncPane.getChildren().add(sceneHeaderTxts);
+                actionAncPane.getChildren().removeAll(scrollPane, seedPane);
+            }
 
     }
 
     public void enablePlanting(Tile tile, Seeds seeds, Board board, String seed) {
         String feedback;
         feedback = farmingGame.getFarmer().plantSeeds(tile, seeds, board, seed);
-        PlayerSubScene popUpScene = new PlayerSubScene("action-pop-up", 700, 100);
+        PlayerSubScene popUpScene = new PlayerSubScene("action-pop-up", 500, 100);
         popUpScene.moveSubScene(true);
-        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(feedback, 10);
+        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(feedback, 30);
         sceneHeaderTxts.prefWidthProperty().bind(popUpScene.widthProperty());
         sceneHeaderTxts.setStyle("-fx-font-size: 40");
-
         sceneHeaderTxts.setTextAlignment(TextAlignment.CENTER);
-        popUpScene.getPane().getChildren().add(sceneHeaderTxts);
         actionAncPane.getChildren().add(popUpScene);
+        popUpScene.getPane().getChildren().add(sceneHeaderTxts);
+        plantSeed();
     }
 
     public void harvestCrop() {

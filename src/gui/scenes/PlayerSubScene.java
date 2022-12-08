@@ -61,7 +61,7 @@ public class PlayerSubScene extends SubScene {
             setLayoutX(1190);
             setLayoutY(90);
         } else if (scene.equals("action-pop-up")) {
-            setLayoutX(970);
+            setLayoutX(985);
             setLayoutY(130);
         } else {
             setLayoutX(1024);
