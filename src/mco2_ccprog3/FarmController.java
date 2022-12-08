@@ -6,6 +6,7 @@ import gui.scenes.FarmScene;
 import gui.scenes.OpeningScene;
 import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,7 +26,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FarmController extends FarmScene implements Initializable {
+public class FarmController implements Initializable {
 
     protected static FarmingGame farmingGame;
     @FXML
@@ -201,8 +202,10 @@ public class FarmController extends FarmScene implements Initializable {
     }
 
     public void gameOver() {
-        gameStage.close();
-        OpeningScene openingScene = new OpeningScene();
+        farmingGame.getFarmer().resetFarmer(farmingGame.getFarmer());
+        Stage stage = (Stage) fieldPane.getScene().getWindow();
+        stage.close();
+        OpeningScene openingScene = new OpeningScene(true);
         Stage primaryStage = openingScene.getMainStage();
         primaryStage.show();
     }

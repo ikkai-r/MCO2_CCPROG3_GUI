@@ -10,14 +10,14 @@ import static java.lang.Double.valueOf;
 
 public class Farmer implements GeneralMethods {
 
-    private static Inventory farmerInventory = new Inventory();
+    private Inventory farmerInventory = new Inventory();
     private Scanner scanner = new Scanner(System.in);
     private static String farmerCharacter = null;
     private static String farmerName = null;
-    private static int farmerLevel = 0;
-    private static double experience = 0D;
-    private static String farmerStatus = "FARMER";
-    private static int dayCount = 1;
+    private int farmerLevel = 0;
+    private double experience = 0D;
+    private String farmerStatus = "FARMER";
+    private int dayCount = 1;
     private static int seedCostReduction = 0;
     private static int bonusEarningsPerProduce = 0;
     private static int waterBonusLimits = 0;
@@ -80,8 +80,8 @@ public class Farmer implements GeneralMethods {
         this.farmerInventory = farmerInventory;
     }
 
-    public void setFarmerName(String farmerName) {
-        this.farmerName = farmerName;
+    public static void setFarmerName(String farmerName) {
+        Farmer.farmerName = farmerName;
     }
 
     public String getFarmerCharacter() {
@@ -89,7 +89,7 @@ public class Farmer implements GeneralMethods {
     }
 
     public void setFarmerCharacter(String farmerCharacter) {
-        this.farmerCharacter = farmerCharacter;
+        Farmer.farmerCharacter = farmerCharacter;
     }
 
     public String getFarmerStatus() {
@@ -120,7 +120,15 @@ public class Farmer implements GeneralMethods {
         this.farmerLevel = farmerLevel;
     }
 
-
+    public void resetFarmer(Farmer farmer) {
+        farmer.getFarmerInventory().resetInventory();
+        farmer.setFarmerCharacter(null);
+        farmer.setFarmerName(null);
+        setSeedCostReduction(0);
+        setBonusEarningsPerProduce(0);
+        setWaterBonusLimits(0);
+        setFertBonusLimits(0);
+    }
     /**
      *
      * The method serves as the initializer when the farmer decides to earn their prestige.
@@ -239,7 +247,7 @@ public class Farmer implements GeneralMethods {
                 feedback.add((String)returnTool.get(0));
                 feedback.add((String)returnTool.get(1));
             } else {
-                feedback.add("Insufficient funds to use " + toolName + ".");
+                feedback.add("Insufficient funds to use.");
             }
         } else {
             feedback.add("Invalid use of tool.");

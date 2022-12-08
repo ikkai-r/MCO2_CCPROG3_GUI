@@ -15,7 +15,7 @@ public class FarmScene {
     private static final int WIDTH = 980;
     private static final int HEIGHT = 700;
     private Scene gameScene;
-    protected static Stage gameStage;
+    private Stage gameStage;
 
     public FarmScene() {
         initializeFarmScene();

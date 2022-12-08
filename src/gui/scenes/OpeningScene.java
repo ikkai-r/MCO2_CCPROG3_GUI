@@ -47,7 +47,7 @@ public class OpeningScene extends GUI {
         SceneButtons startButton;
 
         if (isGameOver) {
-            startButton = new SceneButtons("Play Again");
+            startButton = new SceneButtons("Restart");
         } else {
             startButton = new SceneButtons("Start");
         }
@@ -81,7 +81,7 @@ public class OpeningScene extends GUI {
         Image image;
 
         if (isGameOver) {
-            image = new Image("title_screen.png");
+            image = new Image("game_over.png");
         } else {
             image = new Image("title_screen.png");
         }

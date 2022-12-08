@@ -24,6 +24,11 @@ public class Inventory {
         tools.add(new Shovel());
     }
 
+    public void resetInventory() {
+        seedsOwned.clear();
+        objectCoins = 100;
+    }
+
     /**
      *
      * enables user to use the selected tool
@@ -85,7 +90,7 @@ public class Inventory {
 
             if (tile.isWithered()) {
 
-                toolReturn.add("Successfully removed withered crop!");
+                toolReturn.add("Successfully removed withered!");
                 toolReturn.add("Gained " + tools.get(4).getExperienceGainedOnUse() + " XP!");
                 tile.resetTile(tile);
 
