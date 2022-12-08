@@ -133,20 +133,7 @@ public class Farmer implements GeneralMethods {
         setSeedCostReduction(farmerLevel.getSeedCostReduction());
         setWaterBonusLimits(farmerLevel.getWaterBonus());
         setFertBonusLimits(farmerLevel.getFertBonus());
-        this.farmerInventory.setObjectCoins(farmerInventory.getObjectCoins()-farmerLevel.getRegistrationFee());
-    }
-
-    /**
-     *
-     * The method guides the user to what the different states the tile can be in.
-     */
-    public void displayLegend() {
-        System.out.printf("%15s\n", "== LEGEND ==");
-        System.out.println("X - Unplowed");
-        System.out.println("_ - Plowed");
-        System.out.println(". - Seed");
-        System.out.println("V - Harvestable");
-        System.out.println("x - Withered");
+        farmerInventory.setObjectCoins(farmerInventory.getObjectCoins()-farmerLevel.getRegistrationFee());
     }
 
     /**
@@ -230,106 +217,6 @@ public class Farmer implements GeneralMethods {
         }
 
         return plantChoice;
-
-    }
-
-    /**
-     *
-     * The method lets the player pick the tile they want to perform the crop actions to.
-     *
-     *
-     *
-     * @return cropTileSpecs - the row and column of the selected tile
-     */
-    public int[] chooseCropToCheck() {
-        int[] cropTileSpecs = new int[2];
-
-        //cropTileRow
-        cropTileSpecs[0] = -1;
-        //cropTileCol
-        cropTileSpecs[1] = -1;
-
-        System.out.println("\nSelect crop tile to work on: ");
-
-        while(cropTileSpecs[0] < 1 || cropTileSpecs[0] > 10) {
-            System.out.println("\nInput crop tile ROW: ");
-
-            try {
-                cropTileSpecs[0] = scanner.nextInt();
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-            }
-
-            if (cropTileSpecs[0] < 1 || cropTileSpecs[0] > 10) {
-                System.out.println("Enter valid crop row number.");
-            }
-        }
-
-
-        while(cropTileSpecs[1] < 1 || cropTileSpecs[1] > 5){
-            System.out.println("Input crop tile COLUMN: ");
-            try {
-                cropTileSpecs[1] = scanner.nextInt();
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-            }
-
-            if (cropTileSpecs[1] < 1 || cropTileSpecs[1] > 5) {
-                System.out.println("Enter valid crop column number.");
-            }
-        }
-
-        cropTileSpecs[0]--;
-        cropTileSpecs[1]--;
-
-        return cropTileSpecs;
-    }
-
-    /**
-     *
-     * The method lets the player pick the seeds that they want to buy and by how much.
-     *
-     * @param tile holds the info of the tile picked.
-     * @param seeds serves as the reference of data for each of the plant's statistics.
-     * @param board holds the info of the tiles
-     *
-     * @return playerChoice - the integer the user picked.
-     */
-    public int tendToCrop(Tile tile, Board board, Seeds seeds) {
-
-        tile.setSelected(true);
-
-        int playerChoice = -1;
-
-        while(playerChoice < 1 || playerChoice > 4) {
-            System.out.println("\nInput desired number to enable action on selected tile:");
-            System.out.println("1: Use Tools");
-            System.out.println("2: Plant Seeds");
-            System.out.println("3: Harvest Crop");
-            System.out.println("4: Back to Actions");
-
-            try {
-                playerChoice = scanner.nextInt();
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-            }
-
-            switch (playerChoice) {
-              //  case 1 -> useTools(tile);
-//                case 2 -> plantSeeds(tile, seeds, board);
-                case 3 -> harvestCrop(tile, seeds);
-                case 4 -> {}
-                default -> System.out.println("Please enter a number from 1 to 4 only.");
-            }
-        }
-
-        return playerChoice;
 
     }
 
@@ -430,7 +317,9 @@ public class Farmer implements GeneralMethods {
      * @param seeds serves as the reference of data for each of the plant's statistics.
      *
      */
-    public void harvestCrop(Tile tile, Seeds seeds) {
+    public ArrayList<String> harvestCrop(Tile tile, Seeds seeds) {
+
+        ArrayList<String> cropFeedback = new ArrayList<>();
 
         if (tile.isHarvestable()) {
             int cropIndex = seeds.getCropIndex(tile.getCrop());
@@ -458,15 +347,18 @@ public class Farmer implements GeneralMethods {
             //give experience
             setExperience(getExperience()+(crop.getExperienceYield()*productsProduced));
 
-            System.out.println("Successfully harvested " + productsProduced + " " + crop.getPlantName() + "!");
-            System.out.println("Successfully earned " + finalHarvestPrice + " object coins!");
-            System.out.println("Successfully gained " + (crop.getExperienceYield()*productsProduced) + " XP!");
+            cropFeedback.add("Successfully harvested " + productsProduced + " " + crop.getPlantName() + "!");
+            cropFeedback.add("Successfully earned " + finalHarvestPrice + " object coins!");
+            cropFeedback.add("Successfully gained " + (crop.getExperienceYield()*productsProduced) + " XP!");
 
             tile.resetTile(tile);
 
         } else {
-            System.out.println("Tile is not for harvesting.");
+            cropFeedback.add("Tile is not for harvesting.");
         }
+
+        return cropFeedback;
+
     }
 
 

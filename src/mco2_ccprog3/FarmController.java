@@ -2,6 +2,8 @@ package mco2_ccprog3;
 
 import farm.FarmingGame;
 import farm.Tile;
+import gui.scenes.FarmScene;
+import gui.scenes.OpeningScene;
 import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
 import javafx.event.ActionEvent;
@@ -16,13 +18,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class FarmController implements Initializable {
+public class FarmController extends FarmScene implements Initializable {
 
     protected static FarmingGame farmingGame;
     @FXML
@@ -69,6 +72,10 @@ public class FarmController implements Initializable {
             tileCondition = farmingGame.getBoard().checkTileCondition(farmingGame.getBoard().getFarmTile(row, col));
             node.setStyle("-fx-background-image: url(\""+tileCondition+".png\"); -fx-background-size: 54 50;");
             node.setId(row+" "+col);
+        }
+
+        if (farmingGame.isGameOver()) {
+            gameOver();
         }
     }
 
@@ -178,6 +185,8 @@ public class FarmController implements Initializable {
             tileActionPane.moveSubScene(true);
             tileActionPane.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
 
+
+
             String tile = button.getId();
             int row = Integer.parseInt(String.valueOf(tile.charAt(0)));
             int col = Integer.parseInt(String.valueOf(tile.charAt(2)));
@@ -189,6 +198,13 @@ public class FarmController implements Initializable {
             setFieldButtonTiles();
             createExitButtonPanes(tileActionPane, farmingGame.getBoard().getFarmTile(row, col));
         }
+    }
+
+    public void gameOver() {
+        gameStage.close();
+        OpeningScene openingScene = new OpeningScene();
+        Stage primaryStage = openingScene.getMainStage();
+        primaryStage.show();
     }
 
 }

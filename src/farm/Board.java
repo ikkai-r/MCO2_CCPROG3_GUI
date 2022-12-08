@@ -43,49 +43,6 @@ public class Board implements GeneralMethods {
         }
     }
 
-    /**
-     *
-     * displays every tile of the board
-     *
-     * Generated from:
-     * <a href="https://www.asciiart.eu/buildings-and-places/houses"> @link House </a>
-     */
-    public void displayLand() {
-
-        System.out.println("-----------------------------------------------");
-        System.out.println("   |\t1\t \t2\t \t3\t \t4\t \t5\t|");
-        System.out.println("-----------------------------------------------");
-        for (int row = 0; row < BOARDROW; row++) {
-            System.out.printf("%2d ", row + 1);
-            for (int col = 0; col < BOARDCOL; col++) {
-                displayTile(farmTiles[row][col]);
-            }
-            System.out.println("|");
-        }
-        System.out.println("-----------------------------------------------");
-    }
-
-    /**
-     *
-     * shows the status of the tile
-     *
-     * @param tile the tile being displayed
-     */
-    public void displayTile(Tile tile) {
-        if (tile.isWithered()) {
-            System.out.print("|\tx\t");
-        } else if (tile.isHarvestable()) {
-            System.out.print("|\tV\t");
-        } else if (tile.hasRock()) {
-            System.out.print("|\tO\t");
-        } else if (tile.hasSeed()){
-            System.out.print("|\t.\t");
-        } else if (tile.isPlowed()) {
-            System.out.print("|\t_\t");
-        }  else {
-            System.out.print("|\tX\t");
-        }
-    }
 
     public String checkTileCondition(Tile tile) {
         if (tile.isWithered()) {

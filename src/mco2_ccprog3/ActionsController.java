@@ -1,11 +1,11 @@
 package mco2_ccprog3;
 
-import farm.Board;
-import farm.FarmingGame;
-import farm.Seeds;
-import farm.Tile;
+import farm.*;
 import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
+import javafx.animation.KeyFrame;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -20,7 +20,9 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +30,8 @@ import java.util.ResourceBundle;
 
 public class ActionsController extends FarmController implements Initializable {
 
+    @FXML
+    private Text actionHeader;
     @FXML
     private GridPane actionGridPane;
     @FXML
@@ -131,7 +135,7 @@ public class ActionsController extends FarmController implements Initializable {
 
     public void plantSeed() {
 
-        int row = 0;
+            int row = 0;
 
             ScrollPane scrollPane = new ScrollPane();
             scrollPane.setPrefSize(610, 350);
@@ -146,7 +150,7 @@ public class ActionsController extends FarmController implements Initializable {
                 button.setStyle("-fx-font-size: 35; -fx-background-image: url(\"actionbtn.png\"); -fx-background-repeat: stretch; -fx-background-size: 100% 100%; " +
                         "-fx-alignment:center-left;");
                 button.setPrefWidth(605);
-                button.setText(seed + "\t\t\t\t\t" + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed));
+                button.setText(seed + "\t\t\t" + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed));
                 button.setTextAlignment(TextAlignment.LEFT);
                 ImageView im = new ImageView(new Image(seed.toLowerCase()+".png"));
                 im.setFitHeight(60);
@@ -182,18 +186,44 @@ public class ActionsController extends FarmController implements Initializable {
     public void enablePlanting(Tile tile, Seeds seeds, Board board, String seed) {
         String feedback;
         feedback = farmingGame.getFarmer().plantSeeds(tile, seeds, board, seed);
-        PlayerSubScene popUpScene = new PlayerSubScene("action-pop-up", 500, 100);
-        popUpScene.moveSubScene(true);
-        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(feedback, 30);
-        sceneHeaderTxts.prefWidthProperty().bind(popUpScene.widthProperty());
-        sceneHeaderTxts.setStyle("-fx-font-size: 40");
-        sceneHeaderTxts.setTextAlignment(TextAlignment.CENTER);
-        actionAncPane.getChildren().add(popUpScene);
-        popUpScene.getPane().getChildren().add(sceneHeaderTxts);
+        actionHeader.setText(feedback);
+        PauseTransition pause = new PauseTransition(Duration.seconds(2));
+        pause.setOnFinished(e ->{
+            actionHeader.setText("Pick an action for the clicked tile!");
+        });
+        pause.play();
         plantSeed();
     }
 
     public void harvestCrop() {
+        ArrayList<String> cropFeedback = farmingGame.getFarmer().harvestCrop(farmingGame.getBoard().getSelectedTile(), farmingGame.getSeeds());
+        StringBuilder strFeedback = new StringBuilder();
+
+        PlayerSubScene cropPopUp;
+
+        for (String cropFeed : cropFeedback) {
+            strFeedback.append(cropFeed);
+            strFeedback.append("\n\n");
+        }
+
+        if (cropFeedback.size() <= 1) {
+            cropPopUp = new PlayerSubScene("action-pop-up", 500, 100);
+        } else {
+            cropPopUp = new PlayerSubScene("action-pop-up", 600, 300);
+        }
+
+        cropPopUp.moveSubScene(true);
+
+        SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(strFeedback.toString(), 30);
+        sceneHeaderTxts.prefWidthProperty().bind(cropPopUp.widthProperty());
+        sceneHeaderTxts.setStyle("-fx-font-size: 40");
+
+        System.out.println(strFeedback);
+        sceneHeaderTxts.setTextAlignment(TextAlignment.CENTER);
+        cropPopUp.getPane().getChildren().add(sceneHeaderTxts);
+
+        actionAncPane.getChildren().add(cropPopUp);
 
     }
+
 }

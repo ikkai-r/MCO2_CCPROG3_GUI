@@ -5,10 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/gui/res/gameOver.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mco2_ccprog3/GameOverController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/res/actions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/actions.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670472851177</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Plant Seed WIP.">
+      <created>1670485629387</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1670485629387</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,7 +238,8 @@
     <MESSAGE value="Shop finish. Sleep WIP." />
     <MESSAGE value="Use Tool WIP." />
     <MESSAGE value="Use Tool finished. Plant Seed WIP." />
-    <option name="LAST_COMMIT_MESSAGE" value="Use Tool finished. Plant Seed WIP." />
+    <MESSAGE value="Plant Seed WIP." />
+    <option name="LAST_COMMIT_MESSAGE" value="Plant Seed WIP." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

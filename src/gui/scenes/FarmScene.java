@@ -15,7 +15,7 @@ public class FarmScene {
     private static final int WIDTH = 980;
     private static final int HEIGHT = 700;
     private Scene gameScene;
-    private Stage gameStage;
+    protected static Stage gameStage;
 
     public FarmScene() {
         initializeFarmScene();
@@ -38,6 +38,8 @@ public class FarmScene {
         gameScene.getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
         gameStage.show();
     }
+
+
 
 
 }

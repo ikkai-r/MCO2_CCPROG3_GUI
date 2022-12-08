@@ -20,8 +20,19 @@ import java.io.IOException;
 public class OpeningScene extends GUI {
 
     private FarmingGame farmingGame = new FarmingGame();
-
+    private boolean isGameOver;
     public OpeningScene() {
+        super.mainPane.setId("pane");
+        VBox box = openingSceneVBOX();
+        super.mainPane.getChildren().add(box);
+        box.setAlignment(Pos.CENTER);
+        box.prefWidthProperty().bind(super.mainPane.widthProperty());
+        box.prefHeightProperty().bind(super.mainPane.heightProperty());
+        super.mainScene.getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+    }
+
+    public OpeningScene(boolean isGameOver) {
+        this.isGameOver = isGameOver;
         super.mainPane.setId("pane");
         VBox box = openingSceneVBOX();
         super.mainPane.getChildren().add(box);
@@ -33,7 +44,13 @@ public class OpeningScene extends GUI {
 
     public VBox openingSceneVBOX() {
         Font.loadFont(this.getClass().getResource("/Stardew_Valley.ttf").toExternalForm(), 20);
-        SceneButtons startButton = new SceneButtons("Start");
+        SceneButtons startButton;
+
+        if (isGameOver) {
+            startButton = new SceneButtons("Play Again");
+        } else {
+            startButton = new SceneButtons("Start");
+        }
         SceneButtons exitButton = new SceneButtons("Exit");
         startButton.setId("startBtn");
         exitButton.setId("exitBtn");
@@ -61,7 +78,13 @@ public class OpeningScene extends GUI {
         HBox hbox = new HBox(40);
         hbox.getChildren().addAll(startButton, exitButton);
         hbox.setAlignment(Pos.CENTER);
-        Image image = new Image("title_screen.png");
+        Image image;
+
+        if (isGameOver) {
+            image = new Image("title_screen.png");
+        } else {
+            image = new Image("title_screen.png");
+        }
         ImageView imageView = new ImageView();
         imageView.setImage(image);
         imageView.setFitWidth(750);

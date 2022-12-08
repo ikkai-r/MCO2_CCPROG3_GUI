@@ -200,7 +200,6 @@ public class Tile {
         if (!this.crop.isEmpty()) {
             if ((this.daysPassed > this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime()) ||
                     (this.daysPassed == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime() && (canWater() || canFertilize()))) {
-                System.out.println(this.crop + " has withered.");
                 this.isPlowed = false;
                 this.isWithered = true;
                 this.hasSeed = false;
@@ -223,7 +222,6 @@ public class Tile {
                     && (this.timesWatered == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterNeeded() || this.timesWatered == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterCapBonus())
                     && (this.timesFertilized == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertilizerNeeded() || this.timesFertilized == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertCapBonus())) {
                 this.isHarvestable = true;
-                System.out.println(this.crop + " can now be harvested!");
             }
         }
 
