@@ -4,6 +4,7 @@ import farm.FarmingGame;
 import farm.Tile;
 import farmerprogress.FarmerLevel;
 import gui.scenes.*;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,6 +20,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
@@ -216,18 +218,20 @@ public class FarmController implements Initializable {
         ArrayList<Object> farmerAlertList = farmingGame.getProgressChecker().checkExperience(farmingGame.getFarmer());
 
         if (!farmerAlertList.isEmpty()) {
-//            System.out.println(promptFarmer);
+
             if (farmerAlertList.size() == 1) {
+
                 PlayerSubScene levelUp = new PlayerSubScene("level-up", 747, 421);
                 levelUp.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
                 //if only leveled up
-                System.out.println(farmerAlertList.get(0).toString());
                 SceneHeaderTxts levelUpTxt = new SceneHeaderTxts(farmerAlertList.get(0).toString(), 200);
                 levelUpTxt.prefWidthProperty().bind(levelUp.widthProperty());
                 levelUp.getPane().getChildren().add(levelUpTxt);
                 levelUp.moveSubScene(true);
                 farmPane.getChildren().add(levelUp);
+
             } else {
+
                 PlayerSubScene levelUpRegis = new PlayerSubScene("level-up-regis", 747, 600);
                 levelUpRegis.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
                 //if leveled up with registration
@@ -240,7 +244,7 @@ public class FarmController implements Initializable {
                 levelUpRegis.moveSubScene(true);
                 farmPane.getChildren().add(levelUpRegis);
 
-                SceneButtons registerButton = new SceneButtons("Register");
+                SceneButtons registerButton = new SceneButtons("Accept");
                 SceneButtons declineButton = new SceneButtons("Decline");
                 registerButton.setId("registerBtn");
                 declineButton.setId("declineBtn");
@@ -249,11 +253,17 @@ public class FarmController implements Initializable {
                     @Override
                     public void handle(ActionEvent event) {
                         String response = farmingGame.getProgressChecker().checkRegister(farmingGame.getFarmer(), (FarmerLevel)farmerAlertList.get(2));
-                        SceneHeaderTxts responseTxt = new SceneHeaderTxts(response, 200);
-                        responseTxt.prefWidthProperty().bind(levelUpRegis.widthProperty());
-                        responseTxt.setTextAlignment(TextAlignment.CENTER);
-                        levelUpRegis.getPane().getChildren().removeAll();
-                        levelUpRegis.getPane().getChildren().add(responseTxt);
+                        levelUpTxt.setText(response);
+                        levelUpTxt.prefHeightProperty().bind(levelUpRegis.heightProperty().divide(2));
+                        levelUpTxt.setAlignment(Pos.CENTER);
+                        levelUpTxt.setStyle("-fx-font-size: 40");
+                        declineButton.setVisible(false);
+                        registerButton.setVisible(false);
+                        PauseTransition pause = new PauseTransition(Duration.seconds(1.5));
+                        pause.setOnFinished(e ->{
+                            levelUpRegis.moveSubScene(false);
+                        });
+                        pause.play();
                     }
                 });
 
@@ -267,7 +277,10 @@ public class FarmController implements Initializable {
 
                 HBox hbox = new HBox(40);
                 hbox.getChildren().addAll(registerButton, declineButton);
-                hbox.setAlignment(Pos.CENTER);
+                hbox.prefWidthProperty().bind(levelUpRegis.widthProperty());
+                hbox.prefHeightProperty().bind(levelUpRegis.heightProperty().add(-60));
+                hbox.setAlignment(Pos.BOTTOM_CENTER);
+                levelUpRegis.getPane().getChildren().add(hbox);
 
             }
         }

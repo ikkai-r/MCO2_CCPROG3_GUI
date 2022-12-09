@@ -65,7 +65,7 @@ public class ProgressChecker {
             feedback = "You have insufficient funds to register.";
         } else {
             farmer.changeRegistration(farmerLevel);
-            feedback = "Successfully changed farmer registration to " + farmerLevel.name() + " FARMER!";
+            feedback = "Successfully changed farmer registration to \n" + farmerLevel.name() + " FARMER!";
         }
 
         return feedback;

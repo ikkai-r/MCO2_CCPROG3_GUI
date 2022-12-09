@@ -57,11 +57,11 @@ public class StoreController extends FarmController implements Initializable {
                 im.setFitHeight(50);
                 im.setFitWidth(50);
                 if (seed.equals("Sunflower")) {
-                    button.setText(" " + seed + "\t\t    " + farmingGame.getStore().getProducts().getPlants().get(row).getSeedCost());
+                    button.setText(" " + seed + "\t\t    " + (farmingGame.getStore().getProducts().getPlants().get(row).getSeedCost()-farmingGame.getFarmer().getSeedCostReduction()));
                 } else if (seed.equals("Mango") || seed.equals("Apple")) {
-                    button.setText(" " + seed + "\t\t\t   " + farmingGame.getStore().getProducts().getPlants().get(row).getSeedCost());
+                    button.setText(" " + seed + "\t\t\t   " + (farmingGame.getStore().getProducts().getPlants().get(row).getSeedCost()-farmingGame.getFarmer().getSeedCostReduction()));
                 } else {
-                    button.setText(" " + seed + "\t\t\t    " + farmingGame.getStore().getProducts().getPlants().get(row).getSeedCost());
+                    button.setText(" " + seed + "\t\t\t    " + (farmingGame.getStore().getProducts().getPlants().get(row).getSeedCost()-farmingGame.getFarmer().getSeedCostReduction()));
                 }
                 button.setAlignment(Pos.BASELINE_LEFT);
             }
