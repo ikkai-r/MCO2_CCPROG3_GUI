@@ -109,12 +109,10 @@ public class ActionsController extends FarmController implements Initializable {
 
     public void enableTool(int tool, Tile tile) {
         ArrayList<String> feedback;
-        String farmerExpAlert;
 
         int layout;
         StringBuilder strFeedback = new StringBuilder();
         feedback = farmingGame.getFarmer().useTools(tile, tool);
-        farmerExpAlert = checkFarmerExp();
         PlayerSubScene popUpScene = new PlayerSubScene("action-pop-up", 500, 100);
         popUpScene.moveSubScene(true);
         for (String a : feedback) {
@@ -126,11 +124,6 @@ public class ActionsController extends FarmController implements Initializable {
         } else {
             layout = 10;
         }
-
-//        if (farmerExpAlert != null) {
-//            System.out.println("here");
-//            strFeedback.append(farmerExpAlert);
-//        }
 
         SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts(strFeedback.toString(), layout);
         sceneHeaderTxts.prefWidthProperty().bind(popUpScene.widthProperty());
@@ -205,7 +198,6 @@ public class ActionsController extends FarmController implements Initializable {
     public void harvestCrop() {
         ArrayList<String> cropFeedback = farmingGame.getFarmer().harvestCrop(farmingGame.getBoard().getSelectedTile(), farmingGame.getSeeds());
         StringBuilder strFeedback = new StringBuilder();
-        String farmerExpAlert  = checkFarmerExp();
 
         PlayerSubScene cropPopUp;
 
@@ -218,10 +210,6 @@ public class ActionsController extends FarmController implements Initializable {
             cropPopUp = new PlayerSubScene("action-pop-up", 500, 100);
         } else {
             cropPopUp = new PlayerSubScene("action-pop-up", 600, 300);
-        }
-
-        if (farmerExpAlert != null) {
-            strFeedback.append("\n").append(farmerExpAlert);
         }
 
         cropPopUp.moveSubScene(true);

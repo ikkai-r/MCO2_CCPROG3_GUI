@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/gui/res/level-up.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
     </list>
@@ -226,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670513688251</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Leveling Up WIP.">
+      <created>1670562456442</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1670562456442</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -248,7 +257,8 @@
     <MESSAGE value="Plant Seed WIP." />
     <MESSAGE value="Plant Seed and Harvest Crop Finish. WIP Game Over." />
     <MESSAGE value="Game over finished. Leveling up last." />
-    <option name="LAST_COMMIT_MESSAGE" value="Game over finished. Leveling up last." />
+    <MESSAGE value="Leveling Up WIP." />
+    <option name="LAST_COMMIT_MESSAGE" value="Leveling Up WIP." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

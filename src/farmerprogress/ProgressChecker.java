@@ -2,6 +2,8 @@ package farmerprogress;
 
 import farm.Farmer;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProgressChecker {
@@ -12,18 +14,18 @@ public class ProgressChecker {
      * @param farmer gets the current xp of the farmer
      * @return
      */
-    public String checkExperience(Farmer farmer) {
+    public ArrayList<Object> checkExperience(Farmer farmer) {
 
-        String check = null;
+        ArrayList<Object> checkingFarm = new ArrayList<>();
 
         int farmerXPLevel = ((int)farmer.getExperience()/100);
         System.out.println("xp: " + farmerXPLevel + " " + farmer.getFarmerLevel());
         if (farmerXPLevel > farmer.getFarmerLevel()) {
             farmer.setFarmerLevel(farmerXPLevel);
-            check = checkFarmerLevel(farmer, true);
+            checkingFarm = checkFarmerLevel(farmer, true);
         }
 
-        return check;
+        return checkingFarm;
     }
 
     /**
@@ -32,7 +34,9 @@ public class ProgressChecker {
      *
      * @param farmer gets the current level of the farmer
      */
-    public String checkFarmerLevel(Farmer farmer, boolean hasLeveledUp) {
+    public ArrayList<Object> checkFarmerLevel(Farmer farmer, boolean hasLeveledUp) {
+
+        ArrayList<Object> farmerLvl = new ArrayList<>();
 
         StringBuilder farmerLvlAlert = new StringBuilder();
 
@@ -40,27 +44,31 @@ public class ProgressChecker {
 
         if (hasLeveledUp) {
 
-            farmerLvlAlert.append("You have leveled up! You are now level ").append(farmer.getFarmerLevel()).append("! Congratulations!");
+            farmerLvl.add(farmerLvlAlert.append("You have leveled up! \nYou are now level ").append(farmer.getFarmerLevel()).append("!"));
 
             if (farmerLevel != null) {
 
-//                playerChoice = promptFarmerRegistration(farmerLevel);
-
-//                if (playerChoice == 1) {
-//                    if (farmer.getFarmerInventory().getObjectCoins() < farmerLevel.getRegistrationFee()) {
-//                        System.out.println("You have insufficient funds to register.");
-//                    } else {
-//                        farmer.changeRegistration(farmerLevel);
-//                        System.out.println("Successfully changed farmer registration to " + farmerLevel.name() + " FARMER!");
-//                    }
-//                }
+                farmerLvl.add(promptFarmerRegistration(farmerLevel));
+                farmerLvl.add(farmerLevel);
 
             }
 
         }
 
-        return farmerLvlAlert.toString();
+        return farmerLvl;
 
+    }
+
+    public String checkRegister(Farmer farmer, FarmerLevel farmerLevel) {
+        String feedback = null;
+        if (farmer.getFarmerInventory().getObjectCoins() < farmerLevel.getRegistrationFee()) {
+            feedback = "You have insufficient funds to register.";
+        } else {
+            farmer.changeRegistration(farmerLevel);
+            feedback = "Successfully changed farmer registration to " + farmerLevel.name() + " FARMER!";
+        }
+
+        return feedback;
     }
 
     /**
@@ -90,37 +98,18 @@ public class ProgressChecker {
      * @param farmerLvl checks the level of the farmer.
      * @return if the user has the sufficient funds to register to the next level.
      */
-    public void promptFarmerRegistration(FarmerLevel farmerLvl) {
+    public String promptFarmerRegistration(FarmerLevel farmerLvl) {
 
-        Scanner scanner = new Scanner(System.in);
+        StringBuilder dialogue = new StringBuilder();
 
-        int playerChoice = -1;
+        dialogue.append("\nYou can now register as " + farmerLvl.name() + " FARMER!");
+        dialogue.append("\nPay " + farmerLvl.getRegistrationFee() + " Object coins to receive the following benefits: ");
+        dialogue.append("\nBonus Earnings per Produce: " + farmerLvl.getBonusEarnings());
+        dialogue.append("\nSeed Cost Reduction: " + farmerLvl.getSeedCostReduction());
+        dialogue.append("\nWater Bonus Limit Increase: " + farmerLvl.getWaterBonus());
+        dialogue.append("\nFertilizer Bonus Limit Increase: " + farmerLvl.getFertBonus());
 
-        System.out.println("\nYou can now register as " + farmerLvl.name() + " FARMER!");
-        System.out.println("You will have to pay " + farmerLvl.getRegistrationFee() + " Object coins to receive the following benefits: ");
-        System.out.println("Bonus Earnings per Produce: " + farmerLvl.getBonusEarnings());
-        System.out.println("Seed Cost Reduction: " + farmerLvl.getSeedCostReduction());
-        System.out.println("Water Bonus Limit Increase: " + farmerLvl.getWaterBonus());
-        System.out.println("Fertilizer Bonus Limit Increase: " + farmerLvl.getFertBonus());
-
-        do {
-            System.out.println();
-            System.out.println("Would you like to register?");
-
-            System.out.println("1: Yes");
-            System.out.println("2: No");
-
-            try {
-                playerChoice = scanner.nextInt();
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-            }
-
-        } while(playerChoice < 1 || playerChoice > 2);
-
-//        return playerChoice;
+        return dialogue.toString();
     }
 
 

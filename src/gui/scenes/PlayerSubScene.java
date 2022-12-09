@@ -40,6 +40,9 @@ public class PlayerSubScene extends SubScene {
         } else if(scene.equals("sleep")){
             image =  new BackgroundImage(new Image("sleep.jpg", width, height, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
+        } else if (scene.contains("level-up")) {
+            image =  new BackgroundImage(new Image("level-up.png", width, height, false, true),
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
         } else {
             image =  new BackgroundImage(new Image("tileActions.png", width, height, false, true),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
@@ -63,6 +66,12 @@ public class PlayerSubScene extends SubScene {
         } else if (scene.equals("action-pop-up")) {
             setLayoutX(985);
             setLayoutY(130);
+        } else if (scene.equals("level-up")) {
+            setLayoutX(1095);
+            setLayoutY(100);
+        } else if(scene.equals("level-up-regis")) {
+            setLayoutX(1095);
+            setLayoutY(50);
         } else {
             setLayoutX(1024);
             setLayoutY(90);
@@ -78,6 +87,8 @@ public class PlayerSubScene extends SubScene {
         if (isHidden) {
             if (scene.equals("sleep")) {
                 transition.setToX(0);
+            } else if (scene.contains("level-up")) {
+                transition.setToX(-990);
             } else {
                 transition.setToX(-930);
             }
@@ -85,7 +96,7 @@ public class PlayerSubScene extends SubScene {
             transition.setToX(0);
         }
 
-        if (scene.contains("pop-up")) {
+        if (scene.contains("pop-up") || scene.equals("level-up")) {
             TranslateTransition transitionOut = new TranslateTransition();
             transitionOut.setDuration(Duration.seconds(0.3));
             transitionOut.setNode(this);

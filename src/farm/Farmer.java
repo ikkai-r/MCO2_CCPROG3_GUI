@@ -14,8 +14,8 @@ public class Farmer implements GeneralMethods {
     private Scanner scanner = new Scanner(System.in);
     private static String farmerCharacter = null;
     private static String farmerName = null;
-    private int farmerLevel = 0;
-    private double experience = 99.5D;
+    private int farmerLevel = 4;
+    private double experience = 499.5D;
     private String farmerStatus = "FARMER";
     private int dayCount = 1;
     private static int seedCostReduction = 0;

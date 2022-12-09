@@ -2,10 +2,8 @@ package mco2_ccprog3;
 
 import farm.FarmingGame;
 import farm.Tile;
-import gui.scenes.FarmScene;
-import gui.scenes.OpeningScene;
-import gui.scenes.PlayerSubScene;
-import gui.scenes.SceneHeaderTxts;
+import farmerprogress.FarmerLevel;
+import gui.scenes.*;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -19,11 +17,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FarmController implements Initializable {
@@ -74,6 +74,8 @@ public class FarmController implements Initializable {
             node.setStyle("-fx-background-image: url(\""+tileCondition+".png\"); -fx-background-size: 54 50;");
             node.setId(row+" "+col);
         }
+
+        checkFarmerExp();
 
         if (farmingGame.isGameOver()) {
             gameOver();
@@ -210,8 +212,66 @@ public class FarmController implements Initializable {
         primaryStage.show();
     }
 
-    public String checkFarmerExp() {
-        return farmingGame.getProgressChecker().checkExperience(farmingGame.getFarmer());
+    public void checkFarmerExp() {
+        ArrayList<Object> farmerAlertList = farmingGame.getProgressChecker().checkExperience(farmingGame.getFarmer());
+
+        if (!farmerAlertList.isEmpty()) {
+//            System.out.println(promptFarmer);
+            if (farmerAlertList.size() == 1) {
+                PlayerSubScene levelUp = new PlayerSubScene("level-up", 747, 421);
+                levelUp.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+                //if only leveled up
+                System.out.println(farmerAlertList.get(0).toString());
+                SceneHeaderTxts levelUpTxt = new SceneHeaderTxts(farmerAlertList.get(0).toString(), 200);
+                levelUpTxt.prefWidthProperty().bind(levelUp.widthProperty());
+                levelUp.getPane().getChildren().add(levelUpTxt);
+                levelUp.moveSubScene(true);
+                farmPane.getChildren().add(levelUp);
+            } else {
+                PlayerSubScene levelUpRegis = new PlayerSubScene("level-up-regis", 747, 600);
+                levelUpRegis.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+                //if leveled up with registration
+                String reg = farmerAlertList.get(0).toString() + farmerAlertList.get(1).toString();
+                SceneHeaderTxts levelUpTxt = new SceneHeaderTxts(reg, 200);
+                levelUpTxt.prefWidthProperty().bind(levelUpRegis.widthProperty());
+                levelUpTxt.setTextAlignment(TextAlignment.CENTER);
+                levelUpTxt.setStyle("-fx-font-size: 30");
+                levelUpRegis.getPane().getChildren().add(levelUpTxt);
+                levelUpRegis.moveSubScene(true);
+                farmPane.getChildren().add(levelUpRegis);
+
+                SceneButtons registerButton = new SceneButtons("Register");
+                SceneButtons declineButton = new SceneButtons("Decline");
+                registerButton.setId("registerBtn");
+                declineButton.setId("declineBtn");
+
+                registerButton.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent event) {
+                        String response = farmingGame.getProgressChecker().checkRegister(farmingGame.getFarmer(), (FarmerLevel)farmerAlertList.get(2));
+                        SceneHeaderTxts responseTxt = new SceneHeaderTxts(response, 200);
+                        responseTxt.prefWidthProperty().bind(levelUpRegis.widthProperty());
+                        responseTxt.setTextAlignment(TextAlignment.CENTER);
+                        levelUpRegis.getPane().getChildren().removeAll();
+                        levelUpRegis.getPane().getChildren().add(responseTxt);
+                    }
+                });
+
+                declineButton.setOnAction(new EventHandler<ActionEvent>() {
+
+                    @Override
+                    public void handle(ActionEvent event) {
+                        levelUpRegis.moveSubScene(false);
+                    }
+                });
+
+                HBox hbox = new HBox(40);
+                hbox.getChildren().addAll(registerButton, declineButton);
+                hbox.setAlignment(Pos.CENTER);
+
+            }
+        }
+
     }
 
 }
