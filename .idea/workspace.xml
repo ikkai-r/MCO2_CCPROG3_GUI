@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/gui/res/game_over.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/farm/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/gameOver.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/OpeningScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/GameOverController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670492936398</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Game over finished. Leveling up last.">
+      <created>1670513688251</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1670513688251</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -244,7 +247,8 @@
     <MESSAGE value="Use Tool finished. Plant Seed WIP." />
     <MESSAGE value="Plant Seed WIP." />
     <MESSAGE value="Plant Seed and Harvest Crop Finish. WIP Game Over." />
-    <option name="LAST_COMMIT_MESSAGE" value="Plant Seed and Harvest Crop Finish. WIP Game Over." />
+    <MESSAGE value="Game over finished. Leveling up last." />
+    <option name="LAST_COMMIT_MESSAGE" value="Game over finished. Leveling up last." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

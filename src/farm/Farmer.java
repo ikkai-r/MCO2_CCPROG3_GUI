@@ -15,7 +15,7 @@ public class Farmer implements GeneralMethods {
     private static String farmerCharacter = null;
     private static String farmerName = null;
     private int farmerLevel = 0;
-    private double experience = 0D;
+    private double experience = 99.5D;
     private String farmerStatus = "FARMER";
     private int dayCount = 1;
     private static int seedCostReduction = 0;

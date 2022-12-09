@@ -210,4 +210,8 @@ public class FarmController implements Initializable {
         primaryStage.show();
     }
 
+    public String checkFarmerExp() {
+        return farmingGame.getProgressChecker().checkExperience(farmingGame.getFarmer());
+    }
+
 }

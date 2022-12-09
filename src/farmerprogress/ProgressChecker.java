@@ -8,15 +8,22 @@ public class ProgressChecker {
 
     /**
      * checks the farmer's current experience if it already passed the threshold for the current level.
+     *
      * @param farmer gets the current xp of the farmer
+     * @return
      */
-    public void checkExperience(Farmer farmer) {
+    public String checkExperience(Farmer farmer) {
+
+        String check = null;
+
         int farmerXPLevel = ((int)farmer.getExperience()/100);
+        System.out.println("xp: " + farmerXPLevel + " " + farmer.getFarmerLevel());
         if (farmerXPLevel > farmer.getFarmerLevel()) {
             farmer.setFarmerLevel(farmerXPLevel);
-            System.out.println("You have leveled up! You are now level " + farmer.getFarmerLevel() + "! Congratulations!");
-            checkFarmerLevel(farmer);
+            check = checkFarmerLevel(farmer, true);
         }
+
+        return check;
     }
 
     /**
@@ -25,26 +32,34 @@ public class ProgressChecker {
      *
      * @param farmer gets the current level of the farmer
      */
-    public void checkFarmerLevel(Farmer farmer) {
+    public String checkFarmerLevel(Farmer farmer, boolean hasLeveledUp) {
 
-        int playerChoice = -1;
+        StringBuilder farmerLvlAlert = new StringBuilder();
 
         FarmerLevel farmerLevel = checkLevel(farmer);
 
-        if (farmerLevel != null) {
+        if (hasLeveledUp) {
 
-            playerChoice = promptFarmerRegistration(farmerLevel);
+            farmerLvlAlert.append("You have leveled up! You are now level ").append(farmer.getFarmerLevel()).append("! Congratulations!");
 
-            if (playerChoice == 1) {
-                if (farmer.getFarmerInventory().getObjectCoins() < farmerLevel.getRegistrationFee()) {
-                    System.out.println("You have insufficient funds to register.");
-                } else {
-                    farmer.changeRegistration(farmerLevel);
-                    System.out.println("Successfully changed farmer registration to " + farmerLevel.name() + " FARMER!");
-                }
+            if (farmerLevel != null) {
+
+//                playerChoice = promptFarmerRegistration(farmerLevel);
+
+//                if (playerChoice == 1) {
+//                    if (farmer.getFarmerInventory().getObjectCoins() < farmerLevel.getRegistrationFee()) {
+//                        System.out.println("You have insufficient funds to register.");
+//                    } else {
+//                        farmer.changeRegistration(farmerLevel);
+//                        System.out.println("Successfully changed farmer registration to " + farmerLevel.name() + " FARMER!");
+//                    }
+//                }
+
             }
 
         }
+
+        return farmerLvlAlert.toString();
 
     }
 
@@ -75,7 +90,7 @@ public class ProgressChecker {
      * @param farmerLvl checks the level of the farmer.
      * @return if the user has the sufficient funds to register to the next level.
      */
-    public int promptFarmerRegistration(FarmerLevel farmerLvl) {
+    public void promptFarmerRegistration(FarmerLevel farmerLvl) {
 
         Scanner scanner = new Scanner(System.in);
 
@@ -105,7 +120,7 @@ public class ProgressChecker {
 
         } while(playerChoice < 1 || playerChoice > 2);
 
-        return playerChoice;
+//        return playerChoice;
     }
 
 
