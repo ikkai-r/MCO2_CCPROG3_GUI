@@ -131,7 +131,7 @@ public class Inventory {
         } else if (toolName.equals(tools.get(1).getToolName())) {
 
             //watering can
-            if (tile.hasSeed()) {
+            if (tile.hasSeed() && !tile.isHarvestable()) {
 
                 return true;
 

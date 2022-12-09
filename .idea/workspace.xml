@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/ActionsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/StoreController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Inventory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,7 +237,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670592569300</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Refactor needed.">
+      <created>1670595019184</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1670595019184</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -265,7 +268,8 @@
     <MESSAGE value="Game over finished. Leveling up last." />
     <MESSAGE value="Leveling Up WIP." />
     <MESSAGE value="Leveling Up WIP. Make the formatting. Then refactor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Leveling Up WIP. Make the formatting. Then refactor." />
+    <MESSAGE value="Refactor needed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor needed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
