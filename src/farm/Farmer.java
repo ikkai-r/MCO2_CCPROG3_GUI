@@ -3,42 +3,28 @@ package farm;
 import farmerprogress.FarmerLevel;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
-import static java.lang.Double.valueOf;
 
 public class Farmer implements GeneralMethods {
 
     private Inventory farmerInventory = new Inventory();
-    private Scanner scanner = new Scanner(System.in);
-    private String farmerCharacter = null;
-    private String farmerName = null;
-    private int farmerLevel = 0;
-    private double experience = 0D;
-    private String farmerStatus = "FARMER";
-    private int dayCount = 1;
-    private static int seedCostReduction = 0;
-    private static int bonusEarningsPerProduce = 0;
-    private static int waterBonusLimits = 0;
-    private static int fertBonusLimits = 0;
+    private String farmerCharacter;
+    private String farmerName;
+    private int farmerLevel;
+    private double experience;
+    private String farmerStatus;
+    private int dayCount;
+    private static int seedCostReduction;
+    private static int bonusEarningsPerProduce;
+    private static int waterBonusLimits;
+    private static int fertBonusLimits;
 
     /**
-     *
-     * The method generates an integer between the minimum and the maximum range.
-     *
-     * @param max the maximum range for the random value
-     * @param min the minimum range for the random value
-     *
-     * @return a random integer.
+     * Sets the farmer variables to the default values
      */
-    public int returnRandom(int max, int min) {
-        return min + (int)(Math.random() * ((max - min) + 1));
-    }
-
     public Farmer() {
         getFarmerInventory().resetInventory();
         setFarmerCharacter(null);
+        setFarmerStatus("FARMER");
         setFarmerName(null);
         setSeedCostReduction(0);
         setBonusEarningsPerProduce(0);
@@ -48,6 +34,7 @@ public class Farmer implements GeneralMethods {
         setExperience(0);
         setFarmerLevel(0);
     }
+
     /**
      *
      * The method serves as the initializer when the farmer decides to earn their prestige.
@@ -65,11 +52,12 @@ public class Farmer implements GeneralMethods {
 
     /**
      *
-     * The method increases the seeds that the player has by how much they bought.
+     * The method increases the seeds that the player has by how much they bought
+     * and adds the seed name to their owned seeds.
      *
      * @param seeds  holds the info of the plants.
-     * @param plantChoice the user's seed choice to plant
      * @param plantSeeds the number of seeds the farmer has bought.
+     * @param plantChoice the user's seed choice to plant
      */
     public void addItemToInventory(Seeds seeds, int plantSeeds, int plantChoice) {
         String plantName = seeds.getPlants().get(plantChoice).getPlantName();
@@ -84,74 +72,12 @@ public class Farmer implements GeneralMethods {
 
     /**
      *
-     * The method lets the player pick the seeds that they want to buy and by how much.
-     *
-     * @param store holds the seeds that the user can buy.
-     *
-     * @return plantChoice[] - the indexes of the plant and how much the user bought.
-     */
-    public int[] buySeeds(Store store) {
-
-        int[] plantChoice = new int[2];
-        //1st element is the plant to purchase
-        //2nd element is the plant seeds
-        plantChoice[0] = -1;
-        plantChoice[1] = -1;
-
-        //loops until the user inputs a valid integer
-        while(plantChoice[0] < 0 || plantChoice[0] > store.getProducts().getPlants().size() + 1) {
-
-            System.out.println("Pick what seed you want to buy:");
-
-            try {
-                plantChoice[0] = scanner.nextInt();
-            }
-            catch (Exception e) {
-                //catches user input that is not an integer
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-                buySeeds(store);
-            }
-
-            if (plantChoice[0] < 0 || plantChoice[0] > store.getProducts().getPlants().size() + 1) {
-                System.out.println("Enter a valid seed number only.");
-            }
-        }
-
-        //if user picks the cancel option from the store
-        if (plantChoice[0] == store.getProducts().getPlants().size() + 1)
-            return plantChoice;
-
-        //gets the name of the seed that the user will buy
-        String plantName = store.getProducts().getPlants().get(plantChoice[0]-1).getPlantName();
-
-        while (plantChoice[1] < 0) {
-
-            System.out.println("How many seeds of " + plantName + " do you want to purchase?");
-
-            try {
-                plantChoice[1] = scanner.nextInt();
-            }
-            catch (Exception e) {
-                scanner.nextLine();
-                System.out.println("Only input valid integers. Please try again.");
-            }
-
-            if (plantChoice[1] < 0) {
-                System.out.println("Enter a valid amount of seeds.");
-            }
-
-        }
-
-        return plantChoice;
-
-    }
-
-    /**
-     *
      * Lets the user interact with the tools provided to a tile.
      *
      * @param crop holds the info of the tile picked.
+     * @param toolChoice holds the index of the tool the user picked.
+     *
+     * @return arraylist of Strings that are feedback from the tool action
      */
     public ArrayList<String> useTools(Tile crop, int toolChoice) {
         ArrayList<String> feedback = new ArrayList<>();
@@ -183,6 +109,9 @@ public class Farmer implements GeneralMethods {
      * @param tile holds the info of the tile picked.
      * @param seeds serves as the reference of data for each of the plant's statistics.
      * @param board holds the info of the tiles
+     * @param plantName holds the name of the seed to be planted
+     *
+     * @return feedback of the user's action of planting a seed
      *
      */
     public String plantSeeds(Tile tile, Seeds seeds, Board board, String plantName) {
@@ -243,6 +172,7 @@ public class Farmer implements GeneralMethods {
      * @param tile holds the info of the tile picked.
      * @param seeds serves as the reference of data for each of the plant's statistics.
      *
+     * @return arraylist of Strings that are feedback from the harvest action
      */
     public ArrayList<String> harvestCrop(Tile tile, Seeds seeds) {
 
@@ -256,7 +186,7 @@ public class Farmer implements GeneralMethods {
             int productsProduced = returnRandom(crop.getMaxProductsProduced(), crop.getMinProductsProduced());
 
             //compute
-            double harvestTotal = productsProduced*(crop.getBaseCost() + bonusEarningsPerProduce);
+            double harvestTotal = productsProduced*(crop.getBaseCost() + getBonusEarningsPerProduce());
             double waterBonus = harvestTotal*0.2*(tile.getTimesWatered()-1);
             double fertilizerBonus = harvestTotal*0.5*(tile.getTimesFertilized());
 
@@ -290,73 +220,158 @@ public class Farmer implements GeneralMethods {
 
     /**
      *
+     * The method generates an integer between the minimum and the maximum range.
+     *
+     * @param max the maximum range for the random value
+     * @param min the minimum range for the random value
+     *
+     * @return a random integer.
+     */
+    public int returnRandom(int max, int min) {
+        return min + (int)(Math.random() * ((max - min) + 1));
+    }
+
+    /**
+     *
      * The following methods serve as the getters and setters of the private attributes.
+     */
+
+    /**
+     * Acts as the getter for the current farmer's name
+     * @return the name of the farmer
      */
     public String getFarmerName() {
         return farmerName;
     }
 
+    /**
+     * Acts as the getter for the current farmer's level
+     * @return the level of the farmer
+     */
     public int getFarmerLevel() {
         return farmerLevel;
     }
 
+    /**
+     * Acts as the getter for the current farmer's experience
+     * @return the numerical experience of the farmer
+     */
     public double getExperience() {
         return experience;
     }
 
+    /**
+     * Acts as the getter for the current day count
+     * @return the amount of days passed
+     */
     public int getDayCount() {
         return dayCount;
     }
 
+    /**
+     * Acts as the getter for the farmer's inventory
+     * @return the farmer's inventory
+     */
     public Inventory getFarmerInventory() {
         return farmerInventory;
     }
 
+    /**
+     * Acts as the setter for the current day count
+     * @param dayCount  value of the passed days
+     */
     public void setDayCount(int dayCount) {
         this.dayCount = dayCount;
     }
 
+    /**
+     * Acts as the setter for the experience of the farmer
+     * @param experience value of the updated/new experience
+     */
     public void setExperience(double experience) {
         this.experience = experience;
     }
 
+    /**
+     * Acts as the getter for the reduced seed cost of the farmer
+     * caused by the farmer's registration
+     * @return the value of the amount a seed cost will be reduced by
+     */
     public int getSeedCostReduction() {
         return seedCostReduction;
     }
 
+    /**
+     * Acts as the getter for the bonus earnings of the farmer
+     * caused by the farmer's registration
+     * @return the value of the amount of earnings per produce will be added by
+     */
     public int getBonusEarningsPerProduce() {
         return bonusEarningsPerProduce;
     }
 
+    /**
+     * Acts as the getter for the bonus limits of watering
+     * caused by the farmer's registration
+     * @return the value of the farmer's watering limit
+     */
     public int getWaterBonusLimits() {
         return waterBonusLimits;
     }
 
+    /**
+     * Acts as the getter for the bonus limits of fertilizer
+     * caused by the farmer's registration
+     * @return the value of the farmer's fertilizer limit
+     */
     public int getFertBonusLimits() {
         return fertBonusLimits;
     }
 
-
+    /**
+     * Acts as the setter for the farmer's inventory
+     * @param farmerInventory the inventory of the farmer
+     */
     public void setFarmerInventory(Inventory farmerInventory) {
         this.farmerInventory = farmerInventory;
     }
 
+    /**
+     * Acts as the setter for the current farmer's name
+     * @param farmerName String value of the user's desired farmer name
+     */
     public void setFarmerName(String farmerName) {
         this.farmerName = farmerName;
     }
 
+    /**
+     * Acts as the getter for the farmer's character
+     * @return "Boy" or "Girl", the value of the farmer's character picked
+     */
     public String getFarmerCharacter() {
         return farmerCharacter;
     }
 
+    /**
+     * Acts as the setter for the farmer's character
+     * @param farmerCharacter "Boy" or "Girl", the value of the farmer's character picked
+     */
     public void setFarmerCharacter(String farmerCharacter) {
         this.farmerCharacter = farmerCharacter;
     }
 
+    /**
+     * Acts as the getter for the current farmer's status
+     * @return the String value of the farmer status
+     */
     public String getFarmerStatus() {
         return farmerStatus;
     }
 
+    /**
+     * Acts as the getter for the current farmer's status
+     * @return the String value of the farmer status
+     */
     public void setFarmerStatus(String farmerStatus) {
         this.farmerStatus = farmerStatus;
     }
