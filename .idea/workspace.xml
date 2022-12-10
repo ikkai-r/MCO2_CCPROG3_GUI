@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ActionsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ActionsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FarmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mainapp/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/InventoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/InventoryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/res/button_unpressed.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/res/button_pressed.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/SceneButtons.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Plants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Plants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Seeds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Seeds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Tools.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Tools.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farmerprogress/FarmerLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farmerprogress/FarmerLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/FarmScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/InitializeScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/InitializeScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/PlayerSubScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,11 +300,17 @@
       <option name="project" value="LOCAL" />
       <updated>1670644686392</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Refactored + commented all except for getters and setters">
+      <created>1670650261431</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1670650261431</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finished title screen. Need button functionality." />
     <MESSAGE value="Finishing choose character" />
     <MESSAGE value="Finishing choose character. Name prompt &amp; Submit" />
     <MESSAGE value="Finished Choose Character. Make farm tiles next, shop, and inventory" />
@@ -323,7 +335,8 @@
     <MESSAGE value="Farmer, Board, refactored." />
     <MESSAGE value="Refactored farm &amp; farmer progress." />
     <MESSAGE value="Refactored farm, farmer progress, &amp; scenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored farm, farmer progress, &amp; scenes" />
+    <MESSAGE value="Refactored + commented all except for getters and setters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored + commented all except for getters and setters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

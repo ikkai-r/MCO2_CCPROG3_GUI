@@ -46,10 +46,19 @@ public class Seeds {
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Acts as the setter for the list of seeds
+     * @param plants the array list of the plant objects that is to be set as a value
+     */
     public void setPlants(ArrayList<Plants> plants) {
         this.plants = plants;
     }
 
+    /**
+     * Acts as the getter for the list of seeds
+     * @return array list of the plant objects
+     */
     public ArrayList<Plants> getPlants() {
         return plants;
     }

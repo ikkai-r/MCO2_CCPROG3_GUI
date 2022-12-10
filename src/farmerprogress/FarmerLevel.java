@@ -38,26 +38,51 @@ public enum FarmerLevel {
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Acts as a getter for the required level for the farmer registration
+     * @return required level to qualify for the farmer registration
+     */
     public int getRequiredLevel() {
         return REQUIRED_LEVEL;
     }
 
+    /**
+     * Acts as a getter for the seed cost reduction based on the farmer registration
+     * @return amount of reduction for the seed cost
+     */
     public int getSeedCostReduction() {
         return SEED_COST_REDUCTION;
     }
 
+    /**
+     * Acts as a getter for the bonus earnings based on the farmer registration
+     * @return amount of bonus for the harvest earnings
+     */
     public int getBonusEarnings() {
         return BONUS_EARNINGS;
     }
 
+    /**
+     * Acts as a getter for the water bonus based on the farmer registration
+     * @return amount of bonus for the watering action
+     */
     public int getWaterBonus() {
         return WATER_BONUS;
     }
 
+    /**
+     * Acts as a getter for the fertilizer bonus based on the farmer registration
+     * @return amount of bonus for the fertilizing action
+     */
     public int getFertBonus() {
         return FERT_BONUS;
     }
 
+    /**
+     * Acts as a getter for the registration fee
+     * @return amount of the registration fee for the farmer registration
+     */
     public int getRegistrationFee() {
         return REGIS_FEE;
     }

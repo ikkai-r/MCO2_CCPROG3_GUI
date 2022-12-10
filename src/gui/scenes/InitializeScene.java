@@ -246,26 +246,50 @@ public class InitializeScene extends GUI {
      * The following methods serve as the getters and setters of the private attributes.
      */
 
+    /**
+     * Acts as the getter for the boolean if the game is already over
+     * @return true if the game is over, otherwise, false
+     */
     public boolean isGameOver() {
         return isGameOver;
     }
 
+    /**
+     * Acts as the setter for the boolean if the game is already over
+     * @param gameOver true if the game is over, otherwise, false
+     */
     public void setGameOver(boolean gameOver) {
         isGameOver = gameOver;
     }
 
+    /**
+     * Acts as the getter for the start button
+     * @return the start button for the opening scene
+     */
     public SceneButtons getStartButton() {
         return startButton;
     }
 
+    /**
+     * Acts as the setter for the start button
+     * @param startButton the start button for the opening scene
+     */
     public void setStartButton(SceneButtons startButton) {
         this.startButton = startButton;
     }
 
+    /**
+     * Acts as the getter for the exit button
+     * @return the exit button for the opening scene
+     */
     public SceneButtons getExitButton() {
         return exitButton;
     }
 
+    /**
+     * Acts as the setter for the exit button
+     * @param exitButton the exit button for the opening scene
+     */
     public void setExitButton(SceneButtons exitButton) {
         this.exitButton = exitButton;
     }

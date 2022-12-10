@@ -54,50 +54,99 @@ public class Plants {
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Acts as the getter for the plant's name
+     * @return the name of the plant
+     */
     public String getPlantName() {
         return plantName;
     }
 
+    /**
+     * Acts as the getter for the plant's type
+     * @return the type of the plant
+     */
     public String getPlantType() {
         return plantType;
     }
 
+    /**
+     * Acts as the getter for the plant's harvest time
+     * @return the harvest time of the plant
+     */
     public double getHarvestTime() {
         return harvestTime;
     }
 
+    /**
+     * Acts as the getter for the plant's water needed
+     * @return the amount of water needed of the plant
+     */
     public int getWaterNeeded() {
         return waterNeeded;
     }
 
+    /**
+     * Acts as the getter for the plant's fertilizer needed
+     * @return the amount of fertilizer needed of the plant
+     */
     public int getFertilizerNeeded() {
         return fertilizerNeeded;
     }
 
+    /**
+     * Acts as the getter for the plant's maximum products produced
+     * @return the number of maximum products produced of the plant
+     */
     public int getMaxProductsProduced() {
         return maxProductsProduced;
     }
 
+    /**
+     * Acts as the getter for the plant's minimum products produced
+     * @return the number of minimum products produced of the plant
+     */
     public int getMinProductsProduced() {
         return minProductsProduced;
     }
 
+    /**
+     * Acts as the getter for the plant's seed cost
+     * @return the seed cost of the plant
+     */
     public double getSeedCost() {
         return seedCost;
     }
 
+    /**
+     * Acts as the getter for the plant's base cost
+     * @return the base cost of the plant
+     */
     public double getBaseCost() {
         return baseCost;
     }
 
+    /**
+     * Acts as the getter for the plant's experience yield
+     * @return the experience yield of the plant
+     */
     public double getExperienceYield() {
         return experienceYield;
     }
 
+    /**
+     * Acts as the getter for the plant's water cap
+     * @return the water cap of the plant
+     */
     public int getWaterCapBonus() {
         return waterCapBonus;
     }
 
+    /**
+     * Acts as the getter for the plant's fertilizer cap
+     * @return the fertilizer cap of the plant
+     */
     public int getFertCapBonus() {
         return fertCapBonus;
     }

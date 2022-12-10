@@ -160,58 +160,115 @@ public class InventoryController extends FarmController implements Initializable
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Acts as the getter for the grid pane with the buttons for inventory
+     * @return the inventory's grid pane
+     */
     public GridPane getButtonsPane() {
         return buttonsPane;
     }
 
+    /**
+     * Acts as the setter for the grid pane with the buttons for inventory
+     * @param buttonsPane the inventory's grid pane to be set
+     */
     public void setButtonsPane(GridPane buttonsPane) {
         this.buttonsPane = buttonsPane;
     }
 
+    /**
+     * Acts as the getter for the Text node with the farmer's name
+     * @return the Text node with the name of the farmer
+     */
     public Text getFarmerName() {
         return farmerName;
     }
 
+    /**
+     * Acts as the setter for the Text node with the farmer's name
+     * @param farmerName the Text node with the name of the farmer to be set
+     */
     public void setFarmerName(Text farmerName) {
         this.farmerName = farmerName;
     }
 
+    /**
+     * Acts as the getter for the Text node with the farmer's level
+     * @return the Text node with the level of the farmer
+     */
     public Text getFarmerLvl() {
         return farmerLvl;
     }
 
+    /**
+     * Acts as the setter for the Text node with the farmer's level
+     * @param farmerLvl the Text node with the level of the farmer to be set
+     */
     public void setFarmerLvl(Text farmerLvl) {
         this.farmerLvl = farmerLvl;
     }
 
+    /**
+     * Acts as the getter for the Text node with the farmer's objectCoins
+     * @return the Text node with the objectCoins of the farmer
+     */
     public Text getObjectCoins() {
         return objectCoins;
     }
 
+    /**
+     * Acts as the setter for the Text node with the farmer's objectCoins
+     * @param objectCoins the Text node with the objectCoins of the farmer to be set
+     */
     public void setObjectCoins(Text objectCoins) {
         this.objectCoins = objectCoins;
     }
 
+    /**
+     * Acts as the getter for the Text node with the farmer's experience
+     * @return the Text node with the experience of the farmer
+     */
     public Text getFarmerXP() {
         return farmerXP;
     }
 
+    /**
+     * Acts as the setter for the Text node with the farmer's experience
+     * @param farmerXP the Text node with the experience of the farmer to be set
+     */
     public void setFarmerXP(Text farmerXP) {
         this.farmerXP = farmerXP;
     }
 
+    /**
+     * Acts as the getter for the Text node with the farmer's experience
+     * @return the Text node with the experience of the farmer
+     */
     public Text getFarmerStatus() {
         return farmerStatus;
     }
 
+    /**
+     * Acts as the getter for the Text node with the farmer's status
+     * @return the Text node with the status of the farmer
+     */
     public void setFarmerStatus(Text farmerStatus) {
         this.farmerStatus = farmerStatus;
     }
 
+    /**
+     * Acts as the getter for the ImageView node with the farmer's character image
+     * @return the ImageView node with the image of the farmer's character
+     */
     public ImageView getFarmerChar() {
         return farmerChar;
     }
 
+    /**
+     * Acts as the setter for the ImageView node with the farmer's character image
+     * @param farmerChar ImageView node with the image of the farmer's character to be set
+     */
     public void setFarmerChar(ImageView farmerChar) {
         this.farmerChar = farmerChar;
     }

@@ -55,18 +55,34 @@ public class FarmScene {
      * The following methods serve as the getters and setters of the private attributes.
      */
 
+    /**
+     * Acts as the getter for the current game scene
+     * @return the current stage's game scene
+     */
     public Scene getGameScene() {
         return gameScene;
     }
 
+    /**
+     * Acts as the setter for the current game scene
+     * @param gameScene a game scene to be set as the current
+     */
     public void setGameScene(Scene gameScene) {
         this.gameScene = gameScene;
     }
 
+    /**
+     * Acts as the getter for the current game stage
+     * @return the current stage
+     */
     public Stage getGameStage() {
         return gameStage;
     }
 
+    /**
+     * Acts as the setter for the current game stage
+     * @param gameStage a game stage to be set as the current
+     */
     public void setGameStage(Stage gameStage) {
         this.gameStage = gameStage;
     }

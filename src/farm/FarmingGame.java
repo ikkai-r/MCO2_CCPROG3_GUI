@@ -18,7 +18,7 @@ public class FarmingGame {
     private Farmer farmer;
     private Store store;
     private Seeds seeds;
-    private static Board board;
+    private Board board;
     private ProgressChecker progressChecker;
 
     /**
@@ -81,42 +81,83 @@ public class FarmingGame {
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Acts as a getter for the farmer object
+     * @return the current farmer object
+     */
     public Farmer getFarmer() {
         return farmer;
     }
 
+    /**
+     * Acts as a setter for the farmer object
+     * @param farmer the farmer object that is to be set as the current one
+     */
     public void setFarmer(Farmer farmer) {
         this.farmer = farmer;
     }
 
+    /**
+     * Acts as a getter for the store object
+     * @return the current store object
+     */
     public Store getStore() {
         return store;
     }
 
+    /**
+     * Acts as a setter for the store object
+     * @param store the store object that is to be set as the current one
+     */
     public void setStore(Store store) {
         this.store = store;
     }
 
+    /**
+     * Acts as a getter for the farmer object
+     * @return the current seed object
+     */
     public Seeds getSeeds() {
         return seeds;
     }
 
+    /**
+     * Acts as a setter for the seeds object
+     * @param seeds the seeds object that is to be set as the current one
+     */
     public void setSeeds(Seeds seeds) {
         this.seeds = seeds;
     }
 
+    /**
+     * Acts as a getter for the board object
+     * @return the current board object
+     */
     public Board getBoard() {
         return board;
     }
 
+    /**
+     * Acts as a setter for the board object
+     * @param board the board object that is to be set as the current one
+     */
     public void setBoard(Board board) {
         this.board = board;
     }
 
+    /**
+     * Acts as a getter for the progress checker object
+     * @return the current progress checker object
+     */
     public ProgressChecker getProgressChecker() {
         return progressChecker;
     }
 
+    /**
+     * Acts as a setter for the progress checker object
+     * @param progressChecker the progress checker object that is to be set as the current one
+     */
     public void setProgressChecker(ProgressChecker progressChecker) {
         this.progressChecker = progressChecker;
     }

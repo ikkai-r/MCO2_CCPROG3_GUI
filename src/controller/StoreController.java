@@ -111,27 +111,53 @@ public class StoreController extends FarmController implements Initializable {
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Acts as the getter for the anchor pane for the store display
+     * @return the anchor pane that contains the display for the store
+     */
     public AnchorPane getStorePane() {
         return storePane;
     }
 
+    /**
+     * Acts as the setter for the anchor pane for the store display
+     * @param storePane anchor pane that contains the display for the store to be set
+     */
     public void setStorePane(AnchorPane storePane) {
         this.storePane = storePane;
     }
 
+    /**
+     * Acts as the getter for the anchor pane for the store display buttons
+     * @return grid pane that contains the display for the store buttons to be set
+     */
     public GridPane getStoreButtonsPane() {
         return storeButtonsPane;
     }
 
+    /**
+     * Acts as the setter for the grid pane for the store display buttons
+     * @param storeButtonsPane grid pane that contains the display for the store buttons to be set
+     */
     public void setStoreButtonsPane(GridPane storeButtonsPane) {
         this.storeButtonsPane = storeButtonsPane;
     }
 
+    /**
+     * Acts as the getter for the Text containing the amount of object coins owned by the farmer
+     * @return the Text that contains the farmer's object coins
+     */
     public Text getObjCoins() {
         return objCoins;
     }
 
+    /**
+     * Acts as the setter for the Text containing the amount of object coins owned by the farmer
+     * @param objCoins the Text that contains the farmer's object coins to be set
+     */
     public void setObjCoins(Text objCoins) {
         this.objCoins = objCoins;
     }
+
 }

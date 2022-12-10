@@ -276,26 +276,51 @@ public class ActionsController extends FarmController implements Initializable {
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Acts as the getter for the current text header
+     * @return the current action text header
+     */
     public Text getActionHeader() {
         return actionHeader;
     }
 
+    /**
+     * Acts as the setter for the current action text header
+     * @param actionHeader the action text header to be set
+     */
     public void setActionHeader(Text actionHeader) {
         this.actionHeader = actionHeader;
     }
 
+    /**
+     * Acts as the getter for the action grid pane of the controller
+     * @return the grid pane containing buttons
+     */
     public GridPane getActionGridPane() {
         return actionGridPane;
     }
 
+    /**
+     * Acts as the setter for the action grid pane of the controller
+     * @param actionGridPane the grid pane containing buttons to be set
+     */
     public void setActionGridPane(GridPane actionGridPane) {
         this.actionGridPane = actionGridPane;
     }
 
+    /**
+     * Acts as the getter for the action anchor pane of the controller
+     * @return the anchor pane for actions
+     */
     public AnchorPane getActionAncPane() {
         return actionAncPane;
     }
 
+    /**
+     * Acts as the setter for the current action anchor pane of the controller
+     * @param actionAncPane the anchor pane for actions to be set
+     */
     public void setActionAncPane(AnchorPane actionAncPane) {
         this.actionAncPane = actionAncPane;
     }

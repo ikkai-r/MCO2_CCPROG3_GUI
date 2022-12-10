@@ -32,10 +32,18 @@ public class Store {
      * The following methods serve as the getters and setters of the private attributes.
      */
 
+    /**
+     * Acts as the getter for the list of seeds/products
+     * @return array list of the seeds/products objects
+     */
     public Seeds getProducts() {
         return seeds;
     }
 
+    /**
+     * Acts as the setter for the list of seeds
+     * @param seeds the array list of the seeds/products objects that is to be set as a value
+     */
     public void setSeeds(Seeds seeds) {
         this.seeds = seeds;
     }

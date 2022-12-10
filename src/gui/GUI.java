@@ -69,22 +69,42 @@ public class GUI {
         return farmingGame;
     }
 
+    /**
+     * Acts as a getter for the scene's main pane
+     * @return the main pane of the scene
+     */
     public AnchorPane getMainPane() {
         return mainPane;
     }
 
+    /**
+     * Acts as a setter for the scene's main pane
+     * @param mainPane the pane you want to set the mainPane variable to
+     */
     public void setMainPane(AnchorPane mainPane) {
         this.mainPane = mainPane;
     }
 
+    /**
+     * Acts as a getter for the main scene of the GUI
+     * @return the main scene
+     */
     public Scene getMainScene() {
         return mainScene;
     }
 
+    /**
+     * Acts as a setter for the main scene of the GUI
+     * @param mainScene the value that will be set as a main scene
+     */
     public void setMainScene(Scene mainScene) {
         this.mainScene = mainScene;
     }
 
+    /**
+     * Acts as a setter for the main stage of the GUI
+     * @param mainStage the value that will be set as a main stage
+     */
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
     }

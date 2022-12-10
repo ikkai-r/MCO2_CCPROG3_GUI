@@ -137,39 +137,76 @@ public class PlayerSubScene extends SubScene {
      * The following methods serve as the getters and setters of the private attributes.
      */
 
+    /**
+     * Acts as the getter for the pane of the current scene
+     * @return the current scene's anchor pane
+     */
     public AnchorPane getPane() {
         return (AnchorPane) this.getRoot();
     }
 
+    /**
+     * Acts as the getter for the name of the current scene
+     * @return the current scene's title
+     */
     public String getSceneName() {
         return scene;
     }
 
-    public void setScene(String scene) {
+    /**
+     * Acts as the setter for the name of the current scene
+     * @param scene the current scene's title
+     */
+    public void setSceneName(String scene) {
         this.scene = scene;
     }
 
-    public BackgroundImage getImage() {
+    /**
+     * Acts as the getter for the background image of the current scene
+     * @return the current scene's background image
+     */
+    public BackgroundImage getBGImage() {
         return image;
     }
 
-    public void setImage(BackgroundImage image) {
+    /**
+     * Acts as the setter for the background image of the current scene
+     * @param image the current scene's background image
+     */
+    public void setBGImage(BackgroundImage image) {
         this.image = image;
     }
 
+    /**
+     * Acts as the getter for the scene's width
+     * @return the width dimension of the scene
+     */
     public int getSceneWidth() {
         return width;
     }
 
+    /**
+     * Acts as the setter for the scene's width
+     * @param width the width dimension of the scene
+     */
     public void setWidth(int width) {
         this.width = width;
     }
 
+    /**
+     * Acts as the getter for the scene's height
+     * @return the height dimension of the scene
+     */
     public int getSceneHeight() {
         return height;
     }
 
+    /**
+     * Acts as the setter for the scene's height
+     * @param height the height dimension of the scene
+     */
     public void setHeight(int height) {
         this.height = height;
     }
+
 }

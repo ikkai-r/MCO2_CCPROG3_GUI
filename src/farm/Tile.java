@@ -130,94 +130,190 @@ public class Tile {
      * The following methods serve as the getters and setters of the private attributes.
      */
 
+    /**
+     * Acts as the getter for the boolean if the tile is plowed
+     * @return true if it is plowed, otherwise, false
+     */
     public boolean isPlowed() {
         return isPlowed;
     }
 
+    /**
+     * Acts as the getter for the boolean if the tile is withered
+     * @return true if it is withered, otherwise, false
+     */
     public boolean isWithered() {
         return isWithered;
     }
 
+    /**
+     * Acts as the getter for the boolean if the tile has seed
+     * @return true if it has seed, otherwise, false
+     */
     public boolean hasSeed() {
         return hasSeed;
     }
 
+    /**
+     * Acts as the getter for the boolean if the tile has rock
+     * @return true if it has rock, otherwise, false
+     */
     public boolean hasRock() {
         return hasRock;
     }
 
-    public void setHarvestable(boolean isHarvestable) {
-        this.isHarvestable = isHarvestable;
-    }
-
+    /**
+     * Acts as the getter for the boolean if the tile is harvestable
+     * @return true if it is harvestable, otherwise, false
+     */
     public boolean isHarvestable() {
         return isHarvestable;
     }
 
+    /**
+     * Acts as the getter for the number of times the tile is watered
+     * @return the number of times the tile is watered
+     */
     public int getTimesWatered() {
         return timesWatered;
     }
 
-    public void setTimesWatered(int timesWatered) {
-        this.timesWatered = timesWatered;
-    }
-
+    /**
+     * Acts as the getter for the number of times the tile is fertilized
+     * @return the number of times the tile is fertilized
+     */
     public int getTimesFertilized() {
         return timesFertilized;
     }
 
-    public void setTimesFertilized(int timesFertilized) {
-        this.timesFertilized = timesFertilized;
-    }
-
-    public void setHasSeed(boolean hasSeed) {
-        this.hasSeed = hasSeed;
-    }
-
-    public void setDaysPassed(int daysPassed) {
-        this.daysPassed = daysPassed;
-    }
-
-    public void setPlowed(boolean plowed) {
-        isPlowed = plowed;
-    }
-
-    public void setRock(boolean hasRock) {
-        this.hasRock = hasRock;
-    }
-
-    public void setWithered(boolean withered) {
-        isWithered = withered;
-    }
-
-    public void setSelected(boolean selected) { isSelected = selected; }
-
+    /**
+     * Acts as the getter for the boolean if the tile is selected
+     * @return true if it is selected, otherwise, false
+     */
     public boolean isSelected(){return isSelected;}
 
+    /**
+     * Acts as the getter for the name of the crop planted on the tile if it exists
+     * @return the crop's name
+     */
     public String getCrop() {
         return crop;
     }
 
+    /**
+     * Acts as the getter for the number of times the player has slept
+     * @return the number of days passed
+     */
     public int getDaysPassed() {
         return daysPassed;
     }
 
-    public void setCrop(String crop) {
-        this.crop = crop;
-    }
-
-    public Seeds getSeeds() {
-        return seeds;
-    }
-
-    public void setSeeds(Seeds seeds) {
-        this.seeds = seeds;
-    }
-
+    /**
+     * Acts as the getter for the current farmer object
+     * @return the current farmer object
+     */
     public Farmer getFarmer() {
         return farmer;
     }
 
+    /**
+     * Acts as the getter for the current seeds object
+     * @return the current seeds object
+     */
+    public Seeds getSeeds() {
+        return seeds;
+    }
+
+    /**
+     * Acts as the setter for the amount of times the tile is watered
+     * @param timesWatered number of times the tile is watered
+     */
+    public void setTimesWatered(int timesWatered) {
+        this.timesWatered = timesWatered;
+    }
+
+    /**
+     * Acts as the setter for indicating if the tile is harvestable or not
+     * @param isHarvestable true if it is harvestable, otherwise, false
+     */
+    public void setHarvestable(boolean isHarvestable) {
+        this.isHarvestable = isHarvestable;
+    }
+
+    /**
+     * Acts as the setter for the amount of times the tile is fertilized
+     * @param timesFertilized number of times the tile is fertilized
+     */
+    public void setTimesFertilized(int timesFertilized) {
+        this.timesFertilized = timesFertilized;
+    }
+
+    /**
+     * Acts as the setter for indicating if the tile has a seed or not
+     * @param hasSeed true if it has seed, otherwise, false
+     */
+    public void setHasSeed(boolean hasSeed) {
+        this.hasSeed = hasSeed;
+    }
+
+    /**
+     * Acts as the setter for the amount of days that has passed
+     * @param daysPassed number of times days has passed in the game
+     */
+    public void setDaysPassed(int daysPassed) {
+        this.daysPassed = daysPassed;
+    }
+
+    /**
+     * Acts as the setter for indicating if the tile is plowed or not
+     * @param plowed true if it is plowed, otherwise, false
+     */
+    public void setPlowed(boolean plowed) {
+        isPlowed = plowed;
+    }
+
+    /**
+     * Acts as the setter for indicating if the tile has a rock or not
+     * @param hasRock true if it has a rock, otherwise, false
+     */
+    public void setRock(boolean hasRock) {
+        this.hasRock = hasRock;
+    }
+
+    /**
+     * Acts as the setter for indicating if the tile is withered or not
+     * @param withered true if it is withered, otherwise, false
+     */
+    public void setWithered(boolean withered) {
+        isWithered = withered;
+    }
+
+    /**
+     * Acts as the setter for indicating if the tile is selected or not
+     * @param selected true if it is selected, otherwise, false
+     */
+    public void setSelected(boolean selected) { isSelected = selected; }
+
+    /**
+     * Acts as the setter for the planted crop's name
+     * @param crop the String name of the crop planted
+     */
+    public void setCrop(String crop) {
+        this.crop = crop;
+    }
+
+    /**
+     * Acts as the setter for the seed object
+     * @param seeds the value that will be set as the new value of the seed object
+     */
+    public void setSeeds(Seeds seeds) {
+        this.seeds = seeds;
+    }
+
+    /**
+     * Acts as the setter for the farmer object
+     * @param farmer the value that will be set as the new value of the farmer object
+     */
     public void setFarmer(Farmer farmer) {
         this.farmer = farmer;
     }
