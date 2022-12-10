@@ -2,16 +2,15 @@ package farm;
 
 public class Board implements GeneralMethods {
 
-    private final static int BOARDROW = 10;
-    private final static int BOARDCOL = 5;
-    private static Tile[][] farmTiles = new Tile[BOARDROW][BOARDCOL];
+    private final int BOARDROW = 10;
+    private final int BOARDCOL = 5;
+    private Tile[][] farmTiles = new Tile[BOARDROW][BOARDCOL];
 
 
     /**
      * Sets the board with unplowed tiles and calls setRandomRocks() to generate rock positions.
      *
      */
-
     public Board() {
             for(int outerCount = 0; outerCount < BOARDROW; outerCount++) {
                 for (int innerCount = 0; innerCount < BOARDCOL; innerCount++) {
@@ -185,6 +184,7 @@ public class Board implements GeneralMethods {
      *
      * @return a random integer.
      */
+    @Override
     public int returnRandom(int max, int min) {
         return min + (int)(Math.random() * ((max - min) + 1));
     }

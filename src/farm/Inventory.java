@@ -173,7 +173,7 @@ public class Inventory {
      * Acts as the getter for the amount of coins the farmer owns
      * @return the number of object coins
      */
-    public double getObjectCoins() {
+    public static double getObjectCoins() {
         return objectCoins;
     }
 
@@ -181,7 +181,7 @@ public class Inventory {
      * Acts as the setter for the amount of coins the farmer owns
      * @param objectCoins the value to be set for the object coins
      */
-    public void setObjectCoins(double objectCoins) {
+    public static void setObjectCoins(double objectCoins) {
         Inventory.objectCoins = objectCoins;
     }
 

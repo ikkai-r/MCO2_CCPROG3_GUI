@@ -245,18 +245,19 @@ public class ActionsController extends FarmController implements Initializable {
     public void harvestCrop() {
         ArrayList<String> cropFeedback = farmingGame.getFarmer().harvestCrop(farmingGame.getBoard().getSelectedTile(), farmingGame.getSeeds());
         StringBuilder strFeedback = new StringBuilder();
-
         PlayerSubScene cropPopUp;
+        String space;
+        if (cropFeedback.size() <= 1) {
+            cropPopUp = new PlayerSubScene("action-pop-up", 500, 100);
+            space = "\n";
+        } else {
+            cropPopUp = new PlayerSubScene("action-pop-up", 600, 300);
+            space = "\n\n";
+        }
 
         for (String cropFeed : cropFeedback) {
             strFeedback.append(cropFeed);
-            strFeedback.append("\n\n");
-        }
-
-        if (cropFeedback.size() <= 1) {
-            cropPopUp = new PlayerSubScene("action-pop-up", 500, 100);
-        } else {
-            cropPopUp = new PlayerSubScene("action-pop-up", 600, 300);
+            strFeedback.append(space);
         }
 
         cropPopUp.moveSubScene(true);

@@ -10,7 +10,7 @@ public class Farmer implements GeneralMethods {
     private String farmerCharacter;
     private String farmerName;
     private int farmerLevel;
-    private double experience;
+    private static double experience;
     private String farmerStatus;
     private int dayCount;
     private static int seedCostReduction;
@@ -226,6 +226,7 @@ public class Farmer implements GeneralMethods {
      *
      * @return a random integer.
      */
+    @Override
     public int returnRandom(int max, int min) {
         return min + (int)(Math.random() * ((max - min) + 1));
     }
@@ -255,7 +256,7 @@ public class Farmer implements GeneralMethods {
      * Acts as the getter for the current farmer's experience
      * @return the numerical experience of the farmer
      */
-    public double getExperience() {
+    public static double getExperience() {
         return experience;
     }
 
@@ -287,8 +288,8 @@ public class Farmer implements GeneralMethods {
      * Acts as the setter for the experience of the farmer
      * @param experience value of the updated/new experience
      */
-    public void setExperience(double experience) {
-        this.experience = experience;
+    public static void setExperience(double experience) {
+        Farmer.experience = experience;
     }
 
     /**
@@ -296,7 +297,7 @@ public class Farmer implements GeneralMethods {
      * caused by the farmer's registration
      * @return the value of the amount a seed cost will be reduced by
      */
-    public int getSeedCostReduction() {
+    public static int getSeedCostReduction() {
         return seedCostReduction;
     }
 
@@ -305,7 +306,7 @@ public class Farmer implements GeneralMethods {
      * caused by the farmer's registration
      * @return the value of the amount of earnings per produce will be added by
      */
-    public int getBonusEarningsPerProduce() {
+    public static int getBonusEarningsPerProduce() {
         return bonusEarningsPerProduce;
     }
 
@@ -314,7 +315,7 @@ public class Farmer implements GeneralMethods {
      * caused by the farmer's registration
      * @return the value of the farmer's watering limit
      */
-    public int getWaterBonusLimits() {
+    public static int getWaterBonusLimits() {
         return waterBonusLimits;
     }
 
@@ -323,7 +324,7 @@ public class Farmer implements GeneralMethods {
      * caused by the farmer's registration
      * @return the value of the farmer's fertilizer limit
      */
-    public int getFertBonusLimits() {
+    public static int getFertBonusLimits() {
         return fertBonusLimits;
     }
 
