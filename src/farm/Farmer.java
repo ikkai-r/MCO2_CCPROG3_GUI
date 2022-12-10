@@ -376,22 +376,46 @@ public class Farmer implements GeneralMethods {
         this.farmerStatus = farmerStatus;
     }
 
+    /**
+     * Acts as the setter for the seed cost reduction for the farmer
+     * based on their farmer registration
+     * @param seedCostReduction amount of reduced cost for the seed
+     */
     public static void setSeedCostReduction(int seedCostReduction) {
         Farmer.seedCostReduction = seedCostReduction;
     }
 
+    /**
+     * Acts as the setter for the bonus earnings for the farmer
+     * based on their farmer registration
+     * @param bonusEarningsPerProduce amount of bonus earnings per produce
+     */
     public static void setBonusEarningsPerProduce(int bonusEarningsPerProduce) {
         Farmer.bonusEarningsPerProduce = bonusEarningsPerProduce;
     }
 
+    /**
+     * Acts as the setter for the water bonus limits for the farmer
+     * based on their farmer registration
+     * @param waterBonusLimits amount of water bonus
+     */
     public static void setWaterBonusLimits(int waterBonusLimits) {
         Farmer.waterBonusLimits = waterBonusLimits;
     }
 
+    /**
+     * Acts as the setter for the fertilizer bonus limits for the farmer
+     * based on their farmer registration
+     * @param fertBonusLimits amount of fertilizer bonus
+     */
     public static void setFertBonusLimits(int fertBonusLimits) {
         Farmer.fertBonusLimits = fertBonusLimits;
     }
 
+    /**
+     * Acts as the setter for the level of the farmer
+     * @param farmerLevel new/updated value of the farmer's level
+     */
     public void setFarmerLevel(int farmerLevel) {
         this.farmerLevel = farmerLevel;
     }
