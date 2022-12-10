@@ -14,6 +14,12 @@ import java.util.ResourceBundle;
 
 public class InventoryController extends FarmController implements Initializable{
 
+    /**
+     * Calls the setButtonInventory(), makeToolEquipTips() and
+     * showFarmerDetails() in initialization
+     * @param arg0
+     * @param arg1
+     */
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         setButtonInventory();
@@ -23,7 +29,6 @@ public class InventoryController extends FarmController implements Initializable
 
     @FXML
     private GridPane buttonsPane;
-
     @FXML
     private Text farmerName;
     @FXML
@@ -37,6 +42,10 @@ public class InventoryController extends FarmController implements Initializable
     @FXML
     private ImageView farmerChar;
 
+    /**
+     * Styles the buttons to display
+     * the farmer's inventory
+     */
     public void setButtonInventory() {
         int row;
         int col;
@@ -87,6 +96,10 @@ public class InventoryController extends FarmController implements Initializable
         }
     }
 
+    /**
+     * Creates tool tips for the items inside
+     * the farmer's inventory
+     */
     public void makeToolEquipTips() {
         for (Node node : buttonsPane.getChildren()) {
             Tooltip tTip = new Tooltip();
@@ -126,6 +139,9 @@ public class InventoryController extends FarmController implements Initializable
     }
 
 
+    /**
+     * Displays the details of the current farmer
+     */
     public void showFarmerDetails() {
         farmerName.setText(farmingGame.getFarmer().getFarmerName());
         farmerLvl.setText(String.valueOf(farmingGame.getFarmer().getFarmerLevel()));
@@ -140,4 +156,63 @@ public class InventoryController extends FarmController implements Initializable
     }
 
 
+    /**
+     *
+     * The following methods serve as the getters and setters of the private attributes.
+     */
+    public GridPane getButtonsPane() {
+        return buttonsPane;
+    }
+
+    public void setButtonsPane(GridPane buttonsPane) {
+        this.buttonsPane = buttonsPane;
+    }
+
+    public Text getFarmerName() {
+        return farmerName;
+    }
+
+    public void setFarmerName(Text farmerName) {
+        this.farmerName = farmerName;
+    }
+
+    public Text getFarmerLvl() {
+        return farmerLvl;
+    }
+
+    public void setFarmerLvl(Text farmerLvl) {
+        this.farmerLvl = farmerLvl;
+    }
+
+    public Text getObjectCoins() {
+        return objectCoins;
+    }
+
+    public void setObjectCoins(Text objectCoins) {
+        this.objectCoins = objectCoins;
+    }
+
+    public Text getFarmerXP() {
+        return farmerXP;
+    }
+
+    public void setFarmerXP(Text farmerXP) {
+        this.farmerXP = farmerXP;
+    }
+
+    public Text getFarmerStatus() {
+        return farmerStatus;
+    }
+
+    public void setFarmerStatus(Text farmerStatus) {
+        this.farmerStatus = farmerStatus;
+    }
+
+    public ImageView getFarmerChar() {
+        return farmerChar;
+    }
+
+    public void setFarmerChar(ImageView farmerChar) {
+        this.farmerChar = farmerChar;
+    }
 }

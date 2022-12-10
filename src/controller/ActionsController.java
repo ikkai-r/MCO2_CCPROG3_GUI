@@ -32,11 +32,21 @@ public class ActionsController extends FarmController implements Initializable {
     @FXML
     private AnchorPane actionAncPane;
 
+    /**
+     * Calls the setButtons() in initialization
+     *
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setButtons();
     }
 
+    /**
+     * Sets the corresponding graphic and background
+     * using the ID for the buttons in the gridpane
+     */
     public void setButtons() {
         for (Node node: actionGridPane.getChildren()) {
             if (node instanceof final Button button) {
@@ -58,6 +68,11 @@ public class ActionsController extends FarmController implements Initializable {
         }
     }
 
+    /**
+     * Creates a scroll pane with dynamic number of buttons
+     * based on the tools of the farmer
+     */
+
     public void useTool() {
         int numOfTools = farmingGame.getFarmer().getFarmerInventory().getTools().size();
 
@@ -70,14 +85,20 @@ public class ActionsController extends FarmController implements Initializable {
 
         GridPane toolPane = new GridPane();
 
+        //dynamically create buttons and set their styles
         for (int row = 0; row < numOfTools; row++) {
             Button button = new Button();
-            button.setStyle("-fx-font-size: 35; -fx-background-image: url(\"actionbtn.png\"); -fx-background-repeat: stretch; -fx-background-size: 100% 100%; " +
-                    "-fx-alignment:center-left;");
+            button.setStyle("-fx-font-size: 35;\n" +
+                    "    -fx-background-image: url(\"actionbtn.png\");\n" +
+                    "    -fx-background-repeat: stretch;\n" +
+                    "    -fx-background-size: 100% 100%;\n" +
+                    "    -fx-alignment:center-left;");
             button.setPrefWidth(1000);
-            button.setText(farmingGame.getFarmer().getFarmerInventory().getTools().get(row).getToolName()
-                    + "\n" + farmingGame.getFarmer().getFarmerInventory().getTools().get(row).getToolFunction());
+            button.setText(" " + farmingGame.getFarmer().getFarmerInventory().getTools().get(row).getToolName()
+                    + "\n " + farmingGame.getFarmer().getFarmerInventory().getTools().get(row).getToolFunction()
+            + "\n Cost of Usage: " + farmingGame.getFarmer().getFarmerInventory().getTools().get(row).getCostOfUsage());
             button.setTextAlignment(TextAlignment.LEFT);
+
             String tool = farmingGame.getFarmer().getFarmerInventory().getTools().get(row).getToolName();
             if (tool.equals("Watering Can")) {
                 tool = "watering_can";
@@ -88,6 +109,7 @@ public class ActionsController extends FarmController implements Initializable {
             im.setFitWidth(60);
             button.setGraphic(im);
             button.setId(String.valueOf(row));
+
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
@@ -102,6 +124,11 @@ public class ActionsController extends FarmController implements Initializable {
         actionAncPane.getChildren().add(scrollPane);
     }
 
+    /**
+     * Creates and displays the feedback from the tool usage
+     * @param tool the tool that was used
+     * @param tile the tile where the tool was used
+     */
     public void enableTool(int tool, Tile tile) {
         ArrayList<String> feedback;
 
@@ -128,6 +155,10 @@ public class ActionsController extends FarmController implements Initializable {
         actionAncPane.getChildren().add(popUpScene);
     }
 
+    /**
+     * Creates a scroll pane with dynamic number of buttons
+     * based on the seeds owned by the farmer
+     */
     public void plantSeed() {
 
             int row = 0;
@@ -140,16 +171,20 @@ public class ActionsController extends FarmController implements Initializable {
             actionAncPane.getChildren().remove(actionGridPane);
 
             GridPane seedPane = new GridPane();
+
             for (String seed: farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().keySet()) {
+
                 Button button = new Button();
                 button.setStyle("-fx-font-size: 35; -fx-background-image: url(\"actionbtn.png\"); -fx-background-repeat: stretch; -fx-background-size: 100% 100%; " +
                         "-fx-alignment:center-left;");
                 button.setPrefWidth(605);
                 button.setText(seed + "\t\t\t" + farmingGame.getFarmer().getFarmerInventory().getSeedsOwned().get(seed));
                 button.setTextAlignment(TextAlignment.LEFT);
+
                 ImageView im = new ImageView(new Image(seed.toLowerCase()+".png"));
                 im.setFitHeight(60);
                 im.setFitWidth(60);
+
                 button.setGraphic(im);
                 button.setId(seed);
 
@@ -160,14 +195,19 @@ public class ActionsController extends FarmController implements Initializable {
                         actionAncPane.getChildren().removeAll(scrollPane, seedPane);
                     }
                 });
+
                 seedPane.addRow(row, button);
                 row++;
+
             }
 
             if (farmingGame.getFarmer().getFarmerInventory().getNumberOfSeedsOwned() != 0) {
+                //if farmer owns seeds
                 scrollPane.setContent(seedPane);
                 actionAncPane.getChildren().add(scrollPane);
+
             } else {
+                //if farmer does not own seed
                 SceneHeaderTxts sceneHeaderTxts = new SceneHeaderTxts("No seeds owned yet. \nBuy at the store!", 20);
                 sceneHeaderTxts.setLayoutX(170);
                 sceneHeaderTxts.prefHeightProperty().bind(actionAncPane.heightProperty());
@@ -177,6 +217,14 @@ public class ActionsController extends FarmController implements Initializable {
             }
 
     }
+
+    /**
+     * Creates and displays the feedback from the planting action
+     * @param tile the tile where the seed was planted
+     * @param seeds the reference to the seeds in the game
+     * @param board the reference to the board in the game
+     * @param seed the name of the seed planted
+     */
 
     public void enablePlanting(Tile tile, Seeds seeds, Board board, String seed) {
         String feedback;
@@ -189,6 +237,10 @@ public class ActionsController extends FarmController implements Initializable {
         pause.play();
         plantSeed();
     }
+
+    /**
+     * Creates and displays the feedback from the harvest action
+     */
 
     public void harvestCrop() {
         ArrayList<String> cropFeedback = farmingGame.getFarmer().harvestCrop(farmingGame.getBoard().getSelectedTile(), farmingGame.getSeeds());
@@ -220,4 +272,31 @@ public class ActionsController extends FarmController implements Initializable {
 
     }
 
+    /**
+     *
+     * The following methods serve as the getters and setters of the private attributes.
+     */
+    public Text getActionHeader() {
+        return actionHeader;
+    }
+
+    public void setActionHeader(Text actionHeader) {
+        this.actionHeader = actionHeader;
+    }
+
+    public GridPane getActionGridPane() {
+        return actionGridPane;
+    }
+
+    public void setActionGridPane(GridPane actionGridPane) {
+        this.actionGridPane = actionGridPane;
+    }
+
+    public AnchorPane getActionAncPane() {
+        return actionAncPane;
+    }
+
+    public void setActionAncPane(AnchorPane actionAncPane) {
+        this.actionAncPane = actionAncPane;
+    }
 }

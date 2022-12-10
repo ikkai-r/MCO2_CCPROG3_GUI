@@ -11,4 +11,6 @@ module com.example.mco2_ccprog3 {
 
     opens controller to javafx.fxml;
     exports controller;
+    exports mainapp;
+    opens mainapp to javafx.fxml;
 }

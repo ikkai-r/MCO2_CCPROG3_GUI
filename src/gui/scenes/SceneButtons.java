@@ -25,7 +25,7 @@ public class SceneButtons extends Button {
      * Styles the button as an unpressed element
      */
     public void setButtonStyleUnpressed() {
-        setStyle("-fx-background-image: url('button_unpressed.png'); -fx-background-repeat: stretch; -fx-background-size: 190 70;");
+        setStyle("-fx-background-image: url('button_pressed.png'); -fx-background-repeat: stretch; -fx-background-size: 190 70;");
         setPrefWidth(190);
         setPrefHeight(70);
         setAlignment(Pos.CENTER);

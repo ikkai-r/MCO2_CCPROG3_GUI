@@ -25,14 +25,22 @@ public class StoreController extends FarmController implements Initializable {
     @FXML
     private Text objCoins;
 
+    /**
+     * Calls the setStoreButtons() and sets the object coins display
+     * to the value of the object coins owned by the farmer in initialization
+     * @param url
+     * @param resourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setStoreButtons();
         objCoins.setText(String.valueOf(farmingGame.getFarmer().getFarmerInventory().getObjectCoins()));
     }
 
-
-
+    /**
+     * Styles the buttons corresponding to the seed and displays
+     * to the user in the store
+     */
     public void setStoreButtons() {
         int row;
         String seed;
@@ -66,6 +74,11 @@ public class StoreController extends FarmController implements Initializable {
 
     }
 
+    /**
+     * Enables the action on click of a certain button and passes the feedback
+     * from sellItem() to the popUpAction()
+     * @param event represents the action from the button, in this case, the click
+     */
     public void storeAction(ActionEvent event) {
         Object node = event.getSource();
         int plantChoice = -1;
@@ -80,6 +93,10 @@ public class StoreController extends FarmController implements Initializable {
         popUpAction(farmingGame.getStore().sellItem(farmingGame.getFarmer(), plantChoice));
     }
 
+    /**
+     * Displays the value of the popString as a pop-up in the user's screen
+     * @param popString the feedback from the store action
+     */
     public void popUpAction(String popString) {
         PlayerSubScene popUpScene = new PlayerSubScene("pop-up", 500, 150);
         popUpScene.moveSubScene(true);
@@ -90,5 +107,31 @@ public class StoreController extends FarmController implements Initializable {
         objCoins.setText(String.valueOf(farmingGame.getFarmer().getFarmerInventory().getObjectCoins()));
     }
 
+    /**
+     *
+     * The following methods serve as the getters and setters of the private attributes.
+     */
+    public AnchorPane getStorePane() {
+        return storePane;
+    }
 
+    public void setStorePane(AnchorPane storePane) {
+        this.storePane = storePane;
+    }
+
+    public GridPane getStoreButtonsPane() {
+        return storeButtonsPane;
+    }
+
+    public void setStoreButtonsPane(GridPane storeButtonsPane) {
+        this.storeButtonsPane = storeButtonsPane;
+    }
+
+    public Text getObjCoins() {
+        return objCoins;
+    }
+
+    public void setObjCoins(Text objCoins) {
+        this.objCoins = objCoins;
+    }
 }

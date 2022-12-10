@@ -290,4 +290,32 @@ public class FarmController extends GUI implements Initializable {
 
     }
 
+    /**
+     *
+     * The following methods serve as the getters and setters of the private attributes.
+     */
+
+    public GridPane getFieldPane() {
+        return fieldPane;
+    }
+
+    public void setFieldPane(GridPane fieldPane) {
+        this.fieldPane = fieldPane;
+    }
+
+    public AnchorPane getFarmPane() {
+        return farmPane;
+    }
+
+    public void setFarmPane(AnchorPane farmPane) {
+        this.farmPane = farmPane;
+    }
+
+    public Label getDay() {
+        return day;
+    }
+
+    public void setDay(Label day) {
+        this.day = day;
+    }
 }

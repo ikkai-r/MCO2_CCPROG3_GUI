@@ -1,4 +1,4 @@
-package controller;
+package mainapp;
 
 import gui.scenes.InitializeScene;
 import javafx.application.Application;
