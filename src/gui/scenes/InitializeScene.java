@@ -1,5 +1,6 @@
 package gui.scenes;
 
+import farm.FarmingGame;
 import gui.GUI;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -13,13 +14,17 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class InitializeScene extends GUI {
+public class InitializeScene {
+    private  FarmingGame farmingGame;
+    private GUI gui = new GUI();
     private boolean isGameOver;
     private SceneButtons startButton;
     private SceneButtons exitButton;
+    private Stage mainStage = gui.getMainStage();
 
     /**
      * Class constructor for initializing the scene's GUI
@@ -27,13 +32,14 @@ public class InitializeScene extends GUI {
      * and inserting the panes, VBox, HBox
      */
     public InitializeScene() {
-        super.mainPane.setId("pane");
+        farmingGame = new FarmingGame();
+        gui.getMainPane().setId("pane");
         VBox box = openingSceneVBOX();
-        super.mainPane.getChildren().add(box);
+        gui.getMainPane().getChildren().add(box);
         box.setAlignment(Pos.CENTER);
-        box.prefWidthProperty().bind(super.mainPane.widthProperty());
-        box.prefHeightProperty().bind(super.mainPane.heightProperty());
-        super.mainScene.getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+        box.prefWidthProperty().bind(gui.getMainPane().widthProperty());
+        box.prefHeightProperty().bind(gui.getMainPane().heightProperty());
+        gui.getMainScene().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
     }
 
     /**
@@ -47,13 +53,13 @@ public class InitializeScene extends GUI {
      */
     public InitializeScene(boolean isGameOver) {
         this.isGameOver = isGameOver;
-        super.mainPane.setId("pane");
+        gui.getMainPane().setId("pane");
         VBox box = openingSceneVBOX();
-        super.mainPane.getChildren().add(box);
+        gui.getMainPane().getChildren().add(box);
         box.setAlignment(Pos.CENTER);
-        box.prefWidthProperty().bind(super.mainPane.widthProperty());
-        box.prefHeightProperty().bind(super.mainPane.heightProperty());
-        super.mainScene.getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
+        box.prefWidthProperty().bind(gui.getMainPane().widthProperty());
+        box.prefHeightProperty().bind(gui.getMainPane().heightProperty());
+        gui.getMainScene().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
     }
 
     /**
@@ -75,7 +81,7 @@ public class InitializeScene extends GUI {
             @Override
             public void handle(ActionEvent event) {
                 PlayerSubScene playerSubScene = new PlayerSubScene("opening", 780, 500);
-                mainPane.getChildren().add(playerSubScene);
+                gui.getMainPane().getChildren().add(playerSubScene);
                 playerSubScene.moveSubScene(true);
                 playerSubScene.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
                 playerSelect(playerSubScene);
@@ -171,7 +177,7 @@ public class InitializeScene extends GUI {
 
             @Override
             public void handle(ActionEvent event) {
-                getFarmingGame().getFarmer().setFarmerCharacter(girlCharacter.getText());
+                farmingGame.getFarmer().setFarmerCharacter(girlCharacter.getText());
                 label.setText("You are a " + girlCharacter.getText());
             }
         });
@@ -180,7 +186,7 @@ public class InitializeScene extends GUI {
 
             @Override
             public void handle(ActionEvent event) {
-                getFarmingGame().getFarmer().setFarmerCharacter(boyCharacter.getText());
+                farmingGame.getFarmer().setFarmerCharacter(boyCharacter.getText());
                 label.setText("You are a " + boyCharacter.getText());
             }
         });
@@ -222,15 +228,15 @@ public class InitializeScene extends GUI {
 
             @Override
             public void handle(ActionEvent event) {
-                getFarmingGame().getFarmer().setFarmerName(nameField.getText());
-                if (getFarmingGame().getFarmer().getFarmerName() == null ||
-                        getFarmingGame().getFarmer().getFarmerName() == "" || getFarmingGame().getFarmer().getFarmerCharacter() == null) {
+                farmingGame.getFarmer().setFarmerName(nameField.getText());
+                if (farmingGame.getFarmer().getFarmerName() == null ||
+                        farmingGame.getFarmer().getFarmerName() == "" || farmingGame.getFarmer().getFarmerCharacter() == null) {
                     characterTxt.setText("Choose a character and a name first!");
                 } else {
-                    getFarmingGame().getFarmer().setFarmerName(nameField.getText());
+                    farmingGame.getFarmer().setFarmerName(nameField.getText());
                     FarmScene fs = new FarmScene();
                     try {
-                        fs.createFarm(InitializeScene.super.getMainStage());
+                        fs.createFarm(gui.getMainStage());
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
@@ -292,5 +298,13 @@ public class InitializeScene extends GUI {
      */
     public void setExitButton(SceneButtons exitButton) {
         this.exitButton = exitButton;
+    }
+
+    public Stage getMainStage() {
+        return mainStage;
+    }
+
+    public void setMainStage(Stage mainStage) {
+        this.mainStage = mainStage;
     }
 }

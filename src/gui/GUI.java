@@ -7,13 +7,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class GUI {
-
-    protected static FarmingGame farmingGame = new FarmingGame();
     private static final int WIDTH = 980;
     private static final int HEIGHT = 700;
 
-    protected AnchorPane mainPane;
-    protected Scene mainScene;
+    private AnchorPane mainPane;
+    private Scene mainScene;
     private Stage mainStage;
 
     /**
@@ -51,22 +49,6 @@ public class GUI {
      */
     public Stage getMainStage() {
         return mainStage;
-    }
-
-    /**
-     * Acts as a setter for the farming game
-     * @param farmingGame the object containing the farming game data
-     */
-    public static void setFarmingGame(FarmingGame farmingGame) {
-        GUI.farmingGame = farmingGame;
-    }
-
-    /**
-     * Acts as a getter for the farming game
-     * @return the object containing the current farming game data
-     */
-    public FarmingGame getFarmingGame() {
-        return farmingGame;
     }
 
     /**

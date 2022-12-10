@@ -27,9 +27,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class FarmController extends GUI implements Initializable {
+public class FarmController implements Initializable {
 
-    protected FarmingGame farmingGame = getFarmingGame();
+    protected static FarmingGame farmingGame = new FarmingGame();
     @FXML
     protected GridPane fieldPane;
     @FXML
@@ -209,7 +209,7 @@ public class FarmController extends GUI implements Initializable {
     }
 
     public void gameOver() {
-        setFarmingGame(new FarmingGame());
+        farmingGame = new FarmingGame();
         Stage stage = (Stage) fieldPane.getScene().getWindow();
         stage.close();
         InitializeScene initializeScene = new InitializeScene(true);
