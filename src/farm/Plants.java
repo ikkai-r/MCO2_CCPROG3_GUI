@@ -1,8 +1,5 @@
 package farm;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 public class Plants {
 
     private String plantName;
@@ -149,5 +146,53 @@ public class Plants {
      */
     public int getFertCapBonus() {
         return fertCapBonus;
+    }
+
+    public void setPlantName(String plantName) {
+        this.plantName = plantName;
+    }
+
+    public void setPlantType(String plantType) {
+        this.plantType = plantType;
+    }
+
+    public void setHarvestTime(int harvestTime) {
+        this.harvestTime = harvestTime;
+    }
+
+    public void setWaterNeeded(int waterNeeded) {
+        this.waterNeeded = waterNeeded;
+    }
+
+    public void setFertilizerNeeded(int fertilizerNeeded) {
+        this.fertilizerNeeded = fertilizerNeeded;
+    }
+
+    public void setMaxProductsProduced(int maxProductsProduced) {
+        this.maxProductsProduced = maxProductsProduced;
+    }
+
+    public void setMinProductsProduced(int minProductsProduced) {
+        this.minProductsProduced = minProductsProduced;
+    }
+
+    public void setWaterCapBonus(int waterCapBonus) {
+        this.waterCapBonus = waterCapBonus;
+    }
+
+    public void setFertCapBonus(int fertCapBonus) {
+        this.fertCapBonus = fertCapBonus;
+    }
+
+    public void setSeedCost(double seedCost) {
+        this.seedCost = seedCost;
+    }
+
+    public void setBaseCost(double baseCost) {
+        this.baseCost = baseCost;
+    }
+
+    public void setExperienceYield(double experienceYield) {
+        this.experienceYield = experienceYield;
     }
 }
