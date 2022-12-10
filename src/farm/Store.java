@@ -6,9 +6,12 @@ public class Store {
 
     /**
      *
-     * This method creates the transaction that the user and the store will create in selling the seeds.
+     * Creates the transaction that the user and the store will create in selling the seeds.
+     *
      * @param farmer the farmer's objectcoins will be used to know if they can afford to buy what they inputted.
      * @param plantChoice the farmer's pick in buying the seeds.
+     *
+     * @return the feedback from the farmer's purchase
      */
     public String sellItem(Farmer farmer, int plantChoice) {
 

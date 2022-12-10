@@ -13,6 +13,16 @@ public enum FarmerLevel {
     private final int FERT_BONUS;
     private final int REGIS_FEE;
 
+    /**
+     * class constructor for the farmer registrations available in the game
+     *
+     * @param requiredLevel the level the farmer needs to register
+     * @param seedCostReduction amount reduced for the farmer's seed costs
+     * @param bonusEarnings amount added for the farmer's harvest
+     * @param waterBonus number of times added to the farmer's water limits
+     * @param fertBonus number of times added to the farmer's fertilizer limits
+     * @param registrationFee amount the farmer has to pay to register
+     */
     private FarmerLevel(int requiredLevel, int seedCostReduction, int bonusEarnings,
                         int waterBonus, int fertBonus, int registrationFee) {
         this.REQUIRED_LEVEL = requiredLevel;
@@ -24,6 +34,10 @@ public enum FarmerLevel {
 
     }
 
+    /**
+     *
+     * The following methods serve as the getters and setters of the private attributes.
+     */
     public int getRequiredLevel() {
         return REQUIRED_LEVEL;
     }

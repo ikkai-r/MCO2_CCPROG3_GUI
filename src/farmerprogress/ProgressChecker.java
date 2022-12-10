@@ -12,7 +12,7 @@ public class ProgressChecker {
      * checks the farmer's current experience if it already passed the threshold for the current level.
      *
      * @param farmer gets the current xp of the farmer
-     * @return
+     * @return the arraylist of the feedback from leveling up
      */
     public ArrayList<Object> checkExperience(Farmer farmer) {
 
@@ -33,6 +33,7 @@ public class ProgressChecker {
      * checks the farmer's current level if it already passed the threshold for the current registration.
      *
      * @param farmer gets the current level of the farmer
+     * @retyrn arraylist of the feedback from leveling up
      */
     public ArrayList<Object> checkFarmerLevel(Farmer farmer, boolean hasLeveledUp) {
 
@@ -58,6 +59,15 @@ public class ProgressChecker {
         return farmerLvl;
 
     }
+
+    /**
+     *
+     * checks the farmer's object coins if they can afford the farmer registration
+     *
+     * @param farmer gets the current level of the farmer
+     * @param farmerLevel gets the farmer registration the farmer qualifies for
+     * @retyrn feedback from attempting for farmer registration
+     */
 
     public String checkRegister(Farmer farmer, FarmerLevel farmerLevel) {
         String feedback = null;
@@ -93,10 +103,10 @@ public class ProgressChecker {
 
     /**
      *
-     * gives info for the next farmer registration level to the user to give them a choice of increasing their registration or not.
+     * gives information for the next farmer registration level to the user to give them a choice of increasing their registration or not.
      *
      * @param farmerLvl checks the level of the farmer.
-     * @return if the user has the sufficient funds to register to the next level.
+     * @return String containing the info about the benefits of the farmer's qualification for registration
      */
     public String promptFarmerRegistration(FarmerLevel farmerLvl) {
 

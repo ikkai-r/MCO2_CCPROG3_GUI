@@ -9,7 +9,7 @@ public class Seeds {
     private ArrayList<Plants> plants = new ArrayList<>();
 
     /**
-     * creates the list of available plants in the game
+     * Creates the list of available plants in the game
      */
     public Seeds() {
         plants.add(new Turnip());
@@ -27,7 +27,7 @@ public class Seeds {
      *
      * @param crop name of the crop
      *
-     * @return index of the crop w/ the name
+     * @return index of the crop that matches with the crop name
      */
     public int getCropIndex(String crop) {
         int counter = -1;

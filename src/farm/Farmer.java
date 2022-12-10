@@ -81,13 +81,12 @@ public class Farmer implements GeneralMethods {
      */
     public ArrayList<String> useTools(Tile crop, int toolChoice) {
         ArrayList<String> feedback = new ArrayList<>();
-        ArrayList returnTool;
         String toolName = farmerInventory.getTools().get(toolChoice).getToolName();
 
         if (farmerInventory.checkValidTool(toolName, crop)) {
             //use tool if valid
             if (farmerInventory.getObjectCoins() >= farmerInventory.getTools().get(toolChoice).getCostOfUsage()) {
-                returnTool = farmerInventory.useTool(toolName, crop);
+                ArrayList<Object> returnTool = farmerInventory.useTool(toolName, crop);
                 setExperience(getExperience()+ (Double) returnTool.get(2));
                 feedback.add((String)returnTool.get(0));
                 feedback.add((String)returnTool.get(1));
@@ -172,7 +171,7 @@ public class Farmer implements GeneralMethods {
      * @param tile holds the info of the tile picked.
      * @param seeds serves as the reference of data for each of the plant's statistics.
      *
-     * @return arraylist of Strings that are feedback from the harvest action
+     * @return array list of Strings that are feedback from the harvest action
      */
     public ArrayList<String> harvestCrop(Tile tile, Seeds seeds) {
 

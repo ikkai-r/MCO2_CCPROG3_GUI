@@ -21,6 +21,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
@@ -72,7 +73,6 @@ public class FarmController extends GUI implements Initializable {
             //set node to condition of corresponding tile
             tileCondition = farmingGame.getBoard().checkTileCondition(farmingGame.getBoard().getFarmTile(row, col));
             node.setStyle("-fx-background-image: url(\""+tileCondition+".png\"); -fx-background-size: 54 50;");
-            node.setId(row+" "+col);
         }
 
         checkFarmerExp();
@@ -179,20 +179,26 @@ public class FarmController extends GUI implements Initializable {
 
     public void tileAction(ActionEvent event) throws IOException {
 
-        Object node = event.getSource();
+        Node node = (Node) event.getSource();
         PlayerSubScene tileActionPane = new PlayerSubScene("tileActions", 700, 550);
+        int row;
+        int col;
 
-        if (node instanceof final Button button) {
+        if (GridPane.getRowIndex(node) == null) {
+            row = 0;
+        } else {
+            row = GridPane.getRowIndex(node);
+        }
+
+        if (GridPane.getColumnIndex(node) == null) {
+            col = 0;
+        } else {
+            col = GridPane.getColumnIndex(node);
+        }
             farmPane.getChildren().add(tileActionPane);
 
             tileActionPane.moveSubScene(true);
             tileActionPane.getPane().getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
-
-
-
-            String tile = button.getId();
-            int row = Integer.parseInt(String.valueOf(tile.charAt(0)));
-            int col = Integer.parseInt(String.valueOf(tile.charAt(2)));
 
             farmingGame.getBoard().getFarmTile(row, col).setSelected(true);
 
@@ -200,7 +206,7 @@ public class FarmController extends GUI implements Initializable {
             tileActionPane.getPane().getChildren().add(storePane);
             setFieldButtonTiles();
             createExitButtonPanes(tileActionPane, farmingGame.getBoard().getFarmTile(row, col));
-        }
+
     }
 
     public void gameOver() {

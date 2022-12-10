@@ -17,31 +17,8 @@ public class Tile {
     private int daysPassed;
 
     /**
-     * class constructor for tile with predetermined values
-     *
-     * @param isPlowed states if plowed or not.
-     * @param isWithered states if withered or not.
-     * @param hasRock states if it has rock or not.
-     * @param hasSeed states if it has seed or not.
-     * @param isHarvestable states if harvestable or not.
-     * @param crop name of the crop planted.
-     * @param timesWatered number of times the tile is watered.
-     * @param timesFertilized number of times the tile is fertilized.
-     */
-    public Tile(boolean isPlowed, boolean isWithered, boolean hasRock, boolean hasSeed, boolean isHarvestable, String crop, int timesWatered, int timesFertilized) {
-        this.isPlowed = isPlowed;
-        this.isWithered = isWithered;
-        this.hasRock = hasRock;
-        this.hasSeed = hasSeed;
-        this.isHarvestable = isHarvestable;
-        this.crop = crop;
-        this.timesWatered = timesWatered;
-        this.timesFertilized = timesFertilized;
-        this.daysPassed = 0;
-    }
-
-    /**
-     * class constructor for creating new tile
+     * Class constructor for creating new tile
+     * It sets all attributes to default values
      *
      */
     public Tile() {
@@ -54,6 +31,98 @@ public class Tile {
         this.timesWatered = 0;
         this.timesFertilized = 0;
         this.daysPassed = 0;
+    }
+
+    /**
+     *
+     * Checks the number of tiles watered
+     *
+     * @return if the tile's watering limit is exceeded
+     */
+    public boolean canWater() {
+        if (farmer.getWaterBonusLimits() > 0) {
+            return this.timesWatered < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterCapBonus() ||
+                    this.timesWatered < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterNeeded();
+        } else {
+            return this.timesWatered < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterNeeded();
+        }
+    }
+
+    /**
+     *
+     * Checks the number of tiles fertilized
+     *
+     * @return if the tile's fertilizing limit is exceeded
+     */
+    public boolean canFertilize() {
+        if (this.farmer.getFertBonusLimits() > 0) {
+            return this.timesFertilized < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertCapBonus() ||
+                    this.timesFertilized < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertilizerNeeded();
+        } else {
+            return this.timesFertilized < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertilizerNeeded();
+        }
+    }
+
+    /**
+     * Checks the tile if it can be planted
+     * @return if the tile is plowed, does not have a rock, no plant, and is not withered
+     */
+    public boolean canPlant() {
+        return this.isPlowed && !this.hasRock && this.crop.isEmpty() && !this.isWithered;
+    }
+
+    /**
+     * checks if the crop on the tile passes as a withered crop
+     * and sets withered tile
+     */
+    public void checkWithered() {
+        //if days passed is more than the harvest time OR
+        //if days passed is equal to the harvest time AND
+        //if it does not meet the water or fertilize limit (hasn't been taken care of)
+        if (!this.crop.isEmpty()) {
+            if ((this.daysPassed > this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime()) ||
+                    (this.daysPassed == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime() && (canWater() || canFertilize()))) {
+                this.isPlowed = false;
+                this.isWithered = true;
+                this.hasSeed = false;
+                this.crop = "";
+                this.timesWatered = 0;
+                this.timesFertilized = 0;
+                this.daysPassed = 0;
+            }
+        }
+    }
+
+    /**
+     checks if the crop on the tile passes as a harvestable crop
+     * and sets harvestable tile
+     */
+    public void checkHarvestable() {
+
+        if (!this.crop.isEmpty()) {
+            if (this.daysPassed == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime()
+                    && (this.timesWatered == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterNeeded() || this.timesWatered == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterCapBonus())
+                    && (this.timesFertilized == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertilizerNeeded() || this.timesFertilized == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertCapBonus())) {
+                this.isHarvestable = true;
+            }
+        }
+
+    }
+
+    /**
+     * turns the tile into a tile with default values.
+     * @param tile the tile that will be reset.
+     */
+    public void resetTile(Tile tile) {
+        tile.setPlowed(false);
+        tile.setCrop("");
+        tile.setHasSeed(false);
+        tile.setDaysPassed(0);
+        tile.setHarvestable(false);
+        tile.setTimesFertilized(0);
+        tile.setTimesWatered(0);
+        tile.setWithered(false);
+        tile.setRock(false);
     }
 
     /**
@@ -152,96 +221,4 @@ public class Tile {
     public void setFarmer(Farmer farmer) {
         this.farmer = farmer;
     }
-
-    /**
-     *
-     * checks the number of tiles watered
-     *
-     * @return if the tile's watering limit is exceeded
-     */
-    public boolean canWater() {
-        if (farmer.getWaterBonusLimits() > 0) {
-            return this.timesWatered < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterCapBonus() ||
-                    this.timesWatered < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterNeeded();
-        } else {
-            return this.timesWatered < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterNeeded();
-        }
-    }
-
-    /**
-     *
-     * checks the number of tiles fertilized
-     *
-     * @return if the tile's fertilizing limit is exceeded
-     */
-    public boolean canFertilize() {
-        if (this.farmer.getFertBonusLimits() > 0) {
-            return this.timesFertilized < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertCapBonus() ||
-                    this.timesFertilized < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertilizerNeeded();
-        } else {
-            return this.timesFertilized < this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertilizerNeeded();
-        }
-    }
-
-    public boolean canPlant() {
-        return this.isPlowed && !this.hasRock && this.crop.isEmpty() && !this.isWithered;
-    }
-
-    /**
-     * checks if the crop on the tile passes as a withered crop
-     * and sets withered tile
-     *
-     */
-    public void checkWithered() {
-
-        //if days passed is more than the harvest time OR
-        //if days passed is equal to the harvest time AND
-        //if it does not meet the water or fertilize limit (hasn't been taken care of)
-        if (!this.crop.isEmpty()) {
-            if ((this.daysPassed > this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime()) ||
-                    (this.daysPassed == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime() && (canWater() || canFertilize()))) {
-                this.isPlowed = false;
-                this.isWithered = true;
-                this.hasSeed = false;
-                this.crop = "";
-                this.timesWatered = 0;
-                this.timesFertilized = 0;
-                this.daysPassed = 0;
-            }
-        }
-    }
-
-    /**
-     checks if the crop on the tile passes as a harvestable crop
-     * and sets harvestable tile
-     */
-    public void checkHarvestable() {
-
-        if (!this.crop.isEmpty()) {
-            if (this.daysPassed == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getHarvestTime()
-                    && (this.timesWatered == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterNeeded() || this.timesWatered == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getWaterCapBonus())
-                    && (this.timesFertilized == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertilizerNeeded() || this.timesFertilized == this.seeds.getPlants().get(this.seeds.getCropIndex(this.crop)).getFertCapBonus())) {
-                this.isHarvestable = true;
-            }
-        }
-
-    }
-
-    /**
-     * turns the tile into an unplowed one.
-     * @param tile the tile that will be reset.
-     */
-    public void resetTile(Tile tile) {
-        tile.setPlowed(false);
-        tile.setCrop("");
-        tile.setHasSeed(false);
-        tile.setDaysPassed(0);
-        tile.setHarvestable(false);
-        tile.setTimesFertilized(0);
-        tile.setTimesWatered(0);
-        tile.setWithered(false);
-        tile.setRock(false);
-    }
-
-
 }

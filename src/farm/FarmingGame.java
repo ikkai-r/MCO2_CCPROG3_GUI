@@ -1,8 +1,8 @@
 
-//        This is to certify that this project is our own work, based on our personal efforts in studying and applying
-//        the concepts learned. We have constructed the functions and their respective algorithms and corresponding
-//        code by ourselves. The program was run, tested, and debugged by our own efforts. We further certify that
-//        we have not copied in part or whole or otherwise plagiarized the work of other students and/or persons.
+//        This is to certify that this project is my own work, based on my personal efforts in studying and applying
+//        the concepts learned. I have constructed the functions and their respective algorithms and corresponding
+//        code by myself. The program was run, tested, and debugged by my own efforts. I further certify that
+//        I have not copied in part or whole or otherwise plagiarized the work of other students and/or persons.
 //
 //        Rica Mae Sales
 //        12197378
@@ -13,22 +13,20 @@ package farm;
 
 import farmerprogress.ProgressChecker;
 
-import java.util.Scanner;
-
 public class FarmingGame {
 
     private Farmer farmer;
     private Store store;
     private Seeds seeds;
-    private Scanner scanner = new Scanner(System.in);
     private static Board board;
     private ProgressChecker progressChecker;
 
-
+    /**
+     *
+     * Initializes the items and necessary objects
+     */
     public FarmingGame() {
             initializeItems();
-            board = new Board();
-            farmer = new Farmer();
     }
 
     /**
@@ -39,6 +37,8 @@ public class FarmingGame {
         seeds = new Seeds();
         store = new Store();
         progressChecker = new ProgressChecker();
+        board = new Board();
+        farmer = new Farmer();
     }
 
     /**
@@ -46,10 +46,8 @@ public class FarmingGame {
      * The method advances the farmer to the next day.
      */
     public void sleep() {
-
         farmer.setDayCount(farmer.getDayCount()+1);
         progressDay();
-
     }
 
     /**
@@ -65,7 +63,8 @@ public class FarmingGame {
      * The method checks if the game has met its lose conditions.
      *
      * @return if you do not have seeds or if you have no seeds other than fruit trees
-     *         and your Objectcoins is less than the cheapest seed.
+     *         and your Objectcoins is less than the cheapest seed or if you do not have any
+     *         money to remove withered plants with all your tiles withered.
      */
     public boolean isGameOver() {
 

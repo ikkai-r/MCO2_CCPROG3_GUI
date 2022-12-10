@@ -7,6 +7,28 @@
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/FarmingGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/FarmingGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/GeneralMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/GeneralMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Seeds.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Seeds.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Apple.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Apple.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Carrot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Carrot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Mango.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Mango.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Potato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Potato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Rose.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Rose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Sunflower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Sunflower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Tulips.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Tulips.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/seeds/Turnip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/seeds/Turnip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Fertilizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Fertilizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Pickaxe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Pickaxe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Plow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Plow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/Shovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/Shovel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/tools/WateringCan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/tools/WateringCan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farmerprogress/FarmerLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farmerprogress/FarmerLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farmerprogress/ProgressChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mco2_ccprog3/FarmController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -265,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670632791068</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Farmer, Board, refactored.">
+      <created>1670635535860</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1670635535860</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -292,7 +321,8 @@
     <MESSAGE value="Refactor needed." />
     <MESSAGE value="Refactoring WIP." />
     <MESSAGE value="REFACTORING" />
-    <option name="LAST_COMMIT_MESSAGE" value="REFACTORING" />
+    <MESSAGE value="Farmer, Board, refactored." />
+    <option name="LAST_COMMIT_MESSAGE" value="Farmer, Board, refactored." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

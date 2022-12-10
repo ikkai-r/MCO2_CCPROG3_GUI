@@ -14,7 +14,7 @@ public class Inventory {
 
     /**
      *
-     * adds the available tools that are provided to the user for every game
+     * Adds the available tools that are provided to the user for every game
      */
     public Inventory() {
         tools.add(new Plow());
@@ -24,6 +24,10 @@ public class Inventory {
         tools.add(new Shovel());
     }
 
+    /**
+     *
+     * Resets the inventory for the farmer
+     */
     public void resetInventory() {
         seedsOwned.clear();
         objectCoins = 100;
@@ -31,14 +35,14 @@ public class Inventory {
 
     /**
      *
-     * enables user to use the selected tool
+     * Enables user to use the selected tool
      *
      * @param toolName the tool that is used
      * @param tile     the tile that's being interacted with the tool.
      *
-     * @return the experience gained by the user.
+     * @return the array list of the feedback from the user's action
      */
-    public ArrayList useTool (String toolName, Tile tile) {
+    public ArrayList<Object> useTool (String toolName, Tile tile) {
         ArrayList<Object> toolReturn = new ArrayList<>();
 
         if (toolName.equals(tools.get(0).getToolName())) {
@@ -112,7 +116,7 @@ public class Inventory {
 
     /**
      *
-     * validates if the tool can be used by the user to the given tile.
+     * Validates if the tool can be used by the user to the given tile.
      *
      * @param toolName a reference check to the actions that the tools can do.
      * @param tile     the tile that's being interacted with the tool.
@@ -165,14 +169,26 @@ public class Inventory {
      * The following methods serve as the getters and setters of the private attributes.
      */
 
+    /**
+     * Acts as the getter for the amount of coins the farmer owns
+     * @return the number of object coins
+     */
     public double getObjectCoins() {
         return objectCoins;
     }
 
+    /**
+     * Acts as the setter for the amount of coins the farmer owns
+     * @param objectCoins the value to be set for the object coins
+     */
     public void setObjectCoins(double objectCoins) {
-        this.objectCoins = objectCoins;
+        Inventory.objectCoins = objectCoins;
     }
 
+    /**
+     * Acts as the getter for the amount of seeds the farmer owns
+     * @return the number of seeds owned
+     */
     public int getNumberOfSeedsOwned() {
         int totalSeeds = 0;
 
@@ -183,17 +199,35 @@ public class Inventory {
         return totalSeeds;
     }
 
+    /**
+     * Acts as the setter for the hashmap of seeds the farmer owns
+     * @param seedsOwned the hashmap of the seeds the farmer has
+     */
     public void setSeedsOwned(HashMap<String, Integer> seedsOwned) {
-        this.seedsOwned = seedsOwned;
+        Inventory.seedsOwned = seedsOwned;
     }
 
+    /**
+     * Acts as the setter for the tools the farmer will use
+     * @param tools the arraylist of the tools the farmer has
+     */
     public void setTools(ArrayList<Tools> tools) {
         this.tools = tools;
     }
 
+    /**
+     * Acts as the getter for the tools the farmer will use
+     * @return arraylist of tools
+     */
     public ArrayList<Tools> getTools() {
         return tools;
     }
+
+    /**
+     * Acts as the getter for the seeds owned by the farmer
+     * @return the hashmap of the seeds the farmer owns,
+     * the name of the seeds as the key and the number of seeds as the value
+     */
 
     public HashMap<String, Integer> getSeedsOwned() { return seedsOwned; }
 
