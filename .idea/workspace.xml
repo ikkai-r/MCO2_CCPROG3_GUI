@@ -7,7 +7,7 @@
     <list default="true" id="3aaf9b0c-be94-4988-ab52-5efdde47781b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/FarmController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FarmController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/farm/Farmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/farm/Farmer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/scenes/InitializeScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/scenes/InitializeScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -316,11 +316,17 @@
       <option name="project" value="LOCAL" />
       <updated>1670667281637</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="REFACTOR">
+      <created>1670668927708</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1670668927708</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Finishing choose character. Name prompt &amp; Submit" />
     <MESSAGE value="Finished Choose Character. Make farm tiles next, shop, and inventory" />
     <MESSAGE value="Farm tiles WIP" />
     <MESSAGE value="Farm tiles WIP." />
@@ -345,7 +351,8 @@
     <MESSAGE value="Refactored farm, farmer progress, &amp; scenes" />
     <MESSAGE value="Refactored + commented all except for getters and setters" />
     <MESSAGE value="COMMENTED ALL! Testing left" />
-    <option name="LAST_COMMIT_MESSAGE" value="COMMENTED ALL! Testing left" />
+    <MESSAGE value="REFACTOR" />
+    <option name="LAST_COMMIT_MESSAGE" value="REFACTOR" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

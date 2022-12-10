@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class InitializeScene {
-    private  FarmingGame farmingGame;
+    private static FarmingGame farmingGame;
     private GUI gui = new GUI();
     private boolean isGameOver;
     private SceneButtons startButton;
@@ -306,5 +306,13 @@ public class InitializeScene {
 
     public void setMainStage(Stage mainStage) {
         this.mainStage = mainStage;
+    }
+
+    public static FarmingGame getFarmingGame() {
+        return farmingGame;
+    }
+
+    public static void setFarmingGame(FarmingGame farmingGame) {
+        InitializeScene.farmingGame = farmingGame;
     }
 }

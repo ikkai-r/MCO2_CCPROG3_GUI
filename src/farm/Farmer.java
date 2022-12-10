@@ -7,8 +7,8 @@ import java.util.ArrayList;
 public class Farmer implements GeneralMethods {
 
     private Inventory farmerInventory = new Inventory();
-    private String farmerCharacter;
-    private String farmerName;
+    private static String farmerCharacter;
+    private static String farmerName;
     private int farmerLevel;
     private static double experience;
     private String farmerStatus;

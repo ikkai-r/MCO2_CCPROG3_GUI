@@ -27,9 +27,11 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static gui.scenes.InitializeScene.getFarmingGame;
+
 public class FarmController implements Initializable {
 
-    protected static FarmingGame farmingGame = new FarmingGame();
+    protected static FarmingGame farmingGame = getFarmingGame();
     @FXML
     protected GridPane fieldPane;
     @FXML
