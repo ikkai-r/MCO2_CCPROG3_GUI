@@ -1,6 +1,6 @@
 package mco2_ccprog3;
 
-import gui.scenes.OpeningScene;
+import gui.scenes.InitializeScene;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -12,8 +12,8 @@ public class HelloApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        OpeningScene openingScene = new OpeningScene();
-        primaryStage = openingScene.getMainStage();
+        InitializeScene initializeScene = new InitializeScene();
+        primaryStage = initializeScene.getMainStage();
         primaryStage.show();
     }
 }

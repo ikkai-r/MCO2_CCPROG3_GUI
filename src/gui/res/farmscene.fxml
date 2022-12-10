@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.Label?>
-<AnchorPane fx:id="farmPane" prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.FarmController">
+<AnchorPane fx:id="farmPane" prefHeight="700.0" prefWidth="980.0" xmlns="http://javafx.com/javafx/18.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.FarmController">
    <children>
       <GridPane id="pane-field" fx:id="fieldPane" gridLinesVisible="true" layoutX="356.0" layoutY="100.0" prefHeight="500.0" prefWidth="269.0" stylesheets="stylesheet.css">
         <columnConstraints>

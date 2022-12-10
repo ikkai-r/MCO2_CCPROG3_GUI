@@ -3,9 +3,9 @@ package mco2_ccprog3;
 import farm.FarmingGame;
 import farm.Tile;
 import farmerprogress.FarmerLevel;
+import gui.GUI;
 import gui.scenes.*;
 import javafx.animation.PauseTransition;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -21,16 +21,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class FarmController implements Initializable {
+public class FarmController extends GUI implements Initializable {
 
-    protected static FarmingGame farmingGame;
+    protected FarmingGame farmingGame = getFarmingGame();
     @FXML
     protected GridPane fieldPane;
     @FXML
@@ -39,7 +38,6 @@ public class FarmController implements Initializable {
     private Label day;
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-        farmingGame = new FarmingGame();
         setFieldButtonTiles();
         initializeDay();
     }
@@ -206,11 +204,11 @@ public class FarmController implements Initializable {
     }
 
     public void gameOver() {
-        farmingGame.getFarmer().resetFarmer(farmingGame.getFarmer());
+        setFarmingGame(new FarmingGame());
         Stage stage = (Stage) fieldPane.getScene().getWindow();
         stage.close();
-        OpeningScene openingScene = new OpeningScene(true);
-        Stage primaryStage = openingScene.getMainStage();
+        InitializeScene initializeScene = new InitializeScene(true);
+        Stage primaryStage = initializeScene.getMainStage();
         primaryStage.show();
     }
 

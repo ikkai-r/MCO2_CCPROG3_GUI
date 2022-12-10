@@ -19,7 +19,7 @@ public class ProgressChecker {
         ArrayList<Object> checkingFarm = new ArrayList<>();
 
         int farmerXPLevel = ((int)farmer.getExperience()/100);
-        System.out.println("xp: " + farmerXPLevel + " " + farmer.getFarmerLevel());
+
         if (farmerXPLevel > farmer.getFarmerLevel()) {
             farmer.setFarmerLevel(farmerXPLevel);
             checkingFarm = checkFarmerLevel(farmer, true);

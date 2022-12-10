@@ -17,11 +17,10 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 
-public class OpeningScene extends GUI {
-
-    private FarmingGame farmingGame = new FarmingGame();
+public class InitializeScene extends GUI {
     private boolean isGameOver;
-    public OpeningScene() {
+
+    public InitializeScene() {
         super.mainPane.setId("pane");
         VBox box = openingSceneVBOX();
         super.mainPane.getChildren().add(box);
@@ -31,7 +30,7 @@ public class OpeningScene extends GUI {
         super.mainScene.getStylesheets().add(this.getClass().getResource("/style.css").toExternalForm());
     }
 
-    public OpeningScene(boolean isGameOver) {
+    public InitializeScene(boolean isGameOver) {
         this.isGameOver = isGameOver;
         super.mainPane.setId("pane");
         VBox box = openingSceneVBOX();
@@ -119,7 +118,7 @@ public class OpeningScene extends GUI {
 
             @Override
             public void handle(ActionEvent event) {
-                farmingGame.getFarmer().setFarmerCharacter(girlCharacter.getText());
+                getFarmingGame().getFarmer().setFarmerCharacter(girlCharacter.getText());
                 label.setText("You are a " + girlCharacter.getText());
             }
         });
@@ -128,7 +127,7 @@ public class OpeningScene extends GUI {
 
             @Override
             public void handle(ActionEvent event) {
-                farmingGame.getFarmer().setFarmerCharacter(boyCharacter.getText());
+                getFarmingGame().getFarmer().setFarmerCharacter(boyCharacter.getText());
                 label.setText("You are a " + boyCharacter.getText());
             }
         });
@@ -161,15 +160,15 @@ public class OpeningScene extends GUI {
 
             @Override
             public void handle(ActionEvent event) {
-                farmingGame.getFarmer().setFarmerName(nameField.getText());
-                if (farmingGame.getFarmer().getFarmerName() == null ||
-                        farmingGame.getFarmer().getFarmerName() == "" || farmingGame.getFarmer().getFarmerCharacter() == null) {
+                getFarmingGame().getFarmer().setFarmerName(nameField.getText());
+                if (getFarmingGame().getFarmer().getFarmerName() == null ||
+                        getFarmingGame().getFarmer().getFarmerName() == "" || getFarmingGame().getFarmer().getFarmerCharacter() == null) {
                     characterTxt.setText("Choose a character and a name first!");
                 } else {
-                    farmingGame.getFarmer().setFarmerName(nameField.getText());
+                    getFarmingGame().getFarmer().setFarmerName(nameField.getText());
                     FarmScene fs = new FarmScene();
                     try {
-                        fs.createFarm(OpeningScene.super.getMainStage());
+                        fs.createFarm(InitializeScene.super.getMainStage());
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

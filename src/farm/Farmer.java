@@ -12,8 +12,8 @@ public class Farmer implements GeneralMethods {
 
     private Inventory farmerInventory = new Inventory();
     private Scanner scanner = new Scanner(System.in);
-    private static String farmerCharacter = null;
-    private static String farmerName = null;
+    private String farmerCharacter = null;
+    private String farmerName = null;
     private int farmerLevel = 0;
     private double experience = 0D;
     private String farmerStatus = "FARMER";
@@ -23,111 +23,30 @@ public class Farmer implements GeneralMethods {
     private static int waterBonusLimits = 0;
     private static int fertBonusLimits = 0;
 
+    /**
+     *
+     * The method generates an integer between the minimum and the maximum range.
+     *
+     * @param max the maximum range for the random value
+     * @param min the minimum range for the random value
+     *
+     * @return a random integer.
+     */
     public int returnRandom(int max, int min) {
         return min + (int)(Math.random() * ((max - min) + 1));
     }
 
-    /**
-     *
-     * The following methods serve as the getters and setters of the private attributes.
-     */
-    public String getFarmerName() {
-        return farmerName;
-    }
-
-    public int getFarmerLevel() {
-        return farmerLevel;
-    }
-
-    public double getExperience() {
-        return experience;
-    }
-
-    public int getDayCount() {
-        return dayCount;
-    }
-
-    public Inventory getFarmerInventory() {
-        return farmerInventory;
-    }
-
-    public void setDayCount(int dayCount) {
-        this.dayCount = dayCount;
-    }
-
-    public void setExperience(double experience) {
-        this.experience = experience;
-    }
-
-    public int getSeedCostReduction() {
-        return seedCostReduction;
-    }
-
-    public int getBonusEarningsPerProduce() {
-        return bonusEarningsPerProduce;
-    }
-
-    public int getWaterBonusLimits() {
-        return waterBonusLimits;
-    }
-
-    public int getFertBonusLimits() {
-        return fertBonusLimits;
-    }
-
-
-    public void setFarmerInventory(Inventory farmerInventory) {
-        this.farmerInventory = farmerInventory;
-    }
-
-    public static void setFarmerName(String farmerName) {
-        Farmer.farmerName = farmerName;
-    }
-
-    public String getFarmerCharacter() {
-        return farmerCharacter;
-    }
-
-    public void setFarmerCharacter(String farmerCharacter) {
-        Farmer.farmerCharacter = farmerCharacter;
-    }
-
-    public String getFarmerStatus() {
-        return farmerStatus;
-    }
-
-    public void setFarmerStatus(String farmerStatus) {
-        this.farmerStatus = farmerStatus;
-    }
-
-    public static void setSeedCostReduction(int seedCostReduction) {
-        Farmer.seedCostReduction = seedCostReduction;
-    }
-
-    public static void setBonusEarningsPerProduce(int bonusEarningsPerProduce) {
-        Farmer.bonusEarningsPerProduce = bonusEarningsPerProduce;
-    }
-
-    public static void setWaterBonusLimits(int waterBonusLimits) {
-        Farmer.waterBonusLimits = waterBonusLimits;
-    }
-
-    public static void setFertBonusLimits(int fertBonusLimits) {
-        Farmer.fertBonusLimits = fertBonusLimits;
-    }
-
-    public void setFarmerLevel(int farmerLevel) {
-        this.farmerLevel = farmerLevel;
-    }
-
-    public void resetFarmer(Farmer farmer) {
-        farmer.getFarmerInventory().resetInventory();
-        farmer.setFarmerCharacter(null);
-        farmer.setFarmerName(null);
+    public Farmer() {
+        getFarmerInventory().resetInventory();
+        setFarmerCharacter(null);
+        setFarmerName(null);
         setSeedCostReduction(0);
         setBonusEarningsPerProduce(0);
         setWaterBonusLimits(0);
         setFertBonusLimits(0);
+        setDayCount(1);
+        setExperience(0);
+        setFarmerLevel(0);
     }
     /**
      *
@@ -367,6 +286,99 @@ public class Farmer implements GeneralMethods {
 
         return cropFeedback;
 
+    }
+
+    /**
+     *
+     * The following methods serve as the getters and setters of the private attributes.
+     */
+    public String getFarmerName() {
+        return farmerName;
+    }
+
+    public int getFarmerLevel() {
+        return farmerLevel;
+    }
+
+    public double getExperience() {
+        return experience;
+    }
+
+    public int getDayCount() {
+        return dayCount;
+    }
+
+    public Inventory getFarmerInventory() {
+        return farmerInventory;
+    }
+
+    public void setDayCount(int dayCount) {
+        this.dayCount = dayCount;
+    }
+
+    public void setExperience(double experience) {
+        this.experience = experience;
+    }
+
+    public int getSeedCostReduction() {
+        return seedCostReduction;
+    }
+
+    public int getBonusEarningsPerProduce() {
+        return bonusEarningsPerProduce;
+    }
+
+    public int getWaterBonusLimits() {
+        return waterBonusLimits;
+    }
+
+    public int getFertBonusLimits() {
+        return fertBonusLimits;
+    }
+
+
+    public void setFarmerInventory(Inventory farmerInventory) {
+        this.farmerInventory = farmerInventory;
+    }
+
+    public void setFarmerName(String farmerName) {
+        this.farmerName = farmerName;
+    }
+
+    public String getFarmerCharacter() {
+        return farmerCharacter;
+    }
+
+    public void setFarmerCharacter(String farmerCharacter) {
+        this.farmerCharacter = farmerCharacter;
+    }
+
+    public String getFarmerStatus() {
+        return farmerStatus;
+    }
+
+    public void setFarmerStatus(String farmerStatus) {
+        this.farmerStatus = farmerStatus;
+    }
+
+    public static void setSeedCostReduction(int seedCostReduction) {
+        Farmer.seedCostReduction = seedCostReduction;
+    }
+
+    public static void setBonusEarningsPerProduce(int bonusEarningsPerProduce) {
+        Farmer.bonusEarningsPerProduce = bonusEarningsPerProduce;
+    }
+
+    public static void setWaterBonusLimits(int waterBonusLimits) {
+        Farmer.waterBonusLimits = waterBonusLimits;
+    }
+
+    public static void setFertBonusLimits(int fertBonusLimits) {
+        Farmer.fertBonusLimits = fertBonusLimits;
+    }
+
+    public void setFarmerLevel(int farmerLevel) {
+        this.farmerLevel = farmerLevel;
     }
 
 

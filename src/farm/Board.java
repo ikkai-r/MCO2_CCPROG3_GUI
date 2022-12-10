@@ -8,7 +8,7 @@ public class Board implements GeneralMethods {
 
 
     /**
-     * sets the board with unplowed tiles and creates a randomized placings of rocks on the field.
+     * Sets the board with unplowed tiles and calls setRandomRocks() to generate rock positions.
      *
      */
 
@@ -20,9 +20,9 @@ public class Board implements GeneralMethods {
             }
             setRandomRocks();
     }
+
     /**
-     *
-     * places a randomized number of rocks all over the land
+     *  Places a randomized set of rocks on the farm tiles.
      */
     public void setRandomRocks() {
         int numberOfRocks = returnRandom(30, 10);
@@ -43,7 +43,12 @@ public class Board implements GeneralMethods {
         }
     }
 
-
+    /**
+     * Checks the passed tile's state
+     *
+     * @param tile - The tile currently being checked by the board
+     * @return the state of the tile in a String
+     */
     public String checkTileCondition(Tile tile) {
         if (tile.isWithered()) {
             return "withered";
@@ -62,7 +67,7 @@ public class Board implements GeneralMethods {
 
     /**
      *
-     * updates the status of the board
+     * Updates the status of the board
      */
     public void checkTiles() {
 
@@ -79,7 +84,7 @@ public class Board implements GeneralMethods {
     }
 
     /**
-     * updates the tiles on the board if they have seeds
+     * Updates the tiles on the board if they have seeds.
      * @return true if at least one of the tiles has a seed
      */
     public boolean checkTilesSeeds() {
@@ -97,7 +102,7 @@ public class Board implements GeneralMethods {
 
 
     /**
-     * updates the tiles on the board if they are withered
+     * Updates the tiles on the board if they are withered
      * @return true if all the tiles are withered
      */
     public boolean checkTilesWithered() {
@@ -114,31 +119,20 @@ public class Board implements GeneralMethods {
     }
 
     /**
-     * checks if it is possible for a fruit seed to be put into the tile
+     * Checks if it is possible for a fruit seed to be put into the tile
      * @return true if there are no occupied tiles in the area of the tile
      */
     public boolean checkSurroundingTilesIfOcc() {
 
         //check all sides
-        int tileRowIndex = -1;
-        int tileColIndex = -1;
+        int[] tileIndices = getSelectedTileIndices();
 
-        //find selected tile to get row and col index
-        for (int rowIndex = 0; rowIndex < BOARDROW; rowIndex++) {
-            for (int colIndex = 0; colIndex < BOARDCOL; colIndex++) {
-                if (farmTiles[rowIndex][colIndex].isSelected()) {
-                    tileRowIndex = rowIndex;
-                    tileColIndex = colIndex;
-                }
-            }
-        }
-
-        if (tileRowIndex-1 < 0 || tileRowIndex + 1 > BOARDROW || tileColIndex-1 < 0 || tileColIndex+1 > BOARDCOL) {
+        if (tileIndices[0]-1 < 0 || tileIndices[0] + 1 > BOARDROW || tileIndices[1]-1 < 0 || tileIndices[1]+1 > BOARDCOL) {
             return true;
         }
 
-        for (int rowCounter = tileRowIndex-1; rowCounter <= tileRowIndex+1; rowCounter++) {
-            for (int colCounter = tileColIndex-1; colCounter <= tileColIndex+1; colCounter++) {
+        for (int rowCounter = tileIndices[0]-1; rowCounter <= tileIndices[0]+1; rowCounter++) {
+            for (int colCounter = tileIndices[1]-1; colCounter <= tileIndices[1]+1; colCounter++) {
                 if(farmTiles[rowCounter][colCounter].hasRock()
                         || farmTiles[rowCounter][colCounter].hasSeed()
                         || farmTiles[rowCounter][colCounter].isWithered()) {
@@ -149,10 +143,45 @@ public class Board implements GeneralMethods {
         return false;
     }
 
+    /**
+     * Finds the selected tile in the farmtiles 2D array
+     * @return an array of the values consisting the tile's row and tile's column
+     */
+    public int[] getSelectedTileIndices() {
+
+        int[] tileIndices = new int[2];
+
+        for (int rowIndex = 0; rowIndex < BOARDROW; rowIndex++) {
+            for (int colIndex = 0; colIndex < BOARDCOL; colIndex++) {
+                if (farmTiles[rowIndex][colIndex].isSelected()) {
+                    tileIndices[0] = rowIndex;
+                    tileIndices[1] = colIndex;
+                }
+            }
+        }
+
+        return tileIndices;
+    }
+
+    /**
+     * Returns the selected tile using the getFarmTile() to access the tile from its indices
+     * and the getSelectedTileIndices() to access the selected tile
+     * @return the selected tile of the user
+     */
+    public Tile getSelectedTile() {
+        int[] tileIndex;
+        tileIndex = getSelectedTileIndices();
+
+        return getFarmTile(tileIndex[0], tileIndex[1]);
+    }
+
 
     /**
      *
      * The method generates an integer between the minimum and the maximum range.
+     *
+     * @param max the maximum range for the random value
+     * @param min the minimum range for the random value
      *
      * @return a random integer.
      */
@@ -164,39 +193,47 @@ public class Board implements GeneralMethods {
      *
      * The following methods serve as the getters and setters of the private attributes.
      */
+
+    /**
+     * Gets the value of the board row
+     * @return the value of the board row
+     */
     public int getBoardRow() {
         return BOARDROW;
     }
 
+    /**
+     * Gets the value of the board column
+     * @return the value of the board column
+     */
     public int getBoardCol() {
         return BOARDCOL;
     }
 
+    /**
+     * Gets the whole 2D array of farm tiles
+     * @return 2D array of tiles
+     */
     public Tile[][] getFarmTiles() {
         return farmTiles;
     }
 
+    /**
+     * Sets the farm tiles to the parameter given
+     * @param farmTiles a 2D array that will be set to the farmTiles of the Board class
+     */
     public void setFarmTiles(Tile[][] farmTiles) {
-        farmTiles = farmTiles;
+        this.farmTiles = farmTiles;
     }
 
+    /**
+     * Returns the farm tile in the 2D array with the corresponding parameters passed
+     * @param tileRow the value of the tile's row to be accessed
+     * @param tileCol the value of the tile's column to be accessed
+     * @return the tile with the value of tileRow and tileCol
+     */
     public Tile getFarmTile(int tileRow, int tileCol) {
         return farmTiles[tileRow][tileCol];
     }
 
-    public Tile getSelectedTile() {
-        int tileRowIndex = -1;
-        int tileColIndex = -1;
-
-        for (int rowIndex = 0; rowIndex < BOARDROW; rowIndex++) {
-            for (int colIndex = 0; colIndex < BOARDCOL; colIndex++) {
-                if (farmTiles[rowIndex][colIndex].isSelected()) {
-                    tileRowIndex = rowIndex;
-                    tileColIndex = colIndex;
-                }
-            }
-        }
-
-        return getFarmTile(tileRowIndex, tileColIndex);
-    }
 }

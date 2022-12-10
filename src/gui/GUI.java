@@ -1,5 +1,6 @@
 package gui;
 
+import farm.FarmingGame;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -7,6 +8,7 @@ import javafx.stage.Stage;
 
 public class GUI {
 
+    protected static FarmingGame farmingGame = new FarmingGame();
     private static final int WIDTH = 980;
     private static final int HEIGHT = 700;
 
@@ -32,4 +34,11 @@ public class GUI {
         return mainStage;
     }
 
+    public static void setFarmingGame(FarmingGame farmingGame) {
+        GUI.farmingGame = farmingGame;
+    }
+
+    public FarmingGame getFarmingGame() {
+        return farmingGame;
+    }
 }
