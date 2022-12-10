@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="storePane" prefHeight="500.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/18.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mco2_ccprog3.StoreController">
+<AnchorPane fx:id="storePane" prefHeight="500.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/18.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StoreController">
    <children>
       <Text fx:id="objCoins" layoutX="268.0" layoutY="460.0" strokeType="OUTSIDE" strokeWidth="0.0">
          <font>

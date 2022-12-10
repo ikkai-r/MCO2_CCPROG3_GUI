@@ -1,4 +1,4 @@
-package mco2_ccprog3;
+package controller;
 
 import farm.*;
 import gui.scenes.PlayerSubScene;

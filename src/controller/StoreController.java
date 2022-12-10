@@ -1,6 +1,5 @@
-package mco2_ccprog3;
+package controller;
 
-import farm.FarmingGame;
 import gui.scenes.PlayerSubScene;
 import gui.scenes.SceneHeaderTxts;
 import javafx.event.ActionEvent;
@@ -11,11 +10,9 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 
 import java.net.URL;
 import java.util.ResourceBundle;

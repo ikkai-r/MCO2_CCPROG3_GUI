@@ -1,4 +1,4 @@
-package mco2_ccprog3;
+package controller;
 
 import farm.FarmingGame;
 import farm.Tile;
@@ -21,7 +21,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import org.controlsfx.control.spreadsheet.Grid;
 
 import java.io.IOException;
 import java.net.URL;

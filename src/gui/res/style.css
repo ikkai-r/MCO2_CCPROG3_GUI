@@ -34,6 +34,8 @@
     -fx-background-image: url('farmerboy.png');
     -fx-background-repeat: stretch;
     -fx-background-size: 120 230;
+        -fx-pref-height: 230;
+        -fx-pref-width: 120;
 }
 
 #back-button {
@@ -50,6 +52,8 @@
     -fx-background-image: url('farmergirl.png');
     -fx-background-repeat: stretch;
     -fx-background-size: 120 230;
+    -fx-pref-height: 230;
+    -fx-pref-width: 120;
 }
 
 #name-field {
@@ -78,3 +82,12 @@
 .scroll-pane .viewport {
     -fx-background-color: #fec375;
   }
+
+#farm-root {
+    -fx-background-image: url("farm.png");
+    -fx-background-repeat: stretch;
+}
+
+#name-label {
+    -fx-font-size: 50
+}

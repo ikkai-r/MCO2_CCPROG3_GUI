@@ -9,6 +9,6 @@ module com.example.mco2_ccprog3 {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
 
-    opens mco2_ccprog3 to javafx.fxml;
-    exports mco2_ccprog3;
+    opens controller to javafx.fxml;
+    exports controller;
 }

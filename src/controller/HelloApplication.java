@@ -1,4 +1,4 @@
-package mco2_ccprog3;
+package controller;
 
 import gui.scenes.InitializeScene;
 import javafx.application.Application;
